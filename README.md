@@ -10,3 +10,5 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 ## Base de datos 
 
 ## Endpoints 
+
+## NOTAS DEL EQUIPO 
