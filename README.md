@@ -1,120 +1,120 @@
-# Valoraciones-de-empresas-JSB21RT
+# Company Ratings - JSB21RT
 
-Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de búsqueda de empresas con información histórica de empleados para que los aspirantes a trabajar en ellas encuentren la empresa perfecta, basado en las valoraciones y opiniones de empleados anteriores.Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de búsqueda de empresas con información histórica de empleados para que los aspirantes a trabajar en ellas encuentren la empresa perfecta, basado en las valoraciones y opiniones de empleados anteriores.
+This is the repository of the project "Company Ratings," a search portal for companies with historical employee information, allowing job seekers to find the perfect company based on ratings and reviews from previous employees.
 
-## Configuración e instalación
+## Configuration and Installation
 
-1. Instalas dependencias necesarias.
-2. Crear archivo .env y configurar las variables de entorno necesarias. / .env.example.
-3. Ejecutar 'npm run initDb' para crear las tablas necesarias en la base de datos.
-4. Iniciar el servidor.
+1. Install the necessary dependencies.
+2. Create the .env file and configure the required environment variables (see .env.example).
+3. Run 'npm run initDb' to create the necessary tables in the database.
+4. Start the server.
 
-## Base de datos
+## Database
 
 ### USERS
 
-| Campo      | Tipo                  | Descripción                            |
-| ---------- | -------------         | -------------------------------------- |
-| id         | CHAR(36)              | Identificador único del usuario        |
-| email             | VARCHAR(100)   | Correo electrónico del usuario         |
-| password          | VARCHAR(100)   | Contraseña del usuario (hash)          |
-| firstName         | VARCHAR(50)    | Nombre del usuario                     |
-| lastName          | VARCHAR(100)   | Apellidos del usuario                  |
-| photo             | CHAR(40)       | Nombre de la imagen                    |
-| bio               | TEXT           | Biografía del usuario                  |
-| createdAt         | DATETIME       | Fecha y hora de creación del usuario   |
-| modifiedAt        | DATETIME       | Fecha y hora de la última modificación |
-| registrationCode  | CHAR(30)       | Codigo de registro |
-| recoverPassCode   | CHAR(10)       | Fecha y hora de la última modificación |
+| Field            | Type         | Description                        |
+| ---------------- | ------------ | ---------------------------------- |
+| id               | CHAR(36)     | Unique identifier for the user     |
+| email            | VARCHAR(100) | User's email address               |
+| password         | VARCHAR(100) | User's password (hashed)           |
+| firstName        | VARCHAR(50)  | User's first name                  |
+| lastName         | VARCHAR(100) | User's last name                   |
+| photo            | CHAR(40)     | Image name for user's photo        |
+| bio              | TEXT         | User's biography                   |
+| createdAt        | DATETIME     | Date and time of user creation     |
+| modifiedAt       | DATETIME     | Date and time of last modification |
+| registrationCode | CHAR(30)     | Registration code                  |
+| recoverPassCode  | CHAR(10)     | Recovery password code             |
 
 ### COMPANIES
 
-| Campo      | Tipo         | Descripción                            |
-| ---------- | ------------ | -------------------------------------- |
-| id         | CHAR(36)     | Identificador único del usuario        |
-| photo      | CHAR(40)     | Nombre de foto de la empresa           |
-| name       | VARCHAR(100) | Nombre de la empresa                   |
-| country    | VARCHAR(100) | País de la empresa                     |
-| city       | VARCHAR(100) | Nombre de la ciudad de la empresa      |
-| userId     | CHAR(36)     | Id del usuario (foreign key)           |
-| createdAt  | DATETIME     | Fecha y hora de creación del usuario   |
-| modifiedAt | DATETIME     | Fecha y hora de la última modificación |
+| Field      | Type         | Description                        |
+| ---------- | ------------ | ---------------------------------- |
+| id         | CHAR(36)     | Unique identifier for the company  |
+| photo      | CHAR(40)     | Image name for the company         |
+| name       | VARCHAR(100) | Company name                       |
+| country    | VARCHAR(100) | Company's country                  |
+| city       | VARCHAR(100) | Company's city                     |
+| userId     | CHAR(36)     | User ID (foreign key)              |
+| createdAt  | DATETIME     | Date and time of creation          |
+| modifiedAt | DATETIME     | Date and time of last modification |
 
 ### RATINGCOMPANIES
 
-| Campo               | Tipo     | Descripción                          |
-| ------------------- | -------- | ------------------------------------ |
-| id                  | CHAR(36) | Identificador único del usuario      |
-| salary              | TINYINT  | Salarios                             |
-| workEnvironment     | TINYINT  | Ambiente de trabajo                  |
-| promotionPosibility | TINYINT  | Posibilidad de ascenso               |
-| accesibility        | TINYINT  | Accesibilidad de la empresa          |
-| companyId           | CHAR(36) | Id de la empresa (foreign key)       |
-| userId              | CHAR(36) | Id del usuario (foreign key)         |
-| createdAt           | DATETIME | Fecha y hora de creación del usuario |
+| Field               | Type     | Description                      |
+| ------------------- | -------- | -------------------------------- |
+| id                  | CHAR(36) | Unique identifier for the rating |
+| salary              | TINYINT  | Salary rating                    |
+| workEnvironment     | TINYINT  | Work environment rating          |
+| promotionPosibility | TINYINT  | Promotion possibility rating     |
+| accessibility       | TINYINT  | Company accessibility rating     |
+| companyId           | CHAR(36) | Company ID (foreign key)         |
+| userId              | CHAR(36) | User ID (foreign key)            |
+| createdAt           | DATETIME | Date and time of creation        |
 
 ### EMPLOYEES
 
-| Campo     | Tipo        | Descripción                                         |
-| --------- | ----------- | --------------------------------------------------- |
-| id        | CHAR(36)    | Identificador único del empleado                    | 
-| userId    | CHAR(36)    | ID del usuario asociado al empleado (foreign key)   |
-| companyId | CHAR(36)    | ID de la empresa asociado al empleado (foreign key) |
-| position  | VARCHAR(50) | Puesto del empleado                                 |
-| createdAt | DATETIME    | Fecha y hora de creación de la empleado             |
+| Field     | Type        | Description                         |
+| --------- | ----------- | ----------------------------------- |
+| id        | CHAR(36)    | Unique identifier for the employee  |
+| userId    | CHAR(36)    | Associated user ID (foreign key)    |
+| companyId | CHAR(36)    | Associated company ID (foreign key) |
+| position  | VARCHAR(50) | Employee's position                 |
+| createdAt | DATETIME    | Date and time of employee creation  |
 
 ## Endpoints
 
-## Endpoints del usuario
+## User Endpoints
 
-- **POST** - [`/users/register`] - Permite que los usuarios se registren dando nombre, email, contraseña, bio y foto.
-- **PUT** - [`/users/validate/:registrationCode`] - Valida a un usuario recién registrado.
-- **POST** - [`/users/login`] - Permite que los usuarios inicien sesión con email y contraseña.
-- **GET** - [`/users/profile`] - Obtiene el perfil del usuario autenticado. ➡️ `Token`
-- **PUT** - [`/users/email`] - Actualiza email del perfil del usuario autenticado. ➡️ `Token`
-- **PUT** - [`/users/password`] - Actualiza contraseña del perfil del usuario autenticado. ➡️ `Token`
-- **POST** - [`/users/password/recover`] - Envía al usuario un correo de recuperación de contraseña.
-- **PUT** - [`/users/password/reset`] - Actualiza la contraseña de un usuario mediante un código de recuperación.
-- **PUT** - [`/users/photo`] - Actualiza foto del perfil del usuario autenticado. ➡️ `Token`
-- **PUT** - [`/users/bio`] - Actualiza bio del perfil del usuario autenticado. ➡️ `Token`
-- **POST** - [`/users/employees`] - Permite que los usuarios registrados se añadan como empleados a una empresa proporcionando ID de empresa y puesto.
+-   **POST** - [`/users/register`] - Allows users to register by providing name, email, password, bio, and photo. ✅
+-   **PUT** - [`/users/validate/:registrationCode`] - Validates a newly registered user. ✅
+-   **POST** - [`/users/login`] - Allows users to log in using email and password.
+-   **GET** - [`/users/profile`] - Retrieves the profile of the authenticated user. ➡️ `Token`
+-   **PUT** - [`/users/email`] - Updates the email of the authenticated user's profile. ➡️ `Token`
+-   **PUT** - [`/users/password`] - Updates the password of the authenticated user's profile. ➡️ `Token`
+-   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user.
+-   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code.
+-   **PUT** - [`/users/photo`] - Updates the photo of the authenticated user's profile. ➡️ `Token`
+-   **PUT** - [`/users/bio`] - Updates the biography of the authenticated user's profile. ➡️ `Token`
+-   **POST** - [`/users/employees`] - Allows registered users to add themselves as employees to a company by providing the company ID and position.
 
-## Endpoints de las empresas
+## Company Endpoints
 
-- **GET** - [`/companies`] - Obtiene una lista de empresas (se pueden filtrar por ciudad, país).
-- **POST** - [`/companies`] - Permite que los usuarios registrados publiquen una nueva empresa proporcionando nombre, ciudad y país.
-- **GET** - [`/companies/:companyId/ratings`] - Obtiene todas las valoraciones realizadas para una empresa específica.
-- **GET** - [`/companies/:companyId/employees`] - Obtiene una lista de los empleados de una empresa.
-- **POST** - [`/companies/:companyId/employees/:employeeId/confirm`] - Se envía un email al usuario que publicó la empresa para que confirme la relación laboral con el empleado especificado. ➡️ `Token`
+-   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by city or country).
+-   **POST** - [`/companies`] - Allows registered users to publish a new company by providing the name, city, and country.
+-   **GET** - [`/companies/:companyId/ratings`] - Retrieves all ratings made for a specific company.
+-   **GET** - [`/companies/:companyId/employees`] - Retrieves a list of employees of a company.
+-   **POST** - [`/companies/:companyId/employees/:employeeId/confirm`] - Sends an email to the user who published the company to confirm the employment relationship with the specified employee. ➡️ `Token`
 
-## Endpoints de las valoraciones
+## Ratings Endpoints
 
-- **POST** - [`/ratings`] - Permite que los empleados validados realicen una valoración de la empresa dando ID del empleado y valoraciones por aspectos (ambiente de trabajo, accesibilidad, sueldos, posibilidad de ascenso).
-- **GET** - [`/ratings/companies/:companyId`] - Devuelve una lista de todas las valoraciones asociadas a la empresa con el ID proporcionado.
+-   **POST** - [`/ratings`] - Allows validated employees to make a rating for a company by providing the employee ID and ratings for aspects (work environment, accessibility, salaries, promotion possibility).
+-   **GET** - [`/ratings/companies/:companyId`] - Retrieves a list of all ratings associated with the company with the provided ID.
 
-## Endpoints Adicionales
+## Additional Endpoints
 
-### Valoraciones de una Empresa Específica
+### Ratings for a Specific Company
 
-- **GET** - [`/ratings/companies/:companyId/employees/:employeeId`] - Obtiene todas las valoraciones realizadas por un empleado específico a una empresa específica.
+-   **GET** - [`/ratings/companies/:companyId/employees/:employeeId`] - Retrieves all ratings made by a specific employee for a specific company.
 
-### Valoraciones de un Empleado Específico
+### Ratings for a Specific Employee
 
-- **GET** [`/ratings/employees/:employeeId`] - Devuelve una lista de todas las valoraciones realizadas por el empleado con el ID proporcionado.
+-   **GET** [`/ratings/employees/:employeeId`] - Retrieves a list of all ratings made by the employee with the provided ID.
 
-## NOTAS DEL EQUIPO
+## TEAM NOTES
 
-    - Preguntar sobre el modified de la compañia.
-    - Consultar base de datos.
-    - Duda sobre búsqueda por filtros.
-    - Duda sobre endpoints adicionales.
+-   Ask about the company's "modified" field.
+-   Consult the database.
+-   Uncertain about searching by filters.
+-   Uncertain about additional endpoints.
 
-//el user que publica la empresa inicia sesion y obtiene token
+// The user who publishes the company logs in and obtains a token.
 
-//envia solicitud POST al endpoint para cuando el user quiera confirmar que un empleado trabajó en la empresa
+// Send a POST request to the endpoint when the user wants to confirm that an employee worked in the company.
 
-//se verifica el token
+// The token is verified.
 
-//si es correcto se confirma al empleado
+// If it's correct, confirm the employee.
 
-//si no es, devolvemos 401(unauthorized)
+// If it's not, return 401 (unauthorized).

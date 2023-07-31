@@ -3,7 +3,7 @@ const uuid = require('uuid');
 const bcrypt = require('bcrypt');
 
 // Importing getDb
-const getDb = require('../../db/getDb');
+const getDb = require('../db/getDb');
 
 // Importing services
 const sendMailService = require('../services/sendEmailService');
@@ -75,7 +75,7 @@ const insertUserModel = async ({
         // If there were any problems we undo all the changes in the database that we inserted (in the try block)
         await connection.rollback();
 
-        throw err;
+        throw err; //! PREGUNTAR
     } finally {
         if (connection) connection.release();
     }
