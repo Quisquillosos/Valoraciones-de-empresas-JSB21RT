@@ -21,7 +21,7 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 | firstName  | VARCHAR(50)  | Nombre del usuario                     |
 | lastName   | VARCHAR(100) | Apellidos del usuario                  |
 | photo      | CHAR(40)     | Nombre de la imagen                    |
-| bio        | TEXT         | Biografia del usuario                  |
+| bio        | TEXT         | Biografía del usuario                  |
 | createdAt  | DATETIME     | Fecha y hora de creación del usuario   |
 | modifiedAt | DATETIME     | Fecha y hora de la última modificación |
 
@@ -32,7 +32,7 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 | id         | CHAR(36)     | Identificador único del usuario        |
 | photo      | CHAR(40)     | Nombre de foto de la empresa           |
 | name       | VARCHAR(100) | Nombre de la empresa                   |
-| country    | VARCHAR(100) | Pais de la empresa                     |
+| country    | VARCHAR(100) | País de la empresa                     |
 | city       | VARCHAR(100) | Nombre de la ciudad de la empresa      |
 | userId     | CHAR(36)     | Id del usuario (foreign key)           |
 | createdAt  | DATETIME     | Fecha y hora de creación del usuario   |
@@ -56,7 +56,7 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 
 | Campo     | Tipo        | Descripción                                         |
 | --------- | ----------- | --------------------------------------------------- |
-| id        | CHAR(36)    | Identificador único del empleado                    |
+| id        | CHAR(36)    | Identificador único del empleado                    | 
 | userId    | CHAR(36)    | ID del usuario asociado al empleado (foreign key)   |
 | companyId | CHAR(36)    | ID de la empresa asociado al empleado (foreign key) |
 | position  | VARCHAR(50) | Puesto del empleado                                 |
@@ -64,7 +64,7 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 
 ## Endpoints
 
-## Endpoints del usuario➡️ `Token` ✅
+## Endpoints del usuario
 
 - **POST** - [`/users/register`] - Permite que los usuarios se registren dando nombre, email, contraseña, bio y foto.
 - **PUT** - [`/users/validate/:registrationCode`] - Valida a un usuario recién registrado.
@@ -76,7 +76,7 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 - **PUT** - [`/users/password/reset`] - Actualiza la contraseña de un usuario mediante un código de recuperación.
 - **PUT** - [`/users/photo`] - Actualiza foto del perfil del usuario autenticado. ➡️ `Token`
 - **PUT** - [`/users/bio`] - Actualiza bio del perfil del usuario autenticado. ➡️ `Token`
-- **POST** - [`/users/employees`] - Permite que los usuarios registrados se aniadan como empleados a una empresa proporcionando ID de empresa y puesto.
+- **POST** - [`/users/employees`] - Permite que los usuarios registrados se añadan como empleados a una empresa proporcionando ID de empresa y puesto.
 
 ## Endpoints de las empresas
 
@@ -84,24 +84,36 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 - **POST** - [`/companies`] - Permite que los usuarios registrados publiquen una nueva empresa proporcionando nombre, ciudad y país.
 - **GET** - [`/companies/:companyId/ratings`] - Obtiene todas las valoraciones realizadas para una empresa específica.
 - **GET** - [`/companies/:companyId/employees`] - Obtiene una lista de los empleados de una empresa.
+- **POST** - [`/companies/:companyId/employees/:employeeId/confirm`] - Se envía un email al usuario que publicó la empresa para que confirme la relación laboral con el empleado especificado. ➡️ `Token`
 
 ## Endpoints de las valoraciones
 
 - **POST** - [`/ratings`] - Permite que los empleados validados realicen una valoración de la empresa dando ID del empleado y valoraciones por aspectos (ambiente de trabajo, accesibilidad, sueldos, posibilidad de ascenso).
-- **GET** - `/ratings/:employeeId` - Obtiene todas las valoraciones realizadas por un empleado específico.
+- **GET** - [`/ratings/companies/:companyId`] - Devuelve una lista de todas las valoraciones asociadas a la empresa con el ID proporcionado.
 
 ## Endpoints Adicionales
 
 ### Valoraciones de una Empresa Específica
 
-- **GET** - [`/companies/:companyId/ratings`] - Devuelve una lista de todas las valoraciones asociadas a la empresa con el ID proporcionado.
+- **GET** - [`/ratings/companies/:companyId/employees/:employeeId`] - Obtiene todas las valoraciones realizadas por un empleado específico a una empresa específica.
 
 ### Valoraciones de un Empleado Específico
 
-- **GET** [`/ratings/:employeeId`] - Devuelve una lista de todas las valoraciones realizadas por el empleado con el ID proporcionado.
+- **GET** [`/ratings/employees/:employeeId`] - Devuelve una lista de todas las valoraciones realizadas por el empleado con el ID proporcionado.
 
 ## NOTAS DEL EQUIPO
 
     - Preguntar sobre el modified de la compañia.
     - Consultar base de datos.
-    - Duda sobre búsqueda por filtros
+    - Duda sobre búsqueda por filtros.
+    - Duda sobre endpoints adicionales.
+
+//el user que publica la empresa inicia sesion y obtiene token
+
+//envia solicitud POST al endpoint para cuando el user quiera confirmar que un empleado trabajó en la empresa
+
+//se verifica el token
+
+//si es correcto se confirma al empleado
+
+//si no es, devolvemos 401(unauthorized)
