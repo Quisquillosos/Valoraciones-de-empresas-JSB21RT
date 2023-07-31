@@ -4,7 +4,7 @@
   "description": "Este es el repositorio del proyecto \"Valoraciones de Empresas\", un portal de búsqueda de empresas con información histórica de empleados para que los aspirantes a trabajar en ellas encuentren la empresa perfecta, basado en las valoraciones y opiniones de empleados anteriores.Este es el repositorio del proyecto \"Valoraciones de Empresas\", un portal de búsqueda de empresas con información histórica de empleados para que los aspirantes a trabajar en ellas encuentren la empresa perfecta, basado en las valoraciones y opiniones de empleados anteriores.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "initDb": "node ./src/db/initDb.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.1",
     "mysql2": "^3.5.2",
     "nodemailer": "^6.9.4",
+    "randomstring": "^1.3.0",
     "sharp": "^0.32.4",
     "uuid": "^9.0.0"
   }

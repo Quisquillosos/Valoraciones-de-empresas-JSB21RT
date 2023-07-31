@@ -13,17 +13,19 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 
 ### USERS
 
-| Campo      | Tipo         | Descripción                            |
-| ---------- | ------------ | -------------------------------------- |
-| id         | CHAR(36)     | Identificador único del usuario        |
-| email      | VARCHAR(100) | Correo electrónico del usuario         |
-| password   | VARCHAR(100) | Contraseña del usuario (hash)          |
-| firstName  | VARCHAR(50)  | Nombre del usuario                     |
-| lastName   | VARCHAR(100) | Apellidos del usuario                  |
-| photo      | CHAR(40)     | Nombre de la imagen                    |
-| bio        | TEXT         | Biografía del usuario                  |
-| createdAt  | DATETIME     | Fecha y hora de creación del usuario   |
-| modifiedAt | DATETIME     | Fecha y hora de la última modificación |
+| Campo      | Tipo                  | Descripción                            |
+| ---------- | -------------         | -------------------------------------- |
+| id         | CHAR(36)              | Identificador único del usuario        |
+| email             | VARCHAR(100)   | Correo electrónico del usuario         |
+| password          | VARCHAR(100)   | Contraseña del usuario (hash)          |
+| firstName         | VARCHAR(50)    | Nombre del usuario                     |
+| lastName          | VARCHAR(100)   | Apellidos del usuario                  |
+| photo             | CHAR(40)       | Nombre de la imagen                    |
+| bio               | TEXT           | Biografía del usuario                  |
+| createdAt         | DATETIME       | Fecha y hora de creación del usuario   |
+| modifiedAt        | DATETIME       | Fecha y hora de la última modificación |
+| registrationCode  | CHAR(30)       | Codigo de registro |
+| recoverPassCode   | CHAR(10)       | Fecha y hora de la última modificación |
 
 ### COMPANIES
 
@@ -43,8 +45,7 @@ Este es el repositorio del proyecto "Valoraciones de Empresas", un portal de bú
 | Campo               | Tipo     | Descripción                          |
 | ------------------- | -------- | ------------------------------------ |
 | id                  | CHAR(36) | Identificador único del usuario      |
-| photo               | CHAR(40) | Nombre de foto de la empresa         |
-| salaries            | TINYINT  | Salarios                             |
+| salary              | TINYINT  | Salarios                             |
 | workEnvironment     | TINYINT  | Ambiente de trabajo                  |
 | promotionPosibility | TINYINT  | Posibilidad de ascenso               |
 | accesibility        | TINYINT  | Accesibilidad de la empresa          |
