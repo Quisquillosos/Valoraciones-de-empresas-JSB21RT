@@ -10,7 +10,14 @@ module.exports = {
         throw {
             httpStatus: 401, // Unauthorized
             code: 'INVALID_CREDENTIALS',
-            message: 'Invalid credencials',
+            message: 'Invalid credentials',
+        };
+    },
+    notAuthenticatedError() {
+        throw {
+            httpStatus: 401, // Unauthorized
+            code: 'NOT_AUTHENTICATED',
+            message: `You must send a token in the header'Authorization'`,
         };
     },
     notFoundError(resource) {

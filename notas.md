@@ -1,4 +1,4 @@
 sacar console logs
-traducir a inglés readme
-crear codigo para cookies
-aniadimos morgan????
+preguntar 78/insertUserModel preguntar sobre throw error(es necesario) 
+crear codigo para cookies!!!!!!!!!!!!!
+

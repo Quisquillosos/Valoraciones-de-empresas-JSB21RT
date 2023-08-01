@@ -8,7 +8,7 @@ const { MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB } = process.env;
 let pool;
 
 // Function that returns one of the 10 free connections from database
-const getDb = async()=>{
+const getDb = async () => {
     try {
         if (!pool) {
             // Creating a connection with database

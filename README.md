@@ -73,10 +73,10 @@ This is the repository of the project "Company Ratings," a search portal for com
 -   **POST** - [`/users/register`] - Allows users to register by providing name, email, password, bio, and photo. ✅
 -   **PUT** - [`/users/validate/:registrationCode`] - Validates a newly registered user. ✅
 -   **POST** - [`/users/login`] - Allows users to log in using email and password. ✅
--   **GET** - [`/users`] - Retrieves the own profile of the authenticated user. ➡️ `Token`
--   **GET** - [`/users/:userId`] - Retrieves the profile of a user.
+-   **GET** - [`/users`] - Retrieves the own profile of the authenticated user. ➡️ `Token` ✅
+-   **GET** - [`/users/:userId`] - Retrieves the profile of a user. ✅
 -   **PUT** - [`/users/email`] - Updates the email of the authenticated user's profile. ➡️ `Token`
--   **PUT** - [`/users/password`] - Updates the password of the authenticated user's profile. ➡️ `Token`
+-   **PUT** - [`/users/password`] - Updates the password of the authenticated user's profile. ➡️ `Token` ✅
 -   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user.
 -   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code.
 -   **PUT** - [`/users/photo`] - Updates the photo of the authenticated user's profile. ➡️ `Token`
@@ -104,10 +104,6 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ## TEAM NOTES
 
--   Ask about the company's "modified" field.
--   Consult the database.
--   Uncertain about searching by filters.
--   Uncertain about additional endpoints.
 
 // The user who publishes the company logs in and obtains a token.
 
