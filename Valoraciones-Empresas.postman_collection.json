@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "17e9348f-c11b-49e5-8a88-90a6e09e6c80",
+		"name": "Valoraciones-Empresas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28446672"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Deivid\",\r\n    \"lastName\":\"Rodriguez\",\r\n    \"email\": \"davidrguezglez933@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/users/validate/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"validate",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

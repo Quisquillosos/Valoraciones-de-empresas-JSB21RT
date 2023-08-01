@@ -2,7 +2,7 @@
 const randomstring = require('randomstring');
 
 // Importing models
-const insertUserModel = require('../../models/insertUserModel');
+const insertUserModel = require('../../models/users/insertUserModel');
 
 // Final controller function to create a new user
 const newUserController = async (req, res, next) => {

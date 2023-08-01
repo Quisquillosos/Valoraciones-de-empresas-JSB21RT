@@ -1,9 +1,9 @@
 // Importing getDb
 const { query } = require('express');
-const getDb = require('../db/getDb');
+const getDb = require('../../db/getDb');
 
 // Importing errors
-const { notFoundError } = require('../services/errorService');
+const { notFoundError } = require('../../services/errorService');
 
 //Function that performs a database query to activate a user
 const updateRegCodeModel = async (registrationCode) => {

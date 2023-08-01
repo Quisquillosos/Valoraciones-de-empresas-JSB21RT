@@ -3,13 +3,13 @@ const uuid = require('uuid');
 const bcrypt = require('bcrypt');
 
 // Importing getDb
-const getDb = require('../db/getDb');
+const getDb = require('../../db/getDb');
 
 // Importing services
-const sendMailService = require('../services/sendEmailService');
+const sendMailService = require('../../services/sendEmailService');
 
 // Importing errors
-const { emailAlreadyRegisteredError } = require('../services/errorService');
+const { emailAlreadyRegisteredError } = require('../../services/errorService');
 
 // Function that performs a database query to create a new user
 const insertUserModel = async ({

@@ -3,21 +3,36 @@ module.exports = {
         throw {
             httpStatus: 409, // Conflict
             code: 'EMAIL_ALREADY_REGISTERED',
-            message: 'El email ya está registrado',
+            message: 'This email is already created',
+        };
+    },
+    invalidCredentialsError() {
+        throw {
+            httpStatus: 401, // Unauthorized
+            code: 'INVALID_CREDENTIALS',
+            message: 'Invalid credencials',
         };
     },
     notFoundError(resource) {
         throw {
             httpStatus: 404, // Not Found
             code: 'RESOURCE_NOT_FOUND',
-            message: `El recurso requerido '${resource}' no existe`,
+            message: `Required resource'${resource}' doesn't exist`,
+        };
+    },
+    pendingActivationError() {
+        throw {
+            httpStatus: 403, // Forbidden
+            code: 'PENDING_ACTIVATION',
+            message:
+                'Activation user pending. Please, verify your account before continue.',
         };
     },
     sendEmailError() {
         throw {
             httpStatus: 500, // Internal server error
             code: 'SEND_EMAIL_FAILED',
-            message: 'Error al enviar email',
+            message: 'Error sending email',
         };
     },
 };

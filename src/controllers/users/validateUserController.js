@@ -1,5 +1,5 @@
 // importing models
-const updateRegCodeModel = require('../../models/updateUserRegCodeModel');
+const updateRegCodeModel = require('../../models/users/updateUserRegCodeModel');
 
 //Final controller function validating a newly registered user
 const validateUserController = async (req, res, next) => {
