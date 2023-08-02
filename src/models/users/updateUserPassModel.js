@@ -1,7 +1,7 @@
 // Importing dependences
 const bcrypt = require('bcrypt');
 
-// Importing the function that returns a connection to the database
+// Importing Db
 const getDb = require('../../db/getDb');
 
 // Importing services
@@ -21,7 +21,7 @@ const updateUserPassModel = async (oldPass, newPass, userId) => {
         );
 
         // Checking if the old password matches the current one
-        const validPass = await bcrypt.compare(oldPass, users[0].password);    
+        const validPass = await bcrypt.compare(oldPass, users[0].password);
 
         // If the passwords don't match we throw an error
         if (!validPass) {

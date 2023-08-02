@@ -75,7 +75,7 @@ const insertUserModel = async ({
         // If there were any problems we undo all the changes in the database that we inserted (in the try block)
         await connection.rollback();
 
-        throw err; //! PREGUNTAR
+        throw err;
     } finally {
         if (connection) connection.release();
     }

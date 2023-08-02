@@ -13,21 +13,21 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ### USERS
 
-| Field            | Type         | Description                        |
-| ---------------- | ------------ | ---------------------------------- |
-| id               | CHAR(36)     | Unique identifier for the user     |
-| email            | VARCHAR(100) | User's email address               |
-| password         | VARCHAR(100) | User's password (hashed)           |
-| firstName        | VARCHAR(50)  | User's first name                  |
-| lastName         | VARCHAR(100) | User's last name                   |
-| photo            | CHAR(40)     | Image name for user's photo        |
-| bio              | TEXT         | User's biography                   |
-| active           | BOOLEAN      | Indica si el usuario está activo o no|  
-| createdAt        | DATETIME     | Date and time of user creation     |
-| modifiedAt       | DATETIME     | Date and time of last modification |
-| registrationCode | CHAR(30)     | Registration code                  |
-| recoverPassCode  | CHAR(10)     | Recovery password code             |
-| modifiedAuth     | DATETIME     | Date and time of private info modification     |
+| Field            | Type         | Description                                |
+| ---------------- | ------------ | ------------------------------------------ |
+| id               | CHAR(36)     | Unique identifier for the user             |
+| email            | VARCHAR(100) | User's email address                       |
+| password         | VARCHAR(100) | User's password (hashed)                   |
+| firstName        | VARCHAR(50)  | User's first name                          |
+| lastName         | VARCHAR(100) | User's last name                           |
+| photo            | CHAR(40)     | Image name for user's photo                |
+| bio              | TEXT         | User's biography                           |
+| active           | BOOLEAN      | Indica si el usuario está activo o no      |
+| createdAt        | DATETIME     | Date and time of user creation             |
+| modifiedAt       | DATETIME     | Date and time of last modification         |
+| registrationCode | CHAR(30)     | Registration code                          |
+| recoverPassCode  | CHAR(10)     | Recovery password code                     |
+| modifiedAuth     | DATETIME     | Date and time of private info modification |
 
 ### COMPANIES
 
@@ -57,14 +57,14 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ### EMPLOYEES
 
-| Field     | Type        | Description                         |
-| --------- | ----------- | ----------------------------------- |
-| id        | CHAR(36)    | Unique identifier for the employee  |
-| userId    | CHAR(36)    | Associated user ID (foreign key)    |
-| companyId | CHAR(36)    | Associated company ID (foreign key) |
-| position  | VARCHAR(50) | Employee's position                 |
-| validationCode  | VARCHAR(30) |  Employee validation          |
-| createdAt | DATETIME    | Date and time of employee creation  |
+| Field          | Type        | Description                         |
+| -------------- | ----------- | ----------------------------------- |
+| id             | CHAR(36)    | Unique identifier for the employee  |
+| userId         | CHAR(36)    | Associated user ID (foreign key)    |
+| companyId      | CHAR(36)    | Associated company ID (foreign key) |
+| position       | VARCHAR(50) | Employee's position                 |
+| validationCode | VARCHAR(30) | Employee validation                 |
+| createdAt      | DATETIME    | Date and time of employee creation  |
 
 ## Endpoints
 
@@ -75,14 +75,13 @@ This is the repository of the project "Company Ratings," a search portal for com
 -   **POST** - [`/users/login`] - Allows users to log in using email and password. ✅
 -   **GET** - [`/users`] - Retrieves the own profile of the authenticated user. ➡️ `Token` ✅
 -   **GET** - [`/users/:userId`] - Retrieves the profile of a user. ✅
--   **PUT** - [`/users/email`] - Updates the email of the authenticated user's profile. ➡️ `Token`
+-   **PUT** - [`/users/email`] - Updates the email of the authenticated user's profile. ➡️ `Token`✅
 -   **PUT** - [`/users/password`] - Updates the password of the authenticated user's profile. ➡️ `Token` ✅
 -   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user.
 -   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code.
 -   **PUT** - [`/users/photo`] - Updates the photo of the authenticated user's profile. ➡️ `Token`
 -   **PUT** - [`/users/bio`] - Updates the biography of the authenticated user's profile. ➡️ `Token`
 -   **POST** - [`/users/employees`] - Allows registered users to add themselves as employees to a company by providing the company ID and position.
-
 
 ## Company Endpoints
 
@@ -103,14 +102,3 @@ This is the repository of the project "Company Ratings," a search portal for com
 -   **GET** [`/ratings/employees/:employeeId`] - Retrieves a list of all ratings made by the employee with the provided ID.
 
 ## TEAM NOTES
-
-
-// The user who publishes the company logs in and obtains a token.
-
-// Send a POST request to the endpoint when the user wants to confirm that an employee worked in the company.
-
-// The token is verified.
-
-// If it's correct, confirm the employee.
-
-// If it's not, return 401 (unauthorized).

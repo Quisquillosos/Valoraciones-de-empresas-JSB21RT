@@ -11,6 +11,7 @@ const getUserProfileController = require('../controllers/users/getUserProfileCon
 const authUser = require('../middlewares/authUser');
 const getOwnUserController = require('../controllers/users/getOwnUserController');
 const editUserPassController = require('../controllers/users/editUserPassController');
+const editUserEmailController = require('../controllers/users/editUserEmailController');
 
 // Creating a user pending activation
 router.post('/users/register', newUserController);
@@ -25,9 +26,12 @@ router.post('/users/login', loginUserController);
 router.get('/users/:userId', userExists, getUserProfileController);
 
 // Obtaining a private profile of a user
-router.get('/users', authUser , userExists, getOwnUserController);
+router.get('/users', authUser, userExists, getOwnUserController);
 
 // Updating password of a user
 router.put('/users/password', authUser, userExists, editUserPassController);
+
+// Updating email
+router.put('/users/email', authUser, userExists, editUserEmailController);
 
 module.exports = router;

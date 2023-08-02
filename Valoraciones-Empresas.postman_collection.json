@@ -1,22 +1,22 @@
 {
 	"info": {
-		"_postman_id": "17e9348f-c11b-49e5-8a88-90a6e09e6c80",
+		"_postman_id": "e8d49465-2340-4532-93bd-836c218a7789",
 		"name": "Valoraciones-Empresas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28446672"
+		"_exporter_id": "28547378"
 	},
 	"item": [
 		{
 			"name": "users",
 			"item": [
 				{
-					"name": "register",
+					"name": "User register",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"Deivid\",\r\n    \"lastName\":\"Rodriguez\",\r\n    \"email\": \"davidrguezglez933@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
+							"raw": "{\r\n    \"firstName\":\"Dumitru\",\r\n    \"lastName\":\"Medvedev Medvedev\",\r\n    \"email\": \"dimasmdv@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/users/validate/",
+							"raw": "http://localhost:8000/users/validate/CQYFY1NghVMeDpJURdHImK8gYkCS1P",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -53,13 +53,149 @@
 							"path": [
 								"users",
 								"validate",
-								""
+								"CQYFY1NghVMeDpJURdHImK8gYkCS1P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"d.rodriguez.gonzalez.123@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get own user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user1token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get public user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/users/0a6c8963-5b84-4b85-b697-05ad0ade4fc6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"0a6c8963-5b84-4b85-b697-05ad0ade4fc6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user1token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldPass\": \"1234567\",\n    \"newPass\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"password"
 							]
 						}
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "user1token",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
