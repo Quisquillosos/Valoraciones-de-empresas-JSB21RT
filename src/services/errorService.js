@@ -6,6 +6,13 @@ module.exports = {
             message: 'This email is already created',
         };
     },
+    deleteFileError() {
+        throw {
+            httpStatus: 409, // Conflict
+            code: 'FILE_DELETED_FAILED',
+            message: 'Error deleting file from disk',
+        };
+    },
     invalidCredentialsError() {
         throw {
             httpStatus: 401, // Unauthorized
@@ -33,6 +40,13 @@ module.exports = {
             code: 'PENDING_ACTIVATION',
             message:
                 'Activation user pending. Please, verify your account before continue.',
+        };
+    },
+    saveFileError() {
+        throw {
+            httpStatus: 500, // Internal Server Error
+            code: 'FILE_SAVE_FAILED',
+            message: 'Error saving file to disk',
         };
     },
     sendEmailError() {

@@ -12,6 +12,9 @@ const authUser = require('../middlewares/authUser');
 const getOwnUserController = require('../controllers/users/getOwnUserController');
 const editUserPassController = require('../controllers/users/editUserPassController');
 const editUserEmailController = require('../controllers/users/editUserEmailController');
+const sendRecoverPassController = require('../controllers/users/sendRecoverPassController');
+const editForgottenPassController = require('../controllers/users/editForgottenPassController');
+const isRecoverPassForgottenValid = require('../middlewares/isRecoverPassForgottenValid');
 
 // Creating a user pending activation
 router.post('/users/register', newUserController);
@@ -33,5 +36,16 @@ router.put('/users/password', authUser, userExists, editUserPassController);
 
 // Updating email
 router.put('/users/email', authUser, userExists, editUserEmailController);
+
+// Sending password recovery email
+router.post('/users/password/recover', sendRecoverPassController);
+
+// Resetting password
+router.put(
+    '/users/password/reset/:recoverPassCode',
+    authUser,
+    isRecoverPassForgottenValid,
+    editForgottenPassController
+);
 
 module.exports = router;

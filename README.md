@@ -70,15 +70,15 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ## User Endpoints
 
--   **POST** - [`/users/register`] - Allows users to register by providing name, email, password, bio, and photo. ✅
+-   **POST** - [`/users/register`] - Allows users to register by providing name, email, password, bio(optional), and photo(optional). ✅
 -   **PUT** - [`/users/validate/:registrationCode`] - Validates a newly registered user. ✅
 -   **POST** - [`/users/login`] - Allows users to log in using email and password. ✅
 -   **GET** - [`/users`] - Retrieves the own profile of the authenticated user. ➡️ `Token` ✅
 -   **GET** - [`/users/:userId`] - Retrieves the profile of a user. ✅
 -   **PUT** - [`/users/email`] - Updates the email of the authenticated user's profile. ➡️ `Token`✅
 -   **PUT** - [`/users/password`] - Updates the password of the authenticated user's profile. ➡️ `Token` ✅
--   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user.
--   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code.
+-   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user.✅
+-   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code.✅
 -   **PUT** - [`/users/photo`] - Updates the photo of the authenticated user's profile. ➡️ `Token`
 -   **PUT** - [`/users/bio`] - Updates the biography of the authenticated user's profile. ➡️ `Token`
 -   **POST** - [`/users/employees`] - Allows registered users to add themselves as employees to a company by providing the company ID and position.

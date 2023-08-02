@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e8d49465-2340-4532-93bd-836c218a7789",
+		"_postman_id": "774cb0d1-e275-4bb7-b15c-5e800be0f81b",
 		"name": "Valoraciones-Empresas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28547378"
+		"_exporter_id": "28447205"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"Dumitru\",\r\n    \"lastName\":\"Medvedev Medvedev\",\r\n    \"email\": \"dimasmdv@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
+							"raw": "{\r\n    \"firstName\":\"David\",\r\n    \"lastName\":\"Rodriguez Gonzalez\",\r\n    \"email\": \"d.rodriguez.gonzalez.123@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/users/validate/CQYFY1NghVMeDpJURdHImK8gYkCS1P",
+							"raw": "http://localhost:8000/users/validate/bnV3E76lAuZv8wLuJRNdukYYxwgSm1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -53,7 +53,7 @@
 							"path": [
 								"users",
 								"validate",
-								"CQYFY1NghVMeDpJURdHImK8gYkCS1P"
+								"bnV3E76lAuZv8wLuJRNdukYYxwgSm1"
 							]
 						}
 					},
@@ -163,6 +163,108 @@
 							"path": [
 								"users",
 								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating Email",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user1token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPass\":\"123456\",\r\n    \"newEmail\":\"d.rodriguez.gonzalez.123@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Recover Pass Code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"d.rodriguez.gonzalez.123@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/password/recover",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"password",
+								"recover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user1token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPass\":\"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/password/reset/qyIWOOdsvP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"password",
+								"reset",
+								"qyIWOOdsvP"
 							]
 						}
 					},
