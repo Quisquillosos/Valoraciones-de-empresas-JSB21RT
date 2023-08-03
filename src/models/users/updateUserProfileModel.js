@@ -10,7 +10,7 @@ const updateUserProfileModel = async (photoName, bio, userId) => {
     try {
         connection = await getDb();
 
-        const user = selectUserByIdModel(userId);
+        const user = await selectUserByIdModel(userId);
 
         if (!photoName) photoName = user.photo;
 

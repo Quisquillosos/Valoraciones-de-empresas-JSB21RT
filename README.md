@@ -77,18 +77,17 @@ This is the repository of the project "Company Ratings," a search portal for com
 -   **GET** - [`/users/:userId`] - Retrieves the profile of a user. ✅
 -   **PUT** - [`/users/email`] - Updates the email of the authenticated user's profile. ➡️ `Token`✅
 -   **PUT** - [`/users/password`] - Updates the password of the authenticated user's profile. ➡️ `Token` ✅
--   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user.✅
--   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code.✅
--   **PUT** - [`/users/photo`] - Updates the photo of the authenticated user's profile. ➡️ `Token`
--   **PUT** - [`/users/bio`] - Updates the biography of the authenticated user's profile. ➡️ `Token`
+-   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user. ✅
+-   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code. ✅
+-   **PUT** - [`/users/profile`] - Updates the profile of the authenticated user's profile. ➡️ `Token` ✅
 -   **POST** - [`/users/employees`] - Allows registered users to add themselves as employees to a company by providing the company ID and position.
 
 ## Company Endpoints
 
--   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by city or country).
 -   **POST** - [`/companies`] - Allows registered users to publish a new company by providing the name, city, and country.
--   **GET** - [`/companies/:companyId`] - Retrieves all info about a specific company.
 -   **POST** - [`/companies/:companyId/employees/:employeeId/confirm`] - Sends an email to the user who published the company to confirm the employment relationship with the specified employee. ➡️ `Token`
+-   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by city or country).
+-   **GET** - [`/companies/:companyId`] - Retrieves all info about a specific company.
 
 ## Ratings Endpoints
 

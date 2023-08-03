@@ -1,9 +1,9 @@
 module.exports = {
-    emailAlreadyRegisteredError() {
+    companyAlreadyRegisteredError() {
         throw {
             httpStatus: 409, // Conflict
-            code: 'EMAIL_ALREADY_REGISTERED',
-            message: 'This email is already created',
+            code: 'COMPANY_ALREADY_REGISTERED',
+            message: 'This company is already created',
         };
     },
     deleteFileError() {
@@ -11,6 +11,13 @@ module.exports = {
             httpStatus: 409, // Conflict
             code: 'FILE_DELETED_FAILED',
             message: 'Error deleting file from disk',
+        };
+    },
+    emailAlreadyRegisteredError() {
+        throw {
+            httpStatus: 409, // Conflict
+            code: 'EMAIL_ALREADY_REGISTERED',
+            message: 'This email is already created',
         };
     },
     invalidCredentialsError() {
