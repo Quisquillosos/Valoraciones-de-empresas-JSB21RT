@@ -9,6 +9,7 @@ const sendMailService = require('../../services/sendEmailService');
 const {
     companyAlreadyRegisteredError,
 } = require('../../services/errorService');
+const savePhotoService = require('../../services/savePhotoService');
 
 // Function that performs a database query to create a new user
 const insertCompanyModel = async ({ name, country, city, photo, userId }) => {
@@ -19,7 +20,7 @@ const insertCompanyModel = async ({ name, country, city, photo, userId }) => {
 
         // Searching at the database a company with that name
         let [companies] = await connection.query(
-            `SELECT id FROM companies WHERE C.name = ?`,
+            `SELECT id FROM companies WHERE name = ?`,
             [name]
         );
 
@@ -31,21 +32,24 @@ const insertCompanyModel = async ({ name, country, city, photo, userId }) => {
         // Starting a transaction with the database to be able to delete the company in case the email fails to be sent
         await connection.beginTransaction();
 
+        let photoName = await savePhotoService(photo, 100);
+
         // Inserting a company
         await connection.query(
-            `INSERT INTO companies(id, name, country, city, photo, userId) VALUES(?, ?, ?, ?, ?, ?)`,
-            [uuid.v4(), name, country, city, photo, userId]
+            `INSERT INTO companies(id, photo, name, country, city, userId) VALUES(?, ?, ?, ?, ?, ?)`,
+            [uuid.v4(), photoName, name, country, city, userId]
         );
 
         let [userCompany] = await connection.query(
             `
-            SELECT C.id, U.email FROM company C 
+            SELECT U.email FROM companies C 
             INNER JOIN users U ON C.userId = U.id 
             WHERE C.name = ?
         `,
             [name]
         );
-        const email = userCompany.email;
+
+        const email = userCompany[0].email;
 
         // Creating subject of the verification email
         const emailSubject = 'Activate your company profile';

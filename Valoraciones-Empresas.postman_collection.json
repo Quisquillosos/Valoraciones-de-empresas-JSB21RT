@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "774cb0d1-e275-4bb7-b15c-5e800be0f81b",
+		"_postman_id": "dc4f45c3-3c71-496d-a0ac-613e8bbd3a10",
 		"name": "Valoraciones-Empresas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28447205"
+		"_exporter_id": "27959049"
 	},
 	"item": [
 		{
@@ -44,7 +44,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/users/validate/bnV3E76lAuZv8wLuJRNdukYYxwgSm1",
+							"raw": "http://localhost:8000/users/validate/D2QWZK55SCH3dfWJ1uBoXsiPjyVnb0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -53,7 +53,7 @@
 							"path": [
 								"users",
 								"validate",
-								"bnV3E76lAuZv8wLuJRNdukYYxwgSm1"
+								"D2QWZK55SCH3dfWJ1uBoXsiPjyVnb0"
 							]
 						}
 					},
@@ -269,8 +269,100 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Edit profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user1token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/angel/Desktop/Dog 3D/hoodie.png",
+									"disabled": true
+								},
+								{
+									"key": "bio",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "New Company",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{user1token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "lllll",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "spain",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "vigo",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/angel/Desktop/Dog 3D/11111111111111111111111111111111.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

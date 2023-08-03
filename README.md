@@ -84,7 +84,7 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ## Company Endpoints
 
--   **POST** - [`/companies`] - Allows registered users to publish a new company by providing the name, city, and country.
+-   **POST** - [`/companies`] - Allows registered users to publish a new company by providing the name, city, and country. ✅
 -   **POST** - [`/companies/:companyId/employees/:employeeId/confirm`] - Sends an email to the user who published the company to confirm the employment relationship with the specified employee. ➡️ `Token`
 -   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by city or country).
 -   **GET** - [`/companies/:companyId`] - Retrieves all info about a specific company.
