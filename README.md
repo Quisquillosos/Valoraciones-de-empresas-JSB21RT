@@ -80,12 +80,13 @@ This is the repository of the project "Company Ratings," a search portal for com
 -   **POST** - [`/users/password/recover`] - Sends a password recovery email to the user. ✅
 -   **PUT** - [`/users/password/reset`] - Updates the user's password using a recovery code. ✅
 -   **PUT** - [`/users/profile`] - Updates the profile of the authenticated user's profile. ➡️ `Token` ✅
--   **POST** - [`/users/employees`] - Allows registered users to add themselves as employees to a company by providing the company ID and position.
+-   **POST** - [`/users/employees/:companyId`] - Allows registered users to add themselves as employees to a company by providing the company ID and position and send a email to the owner company user.✅
 
 ## Company Endpoints
 
 -   **POST** - [`/companies`] - Allows registered users to publish a new company by providing the name, city, and country. ✅
--   **POST** - [`/companies/:companyId/employees/:employeeId/confirm`] - Sends an email to the user who published the company to confirm the employment relationship with the specified employee. ➡️ `Token`
+-   **PUT** - [`/companies/employees/:validationCode`] - Confirm by email to accept the employee. ➡️ `Token`✅
+-   **PUT** - [`/companies/profile/:companyId`] - Updates companies profile. ➡️ `Token`
 -   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by city or country).
 -   **GET** - [`/companies/:companyId`] - Retrieves all info about a specific company.
 

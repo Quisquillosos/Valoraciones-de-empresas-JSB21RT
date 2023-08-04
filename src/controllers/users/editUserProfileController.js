@@ -12,14 +12,14 @@ const editUserProfileController = async (req, res, next) => {
 
         let photoName;
 
-        // Comprobamos si el usuario nos ha pasado una foto o no
+        // Checking wether the user has passed us a photo or not
         if (req.files?.photo) {
-            // El usuario si nos ha pasado photo, entonces borramos la foto anterior y metemos la nueva
-            // si hay foto borrarla
+            // If the user has passed us a photo, we delete the previous photo and insert the new one
+
             if (user.photo) {
                 await deletePhotoService(user.photo);
             }
-            // meter la nueva foto
+            // Inserting a new photo
             photoName = await savePhotoService(req.files.photo, 100);
         }
 
@@ -27,7 +27,7 @@ const editUserProfileController = async (req, res, next) => {
 
         res.send({
             status: 'ok',
-            message: 'Usuario actualizado',
+            message: 'User updated',
         });
     } catch (err) {
         next(err);

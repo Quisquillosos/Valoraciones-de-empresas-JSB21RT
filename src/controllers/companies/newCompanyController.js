@@ -1,7 +1,7 @@
 // Importing models
 const insertCompanyModel = require('../../models/companies/insertCompanyModel');
 
-// Final controller function to create a new user
+// Final controller function to create a new company
 const newCompanyController = async (req, res, next) => {
     try {
         // Obtaining data from body
@@ -13,7 +13,7 @@ const newCompanyController = async (req, res, next) => {
         // Obtaining userId from req.user
         const userId = req.user.id;
 
-        // Inserting user
+        // Inserting company
         await insertCompanyModel({
             name,
             country,

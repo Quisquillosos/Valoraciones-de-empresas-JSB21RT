@@ -1,5 +1,4 @@
 // Importing getDb
-const { query } = require('express');
 const getDb = require('../../db/getDb');
 
 // Importing errors

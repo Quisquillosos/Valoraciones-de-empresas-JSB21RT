@@ -76,6 +76,8 @@ const main = async () => {
                 position VARCHAR(50) NOT NULL,
                 userId CHAR(36) NOT NULL,
                 companyId CHAR(36) NOT NULL,
+                validationCode CHAR(30),
+                confirmed BOOLEAN DEFAULT false,
                 createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (userId) REFERENCES users(id),
                 FOREIGN KEY (companyId) REFERENCES companies(id)

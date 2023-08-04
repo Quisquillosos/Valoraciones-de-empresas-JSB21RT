@@ -16,6 +16,8 @@ const sendRecoverPassController = require('../controllers/users/sendRecoverPassC
 const editForgottenPassController = require('../controllers/users/editForgottenPassController');
 const isRecoverPassForgottenValid = require('../middlewares/isRecoverPassForgottenValid');
 const editUserProfileController = require('../controllers/users/editUserProfileController');
+const companyExists = require('../middlewares/companyExists');
+const newEmployeeController = require('../controllers/employees/newEmployeeController');
 
 // Creating a user pending activation
 router.post('/users/register', newUserController);
@@ -51,5 +53,14 @@ router.put(
 
 // Updating photo or bio
 router.put('/users/profile', authUser, userExists, editUserProfileController);
+
+// Creating an employee with pending confirmation
+router.post(
+    '/users/employee/:companyId',
+    authUser,
+    userExists,
+    companyExists,
+    newEmployeeController
+);
 
 module.exports = router;
