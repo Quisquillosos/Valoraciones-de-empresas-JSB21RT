@@ -7,3 +7,5 @@ editUserController linea 11(photo)
 borrar index!!!
 Poner nombre a la empresa y cambiar en los emails!!!
 Revisar datos enviados en los emails para hacerlo mas concreto
+poner en ingles el package json 'description'
+res.send!!!! quitar y poner error

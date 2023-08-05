@@ -11,6 +11,8 @@ const companyExists = require('../middlewares/companyExists');
 const newCompanyController = require('../controllers/companies/newCompanyController');
 const confirmEmployeeController = require('../controllers/employees/confirmEmployeeController');
 const editCompanyProfileController = require('../controllers/companies/editCompanyProfileController');
+const listAllCompaniesController = require('../controllers/companies/listAllCompaniesController');
+const getCompanyController = require('../controllers/companies/getCompanyController');
 
 // Creating new company
 router.post('/companies', authUser, userExists, newCompanyController);
@@ -26,5 +28,11 @@ router.put(
     companyExists,
     editCompanyProfileController
 );
+
+// Getting list of companies
+router.get('/companies', listAllCompaniesController);
+
+// Obtaining company's info
+router.get('/companies/:companyId', getCompanyController);
 
 module.exports = router;

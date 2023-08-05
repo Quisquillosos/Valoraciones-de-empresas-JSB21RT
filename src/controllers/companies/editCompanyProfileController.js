@@ -1,9 +1,6 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
-
 // Importing models
-const selectCompanyByNameModel = require('../../models/companies/selectCompanyByIdModel');
 const updateCompanyProfileModel = require('../../models/companies/updateCompanyProfileModel');
+const selectCompanyByIdModel = require('../../models/companies/selectCompanyByIdModel');
 
 // Importing services
 const deletePhotoService = require('../../services/deletePhotoService');
@@ -19,12 +16,9 @@ const editCompanyProfileController = async (req, res, next) => {
         const ownerId = req.user.id;
 
         // Obtain the company's data to check if it already has a previous info
-        const company = selectCompanyByNameModel(companyId);
+        const company = await selectCompanyByIdModel(companyId);
 
-        // Comparing token
-        const decodedToken = jwt.verify(ownerId, process.env.SECRET);
-
-        if (decodedToken.id !== company.userId) {
+        if (ownerId !== company.userId) {
             invalidCredentialsError();
         }
         let photoName;
@@ -40,7 +34,7 @@ const editCompanyProfileController = async (req, res, next) => {
             photoName = await savePhotoService(req.files.photo, 100);
         }
 
-        updateCompanyProfileModel(
+        await updateCompanyProfileModel(
             name,
             country,
             city,
@@ -58,21 +52,3 @@ const editCompanyProfileController = async (req, res, next) => {
 };
 
 module.exports = editCompanyProfileController;
-
-// La clave secreta con la que se firmaron los tokens JWT
-
-// Supongamos que tienes un token JWT en la variable "userToken" y un objeto de usuario en "users[0]"
-// const userToken = '...'; // El token JWT que deseas verificar
-
-// try {
-//     const decodedToken = jwt.verify(userToken, process.env.SECRET);
-
-//     // Compara la información del token (por ejemplo, el ID de usuario) con los datos del usuario de la empresa
-//     if (decodedToken.id === user.id) {
-//         console.log('El token pertenece al usuario de la empresa.');
-//     } else {
-//         console.log('El token no pertenece al usuario de la empresa.');
-//     }
-// } catch (error) {
-//     console.error('Error al verificar el token:', error.message);
-// }

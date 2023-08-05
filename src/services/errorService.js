@@ -1,4 +1,11 @@
 module.exports = {
+    cannotRateOwnCompanyError() {
+        throw {
+            httpStatus: 403, // Forbidden
+            code: 'CANNOT_VOTE_OWN_ENTRY',
+            message: 'You cannot vote your own entry',
+        };
+    },
     companyAlreadyRegisteredError() {
         throw {
             httpStatus: 409, // Conflict
@@ -61,6 +68,14 @@ module.exports = {
             httpStatus: 500, // Internal server error
             code: 'SEND_EMAIL_FAILED',
             message: 'Error sending email',
+        };
+    },
+    ratingAlreadyExistsError() {
+        throw {
+            httpStatus: 409, // Conflict
+            code: 'VOTE_ALREADY_EXISTS',
+            message:
+                'It is not possible to vote more than once for the same entry',
         };
     },
 };

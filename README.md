@@ -86,13 +86,13 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 -   **POST** - [`/companies`] - Allows registered users to publish a new company by providing the name, city, and country. ✅
 -   **PUT** - [`/companies/employees/:validationCode`] - Confirm by email to accept the employee. ➡️ `Token`✅
--   **PUT** - [`/companies/profile/:companyId`] - Updates companies profile. ➡️ `Token`
--   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by city or country).
--   **GET** - [`/companies/:companyId`] - Retrieves all info about a specific company.
+-   **PUT** - [`/companies/profile/:companyId`] - Updates companies profile. ➡️ `Token` ✅
+-   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by name, city, country). ✅
+-   **GET** - [`/companies/:companyId`] - Retrieves all info about a specific company. ✅
 
 ## Ratings Endpoints
 
--   **POST** - [`/ratings`] - Allows validated employees to make a rating for a company by providing the employee ID and ratings for aspects (work environment, accessibility, salaries, promotion possibility).
+-   **POST** - [`/ratings/companies/:companyId`] - Allows validated employees to make a rating for a company by providing the employee ID and ratings for aspects (work environment, accessibility, salaries, promotion possibility).
 -   **GET** - [`/ratings/companies/:companyId`] - Retrieves a list of all ratings associated with the company with the provided ID.
 
 ## Additional Endpoints

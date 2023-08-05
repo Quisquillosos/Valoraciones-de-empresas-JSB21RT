@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "dc4f45c3-3c71-496d-a0ac-613e8bbd3a10",
+		"_postman_id": "9fde9d0b-8735-4961-85ea-b6d489c02792",
 		"name": "Valoraciones-Empresas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27959049"
+		"_exporter_id": "28447205"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"David\",\r\n    \"lastName\":\"Rodriguez Gonzalez\",\r\n    \"email\": \"d.rodriguez.gonzalez.123@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
+							"raw": "{\r\n    \"firstName\":\"David\",\r\n    \"lastName\":\"Medvedev Medvedev\",\r\n    \"email\": \"d.rodriguez.gonzalez.123@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/users/validate/D2QWZK55SCH3dfWJ1uBoXsiPjyVnb0",
+							"raw": "http://localhost:8000/users/validate/EUKzfVEUhaHFu7kMxCP3MtuSfMnaHo",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -53,7 +53,7 @@
 							"path": [
 								"users",
 								"validate",
-								"D2QWZK55SCH3dfWJ1uBoXsiPjyVnb0"
+								"EUKzfVEUhaHFu7kMxCP3MtuSfMnaHo"
 							]
 						}
 					},
@@ -66,7 +66,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"d.rodriguez.gonzalez.123@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"email\": \"dimasmdv@gmail.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -311,58 +311,230 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "New employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user1token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"position\": \"esclavo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/employee/e659352c-0bce-4cb2-b860-0b7b752f1b27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"employee",
+								"e659352c-0bce-4cb2-b860-0b7b752f1b27"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "New Company",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "{{user1token}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "name",
-							"value": "lllll",
-							"type": "text"
+			"name": "companies",
+			"item": [
+				{
+					"name": "New Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user2token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "La Empresa de David",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "spain",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Santiago de compostela",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/dimas/Desktop/Hack a Boss/clase3-html/clase03-tienda bebes/img/felicidad fisica.jpg"
+								}
+							]
 						},
-						{
-							"key": "country",
-							"value": "spain",
-							"type": "text"
-						},
-						{
-							"key": "city",
-							"value": "vigo",
-							"type": "text"
-						},
-						{
-							"key": "photo",
-							"type": "file",
-							"src": "/C:/Users/angel/Desktop/Dog 3D/11111111111111111111111111111111.jpg"
+						"url": {
+							"raw": "http://localhost:8000/companies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"companies"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8000/companies",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"companies"
-					]
+				{
+					"name": "Confirm Employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/companies/employee/CYPBMBREKbGJ1idhW0IzzDUEaOqjN8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"companies",
+								"employee",
+								"CYPBMBREKbGJ1idhW0IzzDUEaOqjN8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit company profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user1token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Quisquillosos SA",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Moldavia",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Chisinau",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/dimas/Desktop/Hack a Boss/clase3-html/clase03-tienda bebes/img/felicidad fisica.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/companies/profile/560ad267-88c7-45c9-ba1d-0f411786c93b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"companies",
+								"profile",
+								"560ad267-88c7-45c9-ba1d-0f411786c93b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/companies?keyword=Vigo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"companies"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "moldavia",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "Vigo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/companies/560ad267-88c7-45c9-ba1d-0f411786c93b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"companies",
+								"560ad267-88c7-45c9-ba1d-0f411786c93b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rating companies",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	],
 	"event": [
@@ -388,6 +560,11 @@
 	"variable": [
 		{
 			"key": "user1token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user2token",
 			"value": "",
 			"type": "string"
 		}
