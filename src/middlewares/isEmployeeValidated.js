@@ -12,8 +12,6 @@ const isEmployeeValidated = async (req, res, next) => {
             `SELECT confirmed FROM employees WHERE userId = ?`,
             [req.user.id]
         );
-        console.log(req.user.id);
-        console.log('Hola', active);
 
         if (active[0].confirmed) {
             next();

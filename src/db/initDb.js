@@ -12,13 +12,9 @@ const main = async () => {
     try {
         connection = await getDb();
 
-        console.log('Borrando tablas...'); //! acordarse de borrar
-
         await connection.query(
             'DROP TABLE IF EXISTS employees, ratingCompanies, companies, users'
         );
-
-        console.log('Creando tablas...'); //! acordarse de borrar
 
         // Creating users table
         await connection.query(`
@@ -87,7 +83,7 @@ const main = async () => {
     } catch (err) {
         console.error(err);
     } finally {
-        // If there is a connection it get released
+        // If there is a connection it get releasedss
         if (connection) connection.release();
 
         // Closing process

@@ -4,8 +4,6 @@ const randomstring = require('randomstring');
 // Importing models
 const insertEmployeeModel = require('../../models/employees/insertEmployeeModel');
 
-insertEmployeeModel;
-
 // Final controller function to create a new company
 const newEmployeeController = async (req, res, next) => {
     try {

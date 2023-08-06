@@ -99,6 +99,6 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ### Ratings for a Specific Employee
 
--   **GET** [`/ratings/employees/:employeeId`] - Retrieves a list of all ratings made by the employee with the provided ID.
+-   **GET** [`/ratings/employees/:employeeId`] - Retrieves a list of all ratings made by the employee with the provided ID.✅
 
 ## TEAM NOTES

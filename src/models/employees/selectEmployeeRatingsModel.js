@@ -8,14 +8,12 @@ const selectEmployeeRatingModel = async (userId) => {
     try {
         connection = await getDb();
 
-        console.log(userId);
         // Checking info about a company
         const [ratings] = await connection.query(
             `SELECT id, salary, workEnvironment, promotionPosibility, accesibility, companyId, userId, createdAt FROM ratingCompanies WHERE userId = ?`,
             [userId]
         );
 
-        console.log('HOLAAA', ratings);
         return ratings;
     } finally {
         if (connection) connection.release();

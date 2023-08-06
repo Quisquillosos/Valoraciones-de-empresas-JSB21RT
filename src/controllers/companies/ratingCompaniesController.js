@@ -13,10 +13,6 @@ const ratingCompaniesController = async (req, res, next) => {
         const { salary, workEnvironment, promotionPosibility, accesibility } =
             req.body;
 
-        console.log('holaaaaa', salary, 'tipo de', typeof salary);
-        console.log('holaaaaa' + workEnvironment);
-        console.log('holaaaaa' + promotionPosibility);
-        console.log('holaaaaa' + accesibility);
         // Obtaining the details of the company
         const company = await selectCompanyByIdModel(companyId);
 
@@ -25,7 +21,6 @@ const ratingCompaniesController = async (req, res, next) => {
             cannotRateOwnCompanyError();
         }
 
-        console.log('HOLAAAA', salary, 'tipo de', typeof salary);
         // Insert the rate and obtaining the new average
         const ratingAvg = await insertRatingCompaniesModel(
             salary,

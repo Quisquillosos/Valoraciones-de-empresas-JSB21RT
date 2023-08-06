@@ -1,7 +1,7 @@
 {
     "name": "valoraciones-de-empresas-jsb21rt",
     "version": "1.0.0",
-    "description": "Este es el repositorio del proyecto \"Valoraciones de Empresas\", un portal de búsqueda de empresas con información histórica de empleados para que los aspirantes a trabajar en ellas encuentren la empresa perfecta, basado en las valoraciones y opiniones de empleados anteriores.Este es el repositorio del proyecto \"Valoraciones de Empresas\", un portal de búsqueda de empresas con información histórica de empleados para que los aspirantes a trabajar en ellas encuentren la empresa perfecta, basado en las valoraciones y opiniones de empleados anteriores.",
+    "description": "This is the repository of the\"Valoraciones de Empresas\" projects,  a company search portal with historical employee information for aspiring employees to find the perfect company, based on the ratings and reviews of previous employees.",
     "main": "app.js",
     "scripts": {
         "initDb": "node ./src/db/initDb.js",
