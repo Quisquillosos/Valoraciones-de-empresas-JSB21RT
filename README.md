@@ -92,8 +92,8 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ## Ratings Endpoints
 
--   **POST** - [`/ratings/companies/:companyId`] - Allows validated employees to make a rating for a company by providing the employee ID and ratings for aspects (work environment, accessibility, salaries, promotion possibility).
--   **GET** - [`/ratings/companies/:companyId`] - Retrieves a list of all ratings associated with the company with the provided ID.
+-   **POST** - [`/ratings/companies/:companyId`] - Allows validated employees to make a rating for a company by providing the employee ID and ratings for aspects (work environment, accessibility, salaries, promotion possibility). ✅
+-   **GET** - [`/ratings/companies/:companyId`] - Retrieves a list of all ratings associated with the company with the provided ID.✅
 
 ## Additional Endpoints
 

@@ -32,8 +32,8 @@ const ratingCompaniesController = async (req, res, next) => {
             workEnvironment,
             promotionPosibility,
             accesibility,
-            companyId,
-            req.user.id
+            req.user.id,
+            companyId
         );
 
         res.send({

@@ -84,8 +84,6 @@ const main = async () => {
 
             )
         `);
-
-        console.log('¡Tablas creadas!'); //! borrrrraaaarrrr
     } catch (err) {
         console.error(err);
     } finally {
