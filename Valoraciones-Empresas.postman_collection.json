@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "9fde9d0b-8735-4961-85ea-b6d489c02792",
+		"_postman_id": "d787ab56-aa6b-417c-aadc-3591daa42c4f",
 		"name": "Valoraciones-Empresas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28447205"
+		"_exporter_id": "27959049"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"David\",\r\n    \"lastName\":\"Medvedev Medvedev\",\r\n    \"email\": \"d.rodriguez.gonzalez.123@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
+							"raw": "{\r\n    \"firstName\":\"Angie\",\r\n    \"lastName\":\"Puime\",\r\n    \"email\": \"angela.puime@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/users/validate/EUKzfVEUhaHFu7kMxCP3MtuSfMnaHo",
+							"raw": "http://localhost:8000/users/validate/sC1PlWBkh59MMDrdBM5YvmOIzuNZPr",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -53,7 +53,7 @@
 							"path": [
 								"users",
 								"validate",
-								"EUKzfVEUhaHFu7kMxCP3MtuSfMnaHo"
+								"sC1PlWBkh59MMDrdBM5YvmOIzuNZPr"
 							]
 						}
 					},
@@ -66,7 +66,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"dimasmdv@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"email\": \"angela.puime@gmail.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -319,7 +319,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{user1token}}",
+								"value": "{{user3Angie}}",
 								"type": "text"
 							}
 						],
@@ -333,7 +333,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/users/employee/e659352c-0bce-4cb2-b860-0b7b752f1b27",
+							"raw": "http://localhost:8000/users/employee/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -342,7 +342,7 @@
 							"path": [
 								"users",
 								"employee",
-								"e659352c-0bce-4cb2-b860-0b7b752f1b27"
+								"d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
 							]
 						}
 					},
@@ -360,7 +360,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{user2token}}",
+								"value": "{{user1David}}",
 								"type": "text"
 							}
 						],
@@ -385,7 +385,7 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/C:/Users/dimas/Desktop/Hack a Boss/clase3-html/clase03-tienda bebes/img/felicidad fisica.jpg"
+									"src": "/C:/Users/angel/Desktop/Dog 3D/11111111111111111111111111111111.jpg"
 								}
 							]
 						},
@@ -409,7 +409,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/companies/employee/CYPBMBREKbGJ1idhW0IzzDUEaOqjN8",
+							"raw": "http://localhost:8000/companies/employee/wO7vWbp08Cu583BUznz8xcUDGdAKOj",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -418,7 +418,7 @@
 							"path": [
 								"companies",
 								"employee",
-								"CYPBMBREKbGJ1idhW0IzzDUEaOqjN8"
+								"wO7vWbp08Cu583BUznz8xcUDGdAKOj"
 							]
 						}
 					},
@@ -529,8 +529,78 @@
 				{
 					"name": "rating companies",
 					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user3Angie}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"salary\":\"4\",\r\n\"workEnvironment\":\"1\",\r\n\"promotionPosibility\":\"5\",\r\n\"accesibility\":\"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/ratings/companies/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ratings",
+								"companies",
+								"d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company ratings",
+					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/ratings/companies/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ratings",
+								"companies",
+								"d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee's ratings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/ratings/employees/e1cd3d22-b239-4fe6-997e-5ab81f58133e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ratings",
+								"employees",
+								"e1cd3d22-b239-4fe6-997e-5ab81f58133e"
+							]
+						}
 					},
 					"response": []
 				}
@@ -559,12 +629,17 @@
 	],
 	"variable": [
 		{
-			"key": "user1token",
+			"key": "user1David",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"key": "user2token",
+			"key": "user2Dimas",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user3Angie",
 			"value": "",
 			"type": "string"
 		}
