@@ -2,12 +2,16 @@
 const selectCompanyByIdModel = require('../../models/companies/selectCompanyByIdModel');
 const insertRatingCompaniesModel = require('../../models/companies/insertRatingCompaniesModel');
 
+// Importing services
+const validateSchemaService = require('../../services/validateSchemaService');
+
 // Importing errors
 const { cannotRateOwnCompanyError } = require('../../services/errorService');
-const validateSchemaService = require('../../services/validateSchemaService');
+
+// Importing Schemas
 const ratingCompaniesSchema = require('../../schemas/employees/ratingCompaniesSchema');
 
-// Final controller function that allows to rate an asp
+// Final controller function that allows to rate an aspect of the company
 const ratingCompaniesController = async (req, res, next) => {
     try {
         const { companyId } = req.params;
@@ -25,7 +29,7 @@ const ratingCompaniesController = async (req, res, next) => {
             cannotRateOwnCompanyError();
         }
 
-        // Insert the rate and obtaining the new average
+        // Insert rating and obtaining the new average
         const ratingAvg = await insertRatingCompaniesModel(
             salary,
             workEnvironment,

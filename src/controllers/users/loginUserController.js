@@ -11,7 +11,7 @@ const {
     pendingActivationError,
 } = require ('../../services/errorService');
 
-//Final controller function that logs in a user by returning a token
+// Final controller function that logs in a user by returning a token
 const loginUserController = async (req, res, next) => {
     try {
         const { email, password } = req.body;

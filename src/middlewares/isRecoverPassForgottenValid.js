@@ -1,4 +1,4 @@
-// Import db
+// Importing db
 const getDb = require('../db/getDb');
 
 // Importing errors

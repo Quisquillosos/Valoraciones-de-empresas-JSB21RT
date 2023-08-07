@@ -2,13 +2,13 @@
 const selectUserByIdModel = require('../../models/users/selectUserByIdModel');
 const updateUserProfileModel = require('../../models/users/updateUserProfileModel');
 
-// Importing schemas
-const editUserProfileSchema = require('../../schemas/users/editUserProfileSchema');
-
 // Importing services
 const deletePhotoService = require('../../services/deletePhotoService');
 const savePhotoService = require('../../services/savePhotoService');
 const validateSchemaService = require('../../services/validateSchemaService');
+
+// Importing schemas
+const editUserProfileSchema = require('../../schemas/users/editUserProfileSchema');
 
 const editUserProfileController = async (req, res, next) => {
     try {
@@ -19,7 +19,7 @@ const editUserProfileController = async (req, res, next) => {
 
         await validateSchemaService(editUserProfileSchema, data);
 
-        // Obtain the user's data to check if he/she/it already has a previous photo or bio
+        // Obtaining the user's data to check if he/she/it already has a previous photo or bio
         const user = await selectUserByIdModel(req.user.id);
 
         let photoName;

@@ -1,4 +1,4 @@
-// Importing the function that returns a connection to the database
+// Importing Db
 const getDb = require('../../db/getDb');
 
 // Function that performs a database query to select a user with a given email

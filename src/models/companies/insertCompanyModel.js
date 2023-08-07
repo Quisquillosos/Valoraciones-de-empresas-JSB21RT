@@ -6,12 +6,14 @@ const getDb = require('../../db/getDb');
 
 // Importing services
 const sendMailService = require('../../services/sendEmailService');
+const savePhotoService = require('../../services/savePhotoService');
+
+// Importing errors
 const {
     companyAlreadyRegisteredError,
 } = require('../../services/errorService');
-const savePhotoService = require('../../services/savePhotoService');
 
-// Function that performs a database query to create a new user
+// Function that performs a database query to insert a new company
 const insertCompanyModel = async ({ name, country, city, photo, userId }) => {
     let connection;
 

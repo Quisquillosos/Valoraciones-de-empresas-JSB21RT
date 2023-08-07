@@ -3,7 +3,11 @@ const randomstring = require('randomstring');
 
 // Importing models
 const insertEmployeeModel = require('../../models/employees/insertEmployeeModel');
+
+//Importing Services
 const validateSchemaService = require('../../services/validateSchemaService');
+
+// Importing Schemas
 const newEmployeeSchema = require('../../schemas/employees/newEmployeeSchema');
 
 // Final controller function to create a new employee

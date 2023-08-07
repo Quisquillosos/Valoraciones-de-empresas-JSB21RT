@@ -1,7 +1,7 @@
-// Import the function that returns a connection to the database
+// Importing Db
 const getDb = require('../../db/getDb');
 
-//Function that performs a query to the database to select total ratings from an employee
+// Function that performs a query to the database to select total ratings from an employee
 const selectEmployeeRatingModel = async (userId) => {
     let connection;
 

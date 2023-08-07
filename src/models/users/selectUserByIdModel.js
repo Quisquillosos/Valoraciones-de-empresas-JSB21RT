@@ -1,7 +1,7 @@
-// Import the function that returns a connection to the database
+// Import Db
 const getDb = require('../../db/getDb');
 
-//Function that performs a query to the database to select a user with a given user id
+// Function that performs a query to the database to select a user with a given user id
 const selectUserByIdModel = async (userId) => {
     let connection;
 

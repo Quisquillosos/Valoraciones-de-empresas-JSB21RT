@@ -1,10 +1,10 @@
-// importing models
+// Importing models
 const updateRegCodeModel = require('../../models/users/updateUserRegCodeModel');
 
-//Final controller function validating a newly registered user
+// Final controller function validating a newly registered user
 const validateUserController = async (req, res, next) => {
     try {
-        //obtaining the registration code of the path params
+        // Obtaining the registration code of the path params
         const { registrationCode } = req.params;
 
         // Activating user

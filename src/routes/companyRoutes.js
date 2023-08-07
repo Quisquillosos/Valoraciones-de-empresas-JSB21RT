@@ -12,7 +12,6 @@ const {
     newCompanyController,
     listAllCompaniesController,
 } = require('../controllers/companies');
-
 const confirmEmployeeController = require('../controllers/employees/confirmEmployeeController');
 
 // Creating new company

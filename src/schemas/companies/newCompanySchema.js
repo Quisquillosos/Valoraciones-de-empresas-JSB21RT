@@ -1,6 +1,7 @@
+// Importing dependences
 const joi = require('joi');
 
-// Modify the error messages of Joi as needed
+// Modifying the error messages of Joi as needed
 const joiErrorMessages = {
     'string.base': 'The value of "{#key}" must be a string',
     'any.required': 'The field "{#key}" is required',
@@ -11,7 +12,7 @@ const joiErrorMessages = {
     'any.only': 'Only JPEG or PNG photos are allowed',
 };
 
-// Create the Joi schema where we validate all the necessary properties
+// Creating the Joi schema where we validate all the necessary properties
 const newCompanySchema = joi.object({
     name: joi.string().required().messages(joiErrorMessages),
     country: joi.string().required().messages(joiErrorMessages),

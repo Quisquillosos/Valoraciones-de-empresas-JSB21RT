@@ -8,6 +8,7 @@ const {
     companyExists,
 } = require('../middlewares');
 
+// Importing final controller functions
 const ratingCompaniesController = require('../controllers/companies/ratingCompaniesController');
 const { getCompanyRatingController } = require('../controllers/companies');
 const { getRatingEmployeeController } = require('../controllers/employees');

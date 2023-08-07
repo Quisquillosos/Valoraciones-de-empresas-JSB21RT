@@ -1,6 +1,7 @@
+// Importing dependences
 const joi = require('joi');
 
-// We modify the joi error messages we need
+// Modifying the joi error messages we need
 const joiErrorMessages = {
     'any.required': 'The field "{#key}" is required',
     'number.base': 'The value of "{#key}" must be a number',
@@ -9,7 +10,7 @@ const joiErrorMessages = {
     'number.integer': 'The value of "{#key}" must be an integer',
 };
 
-// We create the Joi schema where we check all the necessary properties
+// Creating the Joi schema where we check all the necessary properties
 const ratingCompaniesSchema = joi.object({
     salary: joi
         .number()

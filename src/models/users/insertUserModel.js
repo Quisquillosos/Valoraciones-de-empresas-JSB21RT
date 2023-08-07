@@ -57,7 +57,6 @@ const insertUserModel = async ({
         // Creating subject of the verification email
         const emailSubject = 'Activate your user';
 
-        // Creating email content
         const emailBody = `
             ¡Welcome ${firstName}!
 

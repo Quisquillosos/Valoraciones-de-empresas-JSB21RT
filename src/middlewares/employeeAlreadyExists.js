@@ -7,26 +7,24 @@ const {
     employeeAlreadyExistsError,
 } = require('../services/errorService');
 
-// Intermediate controller function that throws an error if a user with a given id does not exist
+// Intermediate controller function that throws an error if an employee with a given id does not exist
 const employeeAlreadyExists = async (req, res, next) => {
     let connection;
 
     try {
         connection = await getDb();
 
-        // Try to obtain the company id from the "user" property
-        // If this property does not exist, we get the id from the path params
         const companyId = req.params.companyId;
 
         const userId = req.user.id;
+        
         // SELECT id FROM employees WHERE userId = ? AND companyId = ?
-
         const [employees] = await connection.query(
             `SELECT id FROM employees WHERE userId = ? AND companyId = ?`,
             [userId, companyId]
         );
 
-        // Throwing an error if the user does not exist
+        // Throwing an error if the employee does not exist
         if (employees.length > 0) {
             employeeAlreadyExistsError();
         }

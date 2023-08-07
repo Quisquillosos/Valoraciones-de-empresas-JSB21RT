@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 // Importing Db
 const getDb = require('../../db/getDb');
 
-// Importing services
+// Importing errors
 const { invalidCredentialsError } = require('../../services/errorService');
 
 // Function that performs a database query to update a user's password

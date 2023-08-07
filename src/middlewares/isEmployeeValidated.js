@@ -1,5 +1,7 @@
 // Importing db
 const getDb = require('../db/getDb');
+
+// Importing errors
 const { isEmployeeValidatedError } = require('../services/errorService');
 
 // Intermediate controller function that checks if the employee is validated

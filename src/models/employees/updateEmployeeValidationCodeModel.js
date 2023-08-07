@@ -4,14 +4,14 @@ const getDb = require('../../db/getDb');
 // Importing errors
 const { notFoundError } = require('../../services/errorService');
 
-//Function that performs a database query to update
+// Function that performs a database query to update an employee
 const updateEmployeeValidationCodeModel = async (validationCode) => {
     let connection;
 
     try {
         connection = await getDb();
 
-        //Checking if there is a employee with that validation code
+        // Checking if there is an employee with that validation code
         const [employees] = await connection.query(
             `SELECT id FROM employees WHERE validationCode = ?`,
             [validationCode]

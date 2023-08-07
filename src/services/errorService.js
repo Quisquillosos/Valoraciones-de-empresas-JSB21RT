@@ -44,14 +44,14 @@ module.exports = {
     },
     isEmployeeValidatedError() {
         throw {
-            httpStatus: '400',
+            httpStatus: '400', // Bad request
             code: 'EMPLOYEE_NOT_VALIDATED',
             message: 'Employee is not validated',
         };
     },
     isRecoverPassForgottenValidError() {
         throw {
-            httpStatus: '400',
+            httpStatus: '400', // Bad request
             code: 'PASS_NOT_VALIDATED',
             message: 'Pass is not validated',
         };

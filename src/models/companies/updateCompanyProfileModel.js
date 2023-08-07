@@ -1,9 +1,8 @@
 // Importing Db
 const getDb = require('../../db/getDb');
-const selectCompanyByIdModel = require('./selectCompanyByIdModel');
 
 // Importing models
-const selectCompanyByNameModel = require('./selectCompanyByIdModel');
+const selectCompanyByIdModel = require('./selectCompanyByIdModel');
 
 // Function that performs a database query to update a company's profile info
 const updateCompanyProfileModel = async (

@@ -24,7 +24,7 @@ const savePhotoService = async (img, width) => {
             await fs.mkdir(uploadsDir);
         }
 
-        //Creating a Sharp object with the received image
+        // Creating a Sharp object with the received image
         const sharpImg = sharp(img.data);
 
         sharpImg.resize(width);

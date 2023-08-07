@@ -7,7 +7,7 @@ const userRoutes = require('./userRoutes');
 const companyRoutes = require('./companyRoutes');
 const ratingRoutes = require('./ratingRoutes');
 
-//Indicating to express where the user routes and companies are located
+// Indicating to express where the user routes and companies are located
 router.use(userRoutes);
 router.use(companyRoutes);
 router.use(ratingRoutes);

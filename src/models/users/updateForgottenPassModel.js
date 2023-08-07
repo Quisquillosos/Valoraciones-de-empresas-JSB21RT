@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 // Importing Db
 const getDb = require('../../db/getDb');
 
-// Function that performs a database query to reset a user's password
+// Function that performs a database query to recover a user's password
 const updateForgottenPassModel = async (newPass, userId) => {
     let connection;
 

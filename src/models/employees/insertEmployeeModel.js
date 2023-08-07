@@ -4,8 +4,7 @@ const uuid = require('uuid');
 // Importing getDb
 const getDb = require('../../db/getDb');
 
-// Importing errors
-const { notFoundError } = require('../../services/errorService');
+// Importing services
 const sendMailService = require('../../services/sendEmailService');
 
 // Function that performs a database query to insert a employee

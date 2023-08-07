@@ -1,7 +1,11 @@
 // Importing models
 const insertCompanyModel = require('../../models/companies/insertCompanyModel');
-const newCompanySchema = require('../../schemas/companies/newCompanySchema');
+
+// Importing services
 const validateSchemaService = require('../../services/validateSchemaService');
+
+// Importing Schemas
+const newCompanySchema = require('../../schemas/companies/newCompanySchema');
 
 // Final controller function to create a new company
 const newCompanyController = async (req, res, next) => {

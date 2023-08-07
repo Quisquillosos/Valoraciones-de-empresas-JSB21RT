@@ -4,9 +4,13 @@ const selectCompanyByIdModel = require('../../models/companies/selectCompanyById
 
 // Importing services
 const deletePhotoService = require('../../services/deletePhotoService');
-const { invalidCredentialsError } = require('../../services/errorService');
 const savePhotoService = require('../../services/savePhotoService');
 const validateSchemaService = require('../../services/validateSchemaService');
+
+// Importing errors
+const { invalidCredentialsError } = require('../../services/errorService');
+
+// Importing Schemas
 const editCompanyProfileSchema = require('../../schemas/companies/editCompanyProfileSchema');
 
 const editCompanyProfileController = async (req, res, next) => {

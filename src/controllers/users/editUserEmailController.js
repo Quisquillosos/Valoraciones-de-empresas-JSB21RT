@@ -1,8 +1,13 @@
+// Importing dependences
 const randomstring = require('randomstring');
 
 // Importing models
 const updateUserEmailModel = require('../../models/users/uptadeUserEmailModel');
+
+// Importing Services
 const validateSchemaService = require('../../services/validateSchemaService');
+
+// Importing Schemas
 const editUserEmailSchema = require('../../schemas/users/editUserEmailSchema');
 
 const editUserEmailController = async (req, res, next) => {

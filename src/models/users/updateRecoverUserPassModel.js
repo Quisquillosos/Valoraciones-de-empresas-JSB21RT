@@ -19,11 +19,9 @@ const updateRecoverUserPassModel = async (email, recoverPassCode) => {
             `UPDATE users SET recoverPassCode = ? WHERE email = ?`,
             [recoverPassCode, email]
         );
-
-        // Creating subject of the password recovered
+        
         const emailSubject = 'Recover your password';
 
-        // Creating email content
         const emailBody = `
             Hello again! 
 

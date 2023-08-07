@@ -8,7 +8,7 @@ const sendRecoverPassController = async (req, res, next) => {
     try {
         const { email } = req.body;
 
-        // Creating the registration code
+        // Creating the recovering code
         const recoverPassCode = randomstring.generate(10);
 
         await updateRecoverUserPassModel(email, recoverPassCode);

@@ -1,7 +1,11 @@
 // Importing models
 const updateForgottenPassModel = require('../../models/users/updateForgottenPassModel');
-const editForgottenPassSchema = require('../../schemas/users/editForgottenPassSchema');
+
+// Importing Services
 const validateSchemaService = require('../../services/validateSchemaService');
+
+// Importing Schemas
+const editForgottenPassSchema = require('../../schemas/users/editForgottenPassSchema');
 
 const editForgottenPassController = async (req, res, next) => {
     try {

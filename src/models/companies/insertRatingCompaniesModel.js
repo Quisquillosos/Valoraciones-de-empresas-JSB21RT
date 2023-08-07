@@ -22,7 +22,6 @@ const insertRatingCompaniesModel = async (
         connection = await getDb();
 
         // Checking if there is already a previous rate by the user who is attempting to rate
-
         const [ratings] = await connection.query(
             `SELECT id FROM ratingCompanies WHERE userId = ? AND companyId = ?`,
             [userId, companyId]
@@ -60,7 +59,6 @@ const insertRatingCompaniesModel = async (
         );
 
         // Returning rate
-        // Number(ratingsAvg[0].avg)
         return {
             salaryAvg: Number(ratingsAvg[0].salaryAvg),
             workEnvironmentAvg: Number(ratingsAvg[0].workEnvironmentAvg),

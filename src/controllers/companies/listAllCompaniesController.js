@@ -1,8 +1,7 @@
 // Importing models
 const selectAllCompanyModel = require('../../models/companies/selectAllCompanyModel');
 
-// Final controller function that returns the list of companies. Allows filtering by word
-// Key
+// Final controller function that returns the list of companies. Allows filtering by keyword
 const listAllCompaniesController = async (req, res, next) => {
     try {
         const { keyword } = req.query;

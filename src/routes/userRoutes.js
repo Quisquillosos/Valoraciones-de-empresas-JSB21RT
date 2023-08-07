@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Importing middlewares
 const {
     userExists,
     authUser,

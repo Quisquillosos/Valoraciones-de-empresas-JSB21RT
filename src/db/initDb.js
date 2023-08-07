@@ -1,7 +1,7 @@
 // Reading ".env" file with "dotenv"
 require('dotenv').config();
 
-// Import getDb
+// Importing getDb
 const getDb = require('./getDb');
 
 // Main function
@@ -83,7 +83,7 @@ const main = async () => {
     } catch (err) {
         console.error(err);
     } finally {
-        // If there is a connection it get releasedss
+        // If there is a connection it get released
         if (connection) connection.release();
 
         // Closing process

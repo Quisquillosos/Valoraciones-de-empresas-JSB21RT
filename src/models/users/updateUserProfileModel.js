@@ -1,6 +1,7 @@
 // Importing Db
 const getDb = require('../../db/getDb');
 
+// Importing models
 const selectUserByIdModel = require('./selectUserByIdModel');
 
 // Function that performs a database query to update a user's profile (photo + bio)

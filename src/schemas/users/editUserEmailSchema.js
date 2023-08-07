@@ -1,6 +1,7 @@
+// Importing dependences
 const joi = require('joi');
 
-// Modify the error messages of Joi as needed
+// Modifying the error messages of Joi as needed
 const joiErrorMessages = {
     'string.base': 'The value of "{#key}" must be a string',
     'any.required': 'The field "{#key}" is required',
@@ -10,7 +11,7 @@ const joiErrorMessages = {
         'The password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character for "{#key}"',
 };
 
-// Create the Joi schema where we validate all the necessary properties
+// Creating the Joi schema where we validate all the necessary properties
 const editUserEmailSchema = joi.object({
     oldPass: joi
         .string()
