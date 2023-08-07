@@ -4,6 +4,8 @@ const insertRatingCompaniesModel = require('../../models/companies/insertRatingC
 
 // Importing errors
 const { cannotRateOwnCompanyError } = require('../../services/errorService');
+const validateSchemaService = require('../../services/validateSchemaService');
+const ratingCompaniesSchema = require('../../schemas/employees/ratingCompaniesSchema');
 
 // Final controller function that allows to rate an asp
 const ratingCompaniesController = async (req, res, next) => {
@@ -12,6 +14,8 @@ const ratingCompaniesController = async (req, res, next) => {
 
         const { salary, workEnvironment, promotionPosibility, accesibility } =
             req.body;
+
+        await validateSchemaService(ratingCompaniesSchema, req.body);
 
         // Obtaining the details of the company
         const company = await selectCompanyByIdModel(companyId);

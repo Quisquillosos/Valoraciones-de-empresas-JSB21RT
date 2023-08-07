@@ -3,16 +3,17 @@ const express = require('express');
 const router = express.Router();
 
 // Importing middleware functions
-const authUser = require('../middlewares/authUser');
-const userExists = require('../middlewares/userExists');
-const companyExists = require('../middlewares/companyExists');
+const { authUser, userExists, companyExists } = require('../middlewares');
 
 // Importing final controllers functions
-const newCompanyController = require('../controllers/companies/newCompanyController');
+const {
+    editCompanyProfileController,
+    getCompanyController,
+    newCompanyController,
+    listAllCompaniesController,
+} = require('../controllers/companies');
+
 const confirmEmployeeController = require('../controllers/employees/confirmEmployeeController');
-const editCompanyProfileController = require('../controllers/companies/editCompanyProfileController');
-const listAllCompaniesController = require('../controllers/companies/listAllCompaniesController');
-const getCompanyController = require('../controllers/companies/getCompanyController');
 
 // Creating new company
 router.post('/companies', authUser, userExists, newCompanyController);

@@ -1,5 +1,6 @@
 // Importing Db
 const getDb = require('../../db/getDb');
+const selectCompanyByIdModel = require('./selectCompanyByIdModel');
 
 // Importing models
 const selectCompanyByNameModel = require('./selectCompanyByIdModel');
@@ -13,11 +14,10 @@ const updateCompanyProfileModel = async (
     companyId
 ) => {
     let connection;
-
     try {
         connection = await getDb();
 
-        const company = await selectCompanyByNameModel(name);
+        const company = await selectCompanyByIdModel(companyId);
 
         if (!name) name = company.name;
         if (!country) country = company.country;

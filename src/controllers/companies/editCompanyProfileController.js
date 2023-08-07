@@ -6,10 +6,18 @@ const selectCompanyByIdModel = require('../../models/companies/selectCompanyById
 const deletePhotoService = require('../../services/deletePhotoService');
 const { invalidCredentialsError } = require('../../services/errorService');
 const savePhotoService = require('../../services/savePhotoService');
+const validateSchemaService = require('../../services/validateSchemaService');
+const editCompanyProfileSchema = require('../../schemas/companies/editCompanyProfileSchema');
 
 const editCompanyProfileController = async (req, res, next) => {
     try {
         const { name, country, city } = req.body || '';
+
+        const { photo } = req.files || {};
+
+        const data = { name, country, city, photo };
+
+        await validateSchemaService(editCompanyProfileSchema, data);
 
         const { companyId } = req.params;
 
@@ -21,6 +29,7 @@ const editCompanyProfileController = async (req, res, next) => {
         if (ownerId !== company.userId) {
             invalidCredentialsError();
         }
+
         let photoName;
 
         //  Checking if the company has passed us a photo or not

@@ -1,12 +1,17 @@
 // Importing dependences
 const express = require('express');
-const authUser = require('../middlewares/authUser');
-const userExists = require('../middlewares/userExists');
-const isEmployeeValidated = require('../middlewares/isEmployeeValidated');
-const companyExists = require('../middlewares/companyExists');
+
+const {
+    authUser,
+    userExists,
+    isEmployeeValidated,
+    companyExists,
+} = require('../middlewares');
+
 const ratingCompaniesController = require('../controllers/companies/ratingCompaniesController');
-const getCompanyRatingController = require('../controllers/companies/getCompanyRatingsController');
-const getRatingEmployeeController = require('../controllers/employees/getRatingEmployeeController');
+const { getCompanyRatingController } = require('../controllers/companies');
+const { getRatingEmployeeController } = require('../controllers/employees');
+
 const router = express.Router();
 
 // Obtaining rates

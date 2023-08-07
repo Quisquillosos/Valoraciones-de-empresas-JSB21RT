@@ -1,5 +1,6 @@
 // Importing db
 const getDb = require('../db/getDb');
+const { isEmployeeValidatedError } = require('../services/errorService');
 
 // Intermediate controller function that checks if the employee is validated
 const isEmployeeValidated = async (req, res, next) => {
@@ -16,11 +17,7 @@ const isEmployeeValidated = async (req, res, next) => {
         if (active[0].confirmed) {
             next();
         } else {
-            res.send({
-                status: 'error',
-                code: '404',
-                message: 'Employee is not validated',
-            });
+            isEmployeeValidatedError();
         }
     } catch (err) {
         next(err);

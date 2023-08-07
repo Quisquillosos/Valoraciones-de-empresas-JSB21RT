@@ -2,7 +2,10 @@
 const getDb = require('../db/getDb');
 
 // Importing errors
-const { invalidCredentialsError } = require('../services/errorService');
+const {
+    invalidCredentialsError,
+    isRecoverPassForgottenValidError,
+} = require('../services/errorService');
 
 // Intermediate controller function that checks if the recovered passCode is valid
 const isRecoverPassForgottenValid = async (req, res, next) => {
@@ -29,11 +32,7 @@ const isRecoverPassForgottenValid = async (req, res, next) => {
         if (dbPassCode[0].recoverPassCode === passCode) {
             next();
         } else {
-            res.send({
-                status: 'error',
-                code: '404',
-                message: 'Invalid password',
-            });
+            isRecoverPassForgottenValidError();
         }
     } catch (err) {
         next(err);

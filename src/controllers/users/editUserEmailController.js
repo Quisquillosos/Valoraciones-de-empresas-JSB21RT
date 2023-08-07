@@ -2,6 +2,8 @@ const randomstring = require('randomstring');
 
 // Importing models
 const updateUserEmailModel = require('../../models/users/uptadeUserEmailModel');
+const validateSchemaService = require('../../services/validateSchemaService');
+const editUserEmailSchema = require('../../schemas/users/editUserEmailSchema');
 
 const editUserEmailController = async (req, res, next) => {
     try {
@@ -9,6 +11,8 @@ const editUserEmailController = async (req, res, next) => {
 
         // Creating the registration code
         const registrationCode = randomstring.generate(30);
+
+        await validateSchemaService(editUserEmailSchema, req.body);
 
         await updateUserEmailModel(
             oldPass,

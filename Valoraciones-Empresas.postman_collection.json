@@ -1,647 +1,575 @@
 {
-	"info": {
-		"_postman_id": "d787ab56-aa6b-417c-aadc-3591daa42c4f",
-		"name": "Valoraciones-Empresas",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27959049"
-	},
-	"item": [
-		{
-			"name": "users",
-			"item": [
-				{
-					"name": "User register",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"Angie\",\r\n    \"lastName\":\"Puime\",\r\n    \"email\": \"angela.puime@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/register",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "validate user",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/users/validate/sC1PlWBkh59MMDrdBM5YvmOIzuNZPr",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"validate",
-								"sC1PlWBkh59MMDrdBM5YvmOIzuNZPr"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Users Login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"angela.puime@gmail.com\",\n    \"password\": \"123456\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get own user",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user1token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get public user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/users/0a6c8963-5b84-4b85-b697-05ad0ade4fc6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"0a6c8963-5b84-4b85-b697-05ad0ade4fc6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Updating password",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user1token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"oldPass\": \"1234567\",\n    \"newPass\": \"123456\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/password",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"password"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Updating Email",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user1token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"oldPass\":\"123456\",\r\n    \"newEmail\":\"d.rodriguez.gonzalez.123@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/email",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"email"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Send Recover Pass Code",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"d.rodriguez.gonzalez.123@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/password/recover",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"password",
-								"recover"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Reset password",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user1token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"newPass\":\"1234567\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/password/reset/qyIWOOdsvP",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"password",
-								"reset",
-								"qyIWOOdsvP"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Edit profile",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user1token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "photo",
-									"type": "file",
-									"src": "/C:/Users/angel/Desktop/Dog 3D/hoodie.png",
-									"disabled": true
-								},
-								{
-									"key": "bio",
-									"value": "",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/profile",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"profile"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "New employee",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user3Angie}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"position\": \"esclavo\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/employee/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"employee",
-								"d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "companies",
-			"item": [
-				{
-					"name": "New Company",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user1David}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "La Empresa de David",
-									"type": "text"
-								},
-								{
-									"key": "country",
-									"value": "spain",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "Santiago de compostela",
-									"type": "text"
-								},
-								{
-									"key": "photo",
-									"type": "file",
-									"src": "/C:/Users/angel/Desktop/Dog 3D/11111111111111111111111111111111.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8000/companies",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"companies"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Confirm Employee",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/companies/employee/wO7vWbp08Cu583BUznz8xcUDGdAKOj",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"companies",
-								"employee",
-								"wO7vWbp08Cu583BUznz8xcUDGdAKOj"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Edit company profile",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user1token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Quisquillosos SA",
-									"type": "text"
-								},
-								{
-									"key": "country",
-									"value": "Moldavia",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "Chisinau",
-									"type": "text"
-								},
-								{
-									"key": "photo",
-									"type": "file",
-									"src": "/C:/Users/dimas/Desktop/Hack a Boss/clase3-html/clase03-tienda bebes/img/felicidad fisica.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8000/companies/profile/560ad267-88c7-45c9-ba1d-0f411786c93b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"companies",
-								"profile",
-								"560ad267-88c7-45c9-ba1d-0f411786c93b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List Companies",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/companies?keyword=Vigo",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"companies"
-							],
-							"query": [
-								{
-									"key": "keyword",
-									"value": "moldavia",
-									"disabled": true
-								},
-								{
-									"key": "keyword",
-									"value": "Vigo"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Company",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/companies/560ad267-88c7-45c9-ba1d-0f411786c93b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"companies",
-								"560ad267-88c7-45c9-ba1d-0f411786c93b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "rating companies",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{user3Angie}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"salary\":\"4\",\r\n\"workEnvironment\":\"1\",\r\n\"promotionPosibility\":\"5\",\r\n\"accesibility\":\"2\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/ratings/companies/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"ratings",
-								"companies",
-								"d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "company ratings",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/ratings/companies/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"ratings",
-								"companies",
-								"d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "employee's ratings",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/ratings/employees/e1cd3d22-b239-4fe6-997e-5ab81f58133e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"ratings",
-								"employees",
-								"e1cd3d22-b239-4fe6-997e-5ab81f58133e"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "user1David",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"key": "user2Dimas",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"key": "user3Angie",
-			"value": "",
-			"type": "string"
-		}
-	]
+    "info": {
+        "_postman_id": "d787ab56-aa6b-417c-aadc-3591daa42c4f",
+        "name": "Valoraciones-Empresas",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "27959049"
+    },
+    "item": [
+        {
+            "name": "users",
+            "item": [
+                {
+                    "name": "User register",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"firstName\":\"Angie\",\r\n    \"lastName\":\"Puime\",\r\n    \"email\": \"angela.puime@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/register",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users", "register"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "validate user",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8000/users/validate/sC1PlWBkh59MMDrdBM5YvmOIzuNZPr",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "users",
+                                "validate",
+                                "sC1PlWBkh59MMDrdBM5YvmOIzuNZPr"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Users Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"angela.puime@gmail.com\",\n    \"password\": \"123456\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/login",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users", "login"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get own user",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user1token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:8000/users",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get public user",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8000/users/0a6c8963-5b84-4b85-b697-05ad0ade4fc6",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "users",
+                                "0a6c8963-5b84-4b85-b697-05ad0ade4fc6"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Updating password",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user1token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"oldPass\": \"1234567\",\n    \"newPass\": \"123456\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/password",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users", "password"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Updating Email",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user1token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"oldPass\":\"123456\",\r\n    \"newEmail\":\"d.rodriguez.gonzalez.123@gmail.com\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/email",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users", "email"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Send Recover Pass Code",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"email\":\"d.rodriguez.gonzalez.123@gmail.com\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/password/recover",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users", "password", "recover"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reset password",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user1token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"newPass\":\"1234567\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/password/reset/qyIWOOdsvP",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users", "password", "reset", "qyIWOOdsvP"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Edit profile",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user1token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "photo",
+                                    "type": "file",
+                                    "src": "/C:/Users/angel/Desktop/Dog 3D/hoodie.png",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "bio",
+                                    "value": "",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/profile",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["users", "profile"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "New employee",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user3Angie}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"position\": \"esclavo\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/users/employee/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "users",
+                                "employee",
+                                "d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "companies",
+            "item": [
+                {
+                    "name": "New Company",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user1David}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "La Empresa de David",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "spain",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "Santiago de compostela",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "photo",
+                                    "type": "file",
+                                    "src": "/C:/Users/angel/Desktop/Dog 3D/11111111111111111111111111111111.jpg"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/companies",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["companies"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Confirm Employee",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8000/companies/employee/wO7vWbp08Cu583BUznz8xcUDGdAKOj",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "companies",
+                                "employee",
+                                "wO7vWbp08Cu583BUznz8xcUDGdAKOj"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Edit company profile",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user1token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Quisquillosos SA",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "Moldavia",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "Chisinau",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "photo",
+                                    "type": "file",
+                                    "src": "/C:/Users/dimas/Desktop/Hack a Boss/clase3-html/clase03-tienda bebes/img/felicidad fisica.jpg"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/companies/profile/560ad267-88c7-45c9-ba1d-0f411786c93b",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "companies",
+                                "profile",
+                                "560ad267-88c7-45c9-ba1d-0f411786c93b"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Companies",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8000/companies?keyword=Vigo",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": ["companies"],
+                            "query": [
+                                {
+                                    "key": "keyword",
+                                    "value": "moldavia",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "keyword",
+                                    "value": "Vigo"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Company",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8000/companies/560ad267-88c7-45c9-ba1d-0f411786c93b",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "companies",
+                                "560ad267-88c7-45c9-ba1d-0f411786c93b"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "rating companies",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{user3Angie}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n\"salary\":\"4\",\r\n\"workEnvironment\":\"1\",\r\n\"promotionPosibility\":\"5\",\r\n\"accesibility\":\"2\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8000/ratings/companies/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "ratings",
+                                "companies",
+                                "d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "company ratings",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8000/ratings/companies/d67689ba-bf3e-483b-ab3c-a46bc6d360a2",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "ratings",
+                                "companies",
+                                "d67689ba-bf3e-483b-ab3c-a46bc6d360a2"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "employee's ratings",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8000/ratings/employees/e1cd3d22-b239-4fe6-997e-5ab81f58133e",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8000",
+                            "path": [
+                                "ratings",
+                                "employees",
+                                "e1cd3d22-b239-4fe6-997e-5ab81f58133e"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "user1David",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "user2Dimas",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "user3Angie",
+            "value": "",
+            "type": "string"
+        }
+    ]
 }

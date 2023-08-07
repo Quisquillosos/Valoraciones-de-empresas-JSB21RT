@@ -2,22 +2,28 @@
 const express = require('express');
 const router = express.Router();
 
+const {
+    userExists,
+    authUser,
+    isRecoverPassForgottenValid,
+    companyExists,
+    employeeAlreadyExists,
+} = require('../middlewares');
+
 // Importing final controller functions
-const newUserController = require('../controllers/users/newUserController');
-const validateUserController = require('../controllers/users/validateUserController');
-const loginUserController = require('../controllers/users/loginUserController');
-const userExists = require('../middlewares/userExists');
-const getUserProfileController = require('../controllers/users/getUserProfileController');
-const authUser = require('../middlewares/authUser');
-const getOwnUserController = require('../controllers/users/getOwnUserController');
-const editUserPassController = require('../controllers/users/editUserPassController');
-const editUserEmailController = require('../controllers/users/editUserEmailController');
-const sendRecoverPassController = require('../controllers/users/sendRecoverPassController');
-const editForgottenPassController = require('../controllers/users/editForgottenPassController');
-const isRecoverPassForgottenValid = require('../middlewares/isRecoverPassForgottenValid');
-const editUserProfileController = require('../controllers/users/editUserProfileController');
-const companyExists = require('../middlewares/companyExists');
-const newEmployeeController = require('../controllers/employees/newEmployeeController');
+const {
+    editForgottenPassController,
+    editUserEmailController,
+    validateUserController,
+    sendRecoverPassController,
+    newUserController,
+    loginUserController,
+    getUserProfileController,
+    getOwnUserController,
+    editUserProfileController,
+    editUserPassController,
+} = require('../controllers/users');
+const { newEmployeeController } = require('../controllers/employees');
 
 // Creating a user pending activation
 router.post('/users/register', newUserController);
@@ -60,6 +66,7 @@ router.post(
     authUser,
     userExists,
     companyExists,
+    employeeAlreadyExists,
     newEmployeeController
 );
 

@@ -49,7 +49,7 @@ This is the repository of the project "Company Ratings," a search portal for com
 | id                  | CHAR(36) | Unique identifier for the rating |
 | salary              | TINYINT  | Salary rating                    |
 | workEnvironment     | TINYINT  | Work environment rating          |
-| promotionPosibility | TINYINT  | Promotion possibility rating     |
+| promotionPosibility | TINYINT  | Promotion Posibility rating      |
 | accessibility       | TINYINT  | Company accessibility rating     |
 | companyId           | CHAR(36) | Company ID (foreign key)         |
 | userId              | CHAR(36) | User ID (foreign key)            |
@@ -92,7 +92,7 @@ This is the repository of the project "Company Ratings," a search portal for com
 
 ## Ratings Endpoints
 
--   **POST** - [`/ratings/companies/:companyId`] - Allows validated employees to make a rating for a company by providing the employee ID and ratings for aspects (work environment, accessibility, salaries, promotion possibility). ✅
+-   **POST** - [`/ratings/companies/:companyId`] - Allows validated employees to make a rating for a company by providing the employee ID and ratings for aspects (work environment, accessibility, salaries, promotion Posibility). ✅
 -   **GET** - [`/ratings/companies/:companyId`] - Retrieves a list of all ratings associated with the company with the provided ID.✅
 
 ## Additional Endpoints

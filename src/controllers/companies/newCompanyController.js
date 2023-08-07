@@ -1,5 +1,7 @@
 // Importing models
 const insertCompanyModel = require('../../models/companies/insertCompanyModel');
+const newCompanySchema = require('../../schemas/companies/newCompanySchema');
+const validateSchemaService = require('../../services/validateSchemaService');
 
 // Final controller function to create a new company
 const newCompanyController = async (req, res, next) => {
@@ -8,7 +10,11 @@ const newCompanyController = async (req, res, next) => {
         const { name, country, city } = req.body;
 
         // Obtaining photo from req.files
-        const photo = req.files.photo;
+        const { photo } = req.files;
+
+        const data = { name, country, city, photo };
+
+        await validateSchemaService(newCompanySchema, data);
 
         // Obtaining userId from req.user
         const userId = req.user.id;

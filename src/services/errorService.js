@@ -27,11 +27,33 @@ module.exports = {
             message: 'This email is already created',
         };
     },
+    employeeAlreadyExistsError() {
+        throw {
+            httpStatus: 409, // Conflict
+            code: 'EMPLOYEE_ALREADY_EXISTS',
+            message:
+                'Employee already exists. You cannot create a new employee',
+        };
+    },
     invalidCredentialsError() {
         throw {
             httpStatus: 401, // Unauthorized
             code: 'INVALID_CREDENTIALS',
             message: 'Invalid credentials',
+        };
+    },
+    isEmployeeValidatedError() {
+        throw {
+            httpStatus: '400',
+            code: 'EMPLOYEE_NOT_VALIDATED',
+            message: 'Employee is not validated',
+        };
+    },
+    isRecoverPassForgottenValidError() {
+        throw {
+            httpStatus: '400',
+            code: 'PASS_NOT_VALIDATED',
+            message: 'Pass is not validated',
         };
     },
     notAuthenticatedError() {
