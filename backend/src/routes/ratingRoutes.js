@@ -15,7 +15,7 @@ const { getRatingEmployeeController } = require('../controllers/employees');
 
 const router = express.Router();
 
-// Obtaining rates
+// Rating company
 router.post(
     '/ratings/companies/:companyId',
     authUser,

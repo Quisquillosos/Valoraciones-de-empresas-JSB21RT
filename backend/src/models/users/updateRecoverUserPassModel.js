@@ -19,7 +19,7 @@ const updateRecoverUserPassModel = async (email, recoverPassCode) => {
             `UPDATE users SET recoverPassCode = ? WHERE email = ?`,
             [recoverPassCode, email]
         );
-        
+
         const emailSubject = 'Recover your password';
 
         const emailBody = `
@@ -27,7 +27,7 @@ const updateRecoverUserPassModel = async (email, recoverPassCode) => {
 
             To recover your password click on the link below:
 
-            <a href="http://localhost:8000/users/validate/${recoverPassCode}">Recover password</a>
+            <a href="http://localhost:8000/users/password/reset/${recoverPassCode}">Recover password</a>
         `;
 
         // Sending the recovering password email to the user

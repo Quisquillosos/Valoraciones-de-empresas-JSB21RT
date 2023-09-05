@@ -8,9 +8,9 @@ const selectUserByIdModel = async (userId) => {
     try {
         connection = await getDb();
 
-        // Checking info about a unique user 
+        // Checking info about a unique user
         const [users] = await connection.query(
-            `SELECT id, firstName, lastName, email, photo, bio, createdAt FROM users WHERE id = ?`,
+            `SELECT id, firstName, lastName, email, photo, bio, active, createdAt FROM users WHERE id = ?`,
             [userId]
         );
 

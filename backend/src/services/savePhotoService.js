@@ -40,8 +40,7 @@ const savePhotoService = async (img, width) => {
 
         // Returning the name with wich we saved the image
         return imgName;
-    } catch (err) {
-        console.error(err);
+    } catch {
         saveFileError();
     }
 };

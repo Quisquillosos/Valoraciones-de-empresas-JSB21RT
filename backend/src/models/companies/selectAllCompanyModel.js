@@ -16,7 +16,7 @@ const selectAllCompanyModel = async (keyword = '') => {
                     name,
                     country, 
                     city,
-                    photo                   
+                    photo        
                 FROM companies 
                 WHERE name LIKE ? OR country LIKE ? OR city LIKE ?
                 ORDER BY name 

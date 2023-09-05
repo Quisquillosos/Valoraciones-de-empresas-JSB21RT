@@ -60,14 +60,14 @@ module.exports = {
         throw {
             httpStatus: 401, // Unauthorized
             code: 'NOT_AUTHENTICATED',
-            message: `You must send a token in the header'Authorization'`,
+            message: `You must send a token in the header 'Authorization'`,
         };
     },
     notFoundError(resource) {
         throw {
             httpStatus: 404, // Not Found
             code: 'RESOURCE_NOT_FOUND',
-            message: `Required resource'${resource}' doesn't exist`,
+            message: `Required resource '${resource}' doesn't exist`,
         };
     },
     pendingActivationError() {

@@ -53,7 +53,6 @@ router.post('/users/password/recover', sendRecoverPassController);
 // Resetting password
 router.put(
     '/users/password/reset/:recoverPassCode',
-    authUser,
     isRecoverPassForgottenValid,
     editForgottenPassController
 );

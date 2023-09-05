@@ -35,6 +35,12 @@ const insertEmployeeModel = async (
             [companyId]
         );
 
+        // Obtaining employee data to confirm user
+        let [employeeData] = await connection.query(
+            `SELECT firstName, lastName FROM users WHERE id = ?`,
+            [userId]
+        );
+
         const email = companyOwner[0].email;
 
         // Creating subject of the confirmation email
@@ -44,9 +50,9 @@ const insertEmployeeModel = async (
         const emailBody = `
             Welcome!
 
-            To validate your employee, click on the link below:
+            To validate your employee ${employeeData[0].firstName} ${employeeData[0].lastName}, click on the link below:
 
-            <a href="http://localhost:8000/companies/employees/${validationCode}">Confirm the employee</a>
+            <a href="http://localhost:8000/companies/employee/${validationCode}">Confirm the employee</a>
         `;
 
         // Sending the verification email to the user

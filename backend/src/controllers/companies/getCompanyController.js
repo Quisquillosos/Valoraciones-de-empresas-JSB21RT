@@ -1,5 +1,6 @@
 // Importing models
 const selectCompanyByIdModel = require('../../models/companies/selectCompanyByIdModel');
+const { notFoundError } = require('../../services/errorService');
 
 const getCompanyController = async (req, res, next) => {
     try {
@@ -9,9 +10,10 @@ const getCompanyController = async (req, res, next) => {
         // Obtaining the company's data
         const companies = await selectCompanyByIdModel(companyId);
 
+        if (!companies) notFoundError('company');
+
         // Deleting the company's private data
         delete companies.id;
-        delete companies.userId;
 
         res.send({
             status: 'ok',

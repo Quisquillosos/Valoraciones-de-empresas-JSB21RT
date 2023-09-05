@@ -11,10 +11,14 @@ const isEmployeeValidated = async (req, res, next) => {
 
         connection = await getDb();
 
+        const { companyId } = req.params;
+
         const [active] = await connection.query(
-            `SELECT confirmed FROM employees WHERE userId = ?`,
-            [req.user.id]
+            `SELECT confirmed FROM employees WHERE userId = ? AND companyId = ?`,
+            [req.user.id, companyId]
         );
+
+        if (!active[0]) isEmployeeValidatedError();
 
         if (active[0].confirmed) {
             next();

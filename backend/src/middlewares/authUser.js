@@ -10,7 +10,6 @@ const {
 // Intermediate controller function that decrypts the token and creates the property "req.user"
 const authUser = async (req, res, next) => {
     try {
-
         const { authorization } = req.headers;
 
         if (!authorization) {
@@ -22,8 +21,7 @@ const authUser = async (req, res, next) => {
 
         try {
             tokenInfo = jwt.verify(authorization, process.env.SECRET);
-        } catch (err) {
-            console.error(err);
+        } catch {
             invalidCredentialsError();
         }
 

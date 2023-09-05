@@ -28,8 +28,7 @@ const sendMailService = async (email, subject, body) => {
         };
 
         await transport.sendMail(mailOptions);
-    } catch (err) {
-        console.error(err);
+    } catch {
         sendEmailError();
     }
 };

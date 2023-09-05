@@ -6,6 +6,7 @@ const validateSchemaService = require('../../services/validateSchemaService');
 
 // Importing Schemas
 const newCompanySchema = require('../../schemas/companies/newCompanySchema');
+const selectCompanyByNameModel = require('../../models/companies/selectCompanyByNameModel');
 
 // Final controller function to create a new company
 const newCompanyController = async (req, res, next) => {
@@ -32,9 +33,11 @@ const newCompanyController = async (req, res, next) => {
             userId,
         });
 
+        const company = await selectCompanyByNameModel(name);
+
         res.send({
             status: 'ok',
-            message: 'Company created. Cheers mate',
+            data: { id: company.id },
         });
     } catch (err) {
         next(err);

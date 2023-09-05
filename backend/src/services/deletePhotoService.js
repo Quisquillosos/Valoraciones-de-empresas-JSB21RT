@@ -26,8 +26,7 @@ const deletePhotoService = async (imgName) => {
 
         // Deleting the file from the upload folder
         await fs.unlink(imgPath);
-    } catch (err) {
-        console.error(err);
+    } catch {
         deleteFileError();
     }
 };

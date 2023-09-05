@@ -85,7 +85,7 @@ This is the repository of the project "Company Ratings," a search portal for com
 ## Company Endpoints
 
 -   **POST** - [`/companies`] - Allows registered users to publish a new company by providing the name, city, and country. ✅
--   **PUT** - [`/companies/employees/:validationCode`] - Confirm by email to accept the employee. ➡️ `Token`✅
+-   **PUT** - [`/companies/employee/:validationCode`] - Confirm by email to accept the employee. ➡️ `Token`✅
 -   **PUT** - [`/companies/profile/:companyId`] - Updates companies profile. ➡️ `Token` ✅
 -   **GET** - [`/companies`] - Retrieves a list of companies (can be filtered by name, city, country). ✅
 -   **GET** - [`/companies/:companyId`] - Retrieves all info about a specific company. ✅

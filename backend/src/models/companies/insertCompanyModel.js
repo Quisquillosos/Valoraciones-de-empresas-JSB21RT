@@ -54,7 +54,7 @@ const insertCompanyModel = async ({ name, country, city, photo, userId }) => {
         const email = userCompany[0].email;
 
         // Creating subject of the verification email
-        const emailSubject = 'Activate your company profile';
+        const emailSubject = 'Welcome to AwaitQ';
 
         // Creating email content
         const emailBody = `

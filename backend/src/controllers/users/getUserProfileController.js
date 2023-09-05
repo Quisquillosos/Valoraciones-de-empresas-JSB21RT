@@ -1,5 +1,9 @@
 // Importing models
 const selectUserByIdModel = require('../../models/users/selectUserByIdModel');
+const {
+    notValidatedUserError,
+    pendingActivationError,
+} = require('../../services/errorService');
 
 const getUserProfileController = async (req, res, next) => {
     try {
@@ -8,6 +12,8 @@ const getUserProfileController = async (req, res, next) => {
 
         // Obtaining the user's data
         const user = await selectUserByIdModel(userId);
+
+        if (!user.active) pendingActivationError();
 
         // Deleting the user's private data
         delete user.email;
