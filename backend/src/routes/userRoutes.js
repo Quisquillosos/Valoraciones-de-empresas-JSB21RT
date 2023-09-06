@@ -30,7 +30,7 @@ const { newEmployeeController } = require('../controllers/employees');
 router.post('/users/register', newUserController);
 
 // Validating a user
-router.put('/users/validate/:registrationCode', validateUserController);
+router.get('/users/validate/:registrationCode', validateUserController);
 
 // User login
 router.post('/users/login', loginUserController);

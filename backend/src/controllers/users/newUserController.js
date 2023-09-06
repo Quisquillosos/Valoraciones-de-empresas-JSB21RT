@@ -10,7 +10,7 @@ const validateSchemaService = require('../../services/validateSchemaService');
 // Importing schemas
 const newUserSchema = require('../../schemas/users/newUserSchema');
 
-newUserSchema
+newUserSchema;
 // Final controller function to create a new user
 const newUserController = async (req, res, next) => {
     try {
