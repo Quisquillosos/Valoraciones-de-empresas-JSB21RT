@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { signUpUserService } from "../services";
 import { useNavigate } from "react-router-dom";
+import "./SignUpPage.module.css";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -20,9 +21,8 @@ const SignUpPage = () => {
     }
 
     try {
-     
       await signUpUserService({ firstName, lastName, email, password: pass1 });
-  
+
       navigate("/users/login");
     } catch (error) {
       setError(error.message);

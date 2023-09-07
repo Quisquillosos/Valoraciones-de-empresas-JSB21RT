@@ -1,7 +1,6 @@
-const RatingsPage = ()=>{
-    return (
-        
-        <div>PublicProfileUserPage</div>
-    )
-}
-export default RatingsPage
+import "./RatingsPage.module.css";
+
+const RatingsPage = () => {
+  return <div>PublicProfileUserPage</div>;
+};
+export default RatingsPage;

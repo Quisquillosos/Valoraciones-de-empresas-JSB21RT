@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Auth = () => {
   const { user, logout } = useContext(AuthContext);
@@ -13,10 +13,10 @@ export const Auth = () => {
   ) : (
     <ul>
       <li>
-        <Link to={"/register"}>Register</Link>
+        <Link to={"/users/register"}>Register</Link>
       </li>
       <li>
-        <Link to={"/login"}>Login</Link>
+        <Link to={"/users/login"}>Login</Link>
       </li>
     </ul>
   );
