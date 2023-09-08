@@ -12,7 +12,7 @@ const useCompany = (id) => {
         setLoading(true);
         const data = await getSingleCompanyService(id);
 
-        setCompanyData(data);
+        setCompanyData(data.companies);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -21,8 +21,6 @@ const useCompany = (id) => {
     };
 
     loadCompanyData();
-    console.log("holaa");
-    console.log(companyData);
   }, [id]);
 
   return { companyData, loading, error };

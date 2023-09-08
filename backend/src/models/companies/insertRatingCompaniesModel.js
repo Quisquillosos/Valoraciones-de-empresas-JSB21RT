@@ -21,7 +21,7 @@ const insertRatingCompaniesModel = async (
 
     try {
         connection = await getDb();
-        console.log('HOLAAAA');
+       
 
         // Checking if there is already a previous rate by the user who is attempting to rate
         const [ratings] = await connection.query(

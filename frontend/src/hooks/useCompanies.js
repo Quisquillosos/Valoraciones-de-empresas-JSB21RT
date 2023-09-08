@@ -1,30 +1,30 @@
-import { useEffect, useState } from 'react';
-import { getAllCompaniesService } from '../services';
+import { useEffect, useState } from "react";
+import { getAllCompaniesService } from "../services";
 
 const useCompanies = () => {
-    const [companiesList, setCompaniesList] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+  const [companiesList, setCompaniesList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-    useEffect(() => {
-        const loadCompanies = async () => {
-            try {
-                setLoading(true);
+  useEffect(() => {
+    const loadCompanies = async () => {
+      try {
+        setLoading(true);
 
-                const data = await getAllCompaniesService();
+        const data = await getAllCompaniesService();
+        
+        setCompaniesList(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-                setCompaniesList(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+    loadCompanies();
+  }, []);
 
-        loadCompanies();
-    }, []);
-
-    return { companiesList, loading, error };
+  return { companiesList, loading, error };
 };
 
 export default useCompanies;

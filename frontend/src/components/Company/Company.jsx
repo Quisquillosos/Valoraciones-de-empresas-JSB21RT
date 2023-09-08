@@ -1,6 +1,6 @@
 const Company = ({ company }) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const companyRatings = company?.totalAvgRatings.slice(0, 4);
+  const companyRatings = company?.totalAvgRatings?.slice(0, 4);
 
   return (
     <article className="companyData">
@@ -10,9 +10,10 @@ const Company = ({ company }) => {
         alt={company?.bio}
       />
       <p>{`${company?.country}, ${company?.city}`}</p>
-      <p>{`${companyRatings}⭐`}</p>
+      {companyRatings && <p>{`${companyRatings}⭐`}</p>}
     </article>
   );
 };
+
 
 export default Company;

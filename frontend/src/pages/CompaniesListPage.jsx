@@ -1,14 +1,19 @@
-import ListCompanies from '../components/ListCompanies/ListCompanies';
-import useCompanies from '../hooks/useCompanies';
-import './CompaniesListPage.module.css';
+import ListCompanies from "../components/ListCompanies/ListCompanies";
+import useCompanies from "../hooks/useCompanies";
+import "./CompaniesListPage.module.css";
 
 const CompaniesListPage = () => {
-    const { companiesList, loading, error } = useCompanies();
+  const { companiesList, loading, error } = useCompanies();
 
-    if (loading) return <div>error</div>;
-    console.log(companiesList);
-    if (error) return <div>laoding</div>;
+  if (loading) return <div>loading</div>;
 
-    return <ListCompanies companies={companiesList.companies} />;
+  if (error) return <div>error</div>;
+
+  return (
+    <div>
+      <ListCompanies companies={companiesList.companies} /> 
+    </div>
+  );
 };
+
 export default CompaniesListPage;

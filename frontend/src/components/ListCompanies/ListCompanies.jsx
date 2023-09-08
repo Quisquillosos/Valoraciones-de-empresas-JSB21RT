@@ -5,7 +5,7 @@ const ListCompanies = ({ companies }) => {
   return companies.length ? (
     <ul className="companiesList">
       {companies.map((company) => {
-        console.log(company);
+
         return (
           <li key={company.name}>
             <Company company={company} />

@@ -23,7 +23,7 @@ function App() {
         <Route path="/users" element={<PrivateUserProfilePage />} />
         <Route path="/users/:userId" element={<PublicProfileUserPage />} />
         <Route path="/companies" element={<CompaniesListPage />} />
-        <Route path="/companies/:id" element={<SingleCompanyPage />} />
+        <Route path="/companies/:companyId" element={<SingleCompanyPage />} />
         <Route
           path="/companies/profile/:companyId"
           element={<CompanyProfilePage />}

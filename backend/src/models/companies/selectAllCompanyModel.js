@@ -25,7 +25,7 @@ const selectAllCompanyModel = async (keyword = '') => {
                     (AVG(RC.salary) + AVG(RC.workEnvironment) + AVG(RC.promotionPosibility) + AVG(RC.accesibility)) / 4 AS totalAvgRatings,
                     RC.review
                 FROM companies C 
-                INNER JOIN ratingCompanies RC ON C.id = RC.companyId
+                LEFT JOIN ratingCompanies RC ON C.id = RC.companyId
                 WHERE name LIKE ? OR country LIKE ? OR city LIKE ?
                 GROUP BY 
                     C.id,
