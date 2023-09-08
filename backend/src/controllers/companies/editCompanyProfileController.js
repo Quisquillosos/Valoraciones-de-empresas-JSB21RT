@@ -15,11 +15,11 @@ const editCompanyProfileSchema = require('../../schemas/companies/editCompanyPro
 
 const editCompanyProfileController = async (req, res, next) => {
     try {
-        const { name, country, city } = req.body || '';
+        const { name, country, city, bio } = req.body || '';
 
         const { photo } = req.files || {};
 
-        const data = { name, country, city, photo };
+        const data = { name, country, city, bio, photo };
 
         await validateSchemaService(editCompanyProfileSchema, data);
 
@@ -51,6 +51,7 @@ const editCompanyProfileController = async (req, res, next) => {
             name,
             country,
             city,
+            bio,
             photoName || '',
             companyId
         );

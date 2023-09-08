@@ -3,6 +3,8 @@ const joi = require('joi');
 
 // Modifying the joi error messages we need
 const joiErrorMessages = {
+    'string.base': 'The value of "{#key}" must be a string',
+    'string.empty': 'The field "{#key}" must not be empty',
     'any.required': 'The field "{#key}" is required',
     'number.base': 'The value of "{#key}" must be a number',
     'number.min': 'The value of "{#key}" must be greater than or equal to 1',
@@ -40,6 +42,7 @@ const ratingCompaniesSchema = joi.object({
         .max(5)
         .required()
         .messages(joiErrorMessages),
+    review: joi.string().messages(joiErrorMessages),
 });
 
 module.exports = ratingCompaniesSchema;

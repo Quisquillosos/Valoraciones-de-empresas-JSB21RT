@@ -16,6 +16,7 @@ const editCompanyProfileSchema = joi.object({
     name: joi.string().messages(joiErrorMessages),
     country: joi.string().messages(joiErrorMessages),
     city: joi.string().messages(joiErrorMessages),
+    bio: joi.string().messages(joiErrorMessages),
     photo: joi
         .object({
             name: joi.string().messages(joiErrorMessages),

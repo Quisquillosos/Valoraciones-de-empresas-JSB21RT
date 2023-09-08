@@ -32,7 +32,7 @@ export const AuthContextProviderComponent = ({ children }) => {
   };
 
   const login = (token) => {
-    setToken(token);
+    setToken(token.token);
   };
 
   return (

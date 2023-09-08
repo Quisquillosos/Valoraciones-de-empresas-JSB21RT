@@ -17,6 +17,7 @@ const newCompanySchema = joi.object({
     name: joi.string().required().messages(joiErrorMessages),
     country: joi.string().required().messages(joiErrorMessages),
     city: joi.string().required().messages(joiErrorMessages),
+    bio: joi.string().required().messages(joiErrorMessages),
     photo: joi
         .object({
             name: joi.string().messages(joiErrorMessages),

@@ -18,7 +18,7 @@ const confirmEmployeeController = require('../controllers/employees/confirmEmplo
 router.post('/companies', authUser, userExists, newCompanyController);
 
 // Confirming employee
-router.put('/companies/employee/:validationCode', confirmEmployeeController);
+router.get('/companies/employee/:validationCode', confirmEmployeeController);
 
 // Editing company profile
 router.put(

@@ -10,7 +10,7 @@ const selectCompanyByNameModel = async (name) => {
 
         // Checking info about a company
         const [companies] = await connection.query(
-            `SELECT id, name, country, city, photo, userId, createdAt FROM companies WHERE name = ?`,
+            `SELECT id, name, country, city, bio, photo, userId, createdAt FROM companies WHERE name = ?`,
             [name]
         );
 

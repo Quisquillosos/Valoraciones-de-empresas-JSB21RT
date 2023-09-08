@@ -13,6 +13,7 @@ const insertRatingCompaniesModel = async (
     workEnvironment,
     promotionPosibility,
     accesibility,
+    review,
     userId,
     companyId
 ) => {
@@ -20,6 +21,7 @@ const insertRatingCompaniesModel = async (
 
     try {
         connection = await getDb();
+        console.log('HOLAAAA');
 
         // Checking if there is already a previous rate by the user who is attempting to rate
         const [ratings] = await connection.query(
@@ -33,13 +35,14 @@ const insertRatingCompaniesModel = async (
 
         // Inserting rate
         await connection.query(
-            `INSERT INTO ratingCompanies(id, salary, workEnvironment, promotionPosibility, accesibility, userId, companyId) VALUES(?, ?, ?, ?, ?, ?, ?)`,
+            `INSERT INTO ratingCompanies(id, salary, workEnvironment, promotionPosibility, accesibility, review, userId, companyId) VALUES(?, ?, ?, ?, ?, ?, ?, ?)`,
             [
                 uuid.v4(),
                 salary,
                 workEnvironment,
                 promotionPosibility,
                 accesibility,
+                review,
                 userId,
                 companyId,
             ]
@@ -51,10 +54,11 @@ const insertRatingCompaniesModel = async (
                 AVG(salary) AS salaryAvg,
                 AVG(workEnvironment) AS workEnvironmentAvg,
                 AVG(promotionPosibility) AS promotionPosibilityAvg,
-                AVG(accesibility) AS accesibilityAvg
+                AVG(accesibility) AS accesibilityAvg,
+                review
             FROM ratingCompanies
             WHERE companyId = ?
-            GROUP BY companyId;`,
+            GROUP BY companyId, review`,
             [companyId]
         );
 
@@ -66,6 +70,7 @@ const insertRatingCompaniesModel = async (
                 ratingsAvg[0].promotionPosibilityAvg
             ),
             accesibilityAvg: Number(ratingsAvg[0].accesibilityAvg),
+            review,
         };
     } finally {
         if (connection) connection.release();

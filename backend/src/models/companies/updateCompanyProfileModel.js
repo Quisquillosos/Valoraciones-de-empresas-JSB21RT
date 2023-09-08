@@ -9,6 +9,7 @@ const updateCompanyProfileModel = async (
     name,
     country,
     city,
+    bio,
     photoName,
     companyId
 ) => {
@@ -21,11 +22,12 @@ const updateCompanyProfileModel = async (
         if (!name) name = company.name;
         if (!country) country = company.country;
         if (!city) city = company.city;
+        if (!bio) bio = company.bio;
         if (!photoName) photoName = company.photo;
 
         await connection.query(
-            `UPDATE companies SET name = ?, country = ?, city = ?, photo = ? WHERE id = ?`,
-            [name, country, city, photoName, companyId]
+            `UPDATE companies SET name = ?, country = ?, city = ?, bio = ?, photo = ? WHERE id = ?`,
+            [name, country, city, bio, photoName, companyId]
         );
     } finally {
         if (connection) connection.release();

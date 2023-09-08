@@ -16,13 +16,19 @@ const ratingCompaniesController = async (req, res, next) => {
     try {
         const { companyId } = req.params;
 
-        const { salary, workEnvironment, promotionPosibility, accesibility } =
-            req.body;
+        const {
+            salary,
+            workEnvironment,
+            promotionPosibility,
+            accesibility,
+            review,
+        } = req.body;
 
         await validateSchemaService(ratingCompaniesSchema, req.body);
 
         // Obtaining the details of the company
         const company = await selectCompanyByIdModel(companyId);
+        console.log('HOLAAA');
 
         // If we are the owners of the company we launch an error
         if (company.userId === req.user.id) {
@@ -35,6 +41,7 @@ const ratingCompaniesController = async (req, res, next) => {
             workEnvironment,
             promotionPosibility,
             accesibility,
+            review,
             req.user.id,
             companyId
         );

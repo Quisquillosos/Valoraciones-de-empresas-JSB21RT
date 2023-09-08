@@ -12,12 +12,12 @@ const selectCompanyByNameModel = require('../../models/companies/selectCompanyBy
 const newCompanyController = async (req, res, next) => {
     try {
         // Obtaining data from body
-        const { name, country, city } = req.body;
+        const { name, country, city, bio } = req.body;
 
         // Obtaining photo from req.files
         const { photo } = req.files;
 
-        const data = { name, country, city, photo };
+        const data = { name, country, city, bio, photo };
 
         await validateSchemaService(newCompanySchema, data);
 
@@ -30,6 +30,7 @@ const newCompanyController = async (req, res, next) => {
             country,
             city,
             photo,
+            bio,
             userId,
         });
 

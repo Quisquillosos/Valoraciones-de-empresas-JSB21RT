@@ -5,7 +5,14 @@ const getDb = require('../../db/getDb');
 const selectCompanyByNameModel = require('./selectCompanyByNameModel');
 
 // Function that performs a database query to update a company's profile info
-const updateCompanyProfileModel = async (name, country, city, photoName, companyId) => {
+const updateCompanyProfileModel = async (
+    name,
+    country,
+    city,
+    bio,
+    photoName,
+    companyId
+) => {
     let connection;
 
     try {
@@ -15,10 +22,9 @@ const updateCompanyProfileModel = async (name, country, city, photoName, company
 
         if (!name) name = company.name;
 
-
         await connection.query(
-            `UPDATE companies SET name = ?, country = ?, city = ?, photo = ? WHERE id = ?`,
-            [name, country, city, photoName, companyId]
+            `UPDATE companies SET name = ?, country = ?, city = ?, bio = ?, photo = ? WHERE id = ?`,
+            [name, country, city, bio, photoName, companyId]
         );
     } finally {
         if (connection) connection.release();

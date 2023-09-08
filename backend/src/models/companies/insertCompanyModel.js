@@ -14,7 +14,14 @@ const {
 } = require('../../services/errorService');
 
 // Function that performs a database query to insert a new company
-const insertCompanyModel = async ({ name, country, city, photo, userId }) => {
+const insertCompanyModel = async ({
+    name,
+    country,
+    city,
+    bio,
+    photo,
+    userId,
+}) => {
     let connection;
 
     try {
@@ -38,8 +45,8 @@ const insertCompanyModel = async ({ name, country, city, photo, userId }) => {
 
         // Inserting a company
         await connection.query(
-            `INSERT INTO companies(id, photo, name, country, city, userId) VALUES(?, ?, ?, ?, ?, ?)`,
-            [uuid.v4(), photoName, name, country, city, userId]
+            `INSERT INTO companies(id, photo, name, country, city, bio, userId) VALUES(?, ?, ?, ?, ?, ?, ?)`,
+            [uuid.v4(), photoName, name, country, city, bio, userId]
         );
 
         let [userCompany] = await connection.query(
