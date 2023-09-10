@@ -11,7 +11,7 @@ const CompaniesListPage = () => {
 
   return (
     <div>
-      <ListCompanies companies={companiesList.companies} /> 
+      <ListCompanies companies={companiesList} />
     </div>
   );
 };

@@ -1,13 +1,11 @@
 import Rating from "../Rating/Rating";
 
-function ListRatings({ ratingsData }) {
-  console.log(ratingsData);
-  console.log("HOLAAA");
-  return ratingsData?.length ? (
+function ListRatings({ rating }) {
+  return rating?.length ? (
     <ul className="ratingsList">
-      {ratingsData.map((rating) => {
+      {rating.map((rating) => {
         return (
-          <li key={rating?.name}>
+          <li key={rating?.firstName}>
             <Rating rating={rating} />
           </li>
         );

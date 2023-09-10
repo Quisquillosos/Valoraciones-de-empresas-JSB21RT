@@ -76,11 +76,9 @@ export const getSingleCompanyService = async (companyId) => {
   return json.data;
 };
 
-
 export const getCompanyRatingsService = async (companyId) => {
-  
   const response = await fetch(`${backendUrl}/ratings/companies/${companyId}`);
-    const json = await response.json();
+  const json = await response.json();
 
   if (!response.ok) {
     throw new Error(json.message);

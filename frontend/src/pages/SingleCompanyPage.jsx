@@ -8,9 +8,7 @@ const SingleCompanyPage = () => {
   const { companyId } = useParams();
   const { companyData, loading, error } = useCompany(companyId);
   const { ratingsData } = useCompanyRatings(companyId);
-  console.log('adioss')
-  console.log(ratingsData)
-  
+
   if (loading) return <p>loading</p>;
   if (error) return <p>error</p>;
 

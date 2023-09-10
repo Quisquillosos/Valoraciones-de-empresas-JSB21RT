@@ -11,8 +11,22 @@ const useCompanies = () => {
       try {
         setLoading(true);
 
-        const data = await getAllCompaniesService();
-        
+        let data = await getAllCompaniesService();
+
+        const latestRatings = {};
+
+        data.companies.forEach((company) => {
+          if (
+            !(company.name in latestRatings) ||
+            company.createdAt > latestRatings[company.name].createdAt
+          ) {
+            latestRatings[company.name] = company;
+          }
+        });
+
+        const companiesFiltered = Object.values(latestRatings);
+        data = companiesFiltered;
+
         setCompaniesList(data);
       } catch (err) {
         setError(err.message);
@@ -23,7 +37,6 @@ const useCompanies = () => {
 
     loadCompanies();
   }, []);
-
   return { companiesList, loading, error };
 };
 
