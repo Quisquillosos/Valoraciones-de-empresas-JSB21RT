@@ -24,9 +24,13 @@ const selectAllCompanyModel = async (keyword = '') => {
                     AVG(RC.accesibility) AS accesibilityAvg,
                     (AVG(RC.salary) + AVG(RC.workEnvironment) + AVG(RC.promotionPosibility) + AVG(RC.accesibility)) / 4 AS totalAvgRatings,
                     RC.review,
-                    RC.createdAt
+                    RC.createdAt,
+                    U.firstName,
+                    U.lastName,
+                    U.photo AS userPhoto
                 FROM companies C 
                 LEFT JOIN ratingCompanies RC ON C.id = RC.companyId
+                LEFT JOIN users U ON U.id = RC.userId
                 WHERE name LIKE ? OR country LIKE ? OR city LIKE ?
                 GROUP BY 
                     C.id,
@@ -36,7 +40,10 @@ const selectAllCompanyModel = async (keyword = '') => {
                     C.bio,
                     C.photo,
                     RC.review,
-                    RC.createdAt
+                    RC.createdAt,
+                    U.firstName,
+                    U.lastName,
+                    U.photo
                 ORDER BY name 
             `,
             [`%${keyword}%`, `%${keyword}%`, `%${keyword}%`]

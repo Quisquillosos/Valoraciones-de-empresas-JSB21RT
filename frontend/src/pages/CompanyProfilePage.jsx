@@ -1,6 +1,11 @@
-import "./CompanyProfilePage.module.css";
+import ProfileSidebar from '../components/ProfileSidebar/ProfileSidebar';
+import './CompanyProfilePage.module.css';
 
 const CompanyProfilePage = () => {
-  return <div>CompanyProfilePage</div>;
+    return (
+        <>
+            <ProfileSidebar />
+        </>
+    );
 };
 export default CompanyProfilePage;

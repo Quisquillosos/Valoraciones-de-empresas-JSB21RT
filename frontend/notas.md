@@ -7,6 +7,8 @@ añadir texto a ratings
 
 companies.companies
 
+revisar y crear para eliminar (company...)
+
 continuar con mucha paciencia!🫡🫡
 
 PUT edit profile sirve para crear y editar en private profile (CompanyProfilePage)

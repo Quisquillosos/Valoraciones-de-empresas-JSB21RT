@@ -1,43 +1,44 @@
-import { createContext, useEffect, useState } from "react";
-import { getMyDataService } from "../services";
+import { createContext, useEffect, useState } from 'react';
+import { getMyDataService } from '../services';
 
 export const AuthContext = createContext(null);
 
 export const AuthContextProviderComponent = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  const [user, setUser] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    localStorage.setItem("token", token);
-  }, [token]);
+    useEffect(() => {
+        localStorage.setItem('token', token);
+    }, [token]);
 
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const data = await getMyDataService(token);
+    useEffect(() => {
+        const getUserData = async () => {
+            try {
+                const data = await getMyDataService(token);
 
-        setUser(data);
-      } catch (error) {
-        setToken("");
+                setUser(data);
+            } catch (error) {
+                setToken('');
+                setUser(null);
+            }
+        };
+
+        if (token) getUserData();
+    }, [token, setToken]);
+
+    const logout = () => {
+        setToken('');
         setUser(null);
-      }
+        window.location.href = '/';
     };
 
-    if (token) getUserData();
-  }, [token, setToken]);
+    const login = (token) => {
+        setToken(token.token);
+    };
 
-  const logout = () => {
-    setToken("");
-    setUser(null);
-  };
-
-  const login = (token) => {
-    setToken(token.token);
-  };
-
-  return (
-    <AuthContext.Provider value={{ token, user, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={{ token, user, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };

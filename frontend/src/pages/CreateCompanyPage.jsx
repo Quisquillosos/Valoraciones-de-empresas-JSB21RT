@@ -1,11 +1,11 @@
 import ProfileSidebar from '../components/ProfileSidebar/ProfileSidebar';
-import './PrivateUserProfilePage.module.css';
 
-const PrivateUserProfilePage = () => {
+const CreateCompanyPage = () => {
     return (
         <>
             <ProfileSidebar />
         </>
     );
 };
-export default PrivateUserProfilePage;
+
+export default CreateCompanyPage;
