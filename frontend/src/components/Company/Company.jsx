@@ -15,5 +15,4 @@ const Company = ({ company }) => {
   );
 };
 
-
 export default Company;

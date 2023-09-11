@@ -1,21 +1,27 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import SidebarUserCompanyList from "../SidebarUserCompanyList/SidebarUserCompanyList";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
+
 const ProfileSidebar = () => {
-    return (
-        <ul>
-            <li>
-                <Link to={`/users`}>Perfil</Link>
-            </li>
-            <li>
-                <Link to={`/users/profile/settings`}>Configuracion</Link>
-            </li>
-            <li>
-                <Link to={`/companies/profile`}>Crear Empresa</Link>
-            </li>
-            <li>
-                <Link to={`/users/ratings`}>Valoraciones</Link>
-            </li>
-        </ul>
-    );
+  const { user } = useContext(AuthContext);
+
+  return (
+    <ul>
+      <li>
+        <Link to={`/users`}>Perfil</Link>
+      </li>
+      <li>
+        <Link to={`/users/profile/settings`}>Configuracion</Link>
+      </li>
+      <li>
+        <SidebarUserCompanyList userInfo={user.user} />
+      </li>
+      <li>
+        <Link to={`/users/ratings`}>Valoraciones</Link>
+      </li>
+    </ul>
+  );
 };
 
 export default ProfileSidebar;

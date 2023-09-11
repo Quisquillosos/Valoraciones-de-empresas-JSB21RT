@@ -1,11 +1,13 @@
-import ProfileSidebar from '../components/ProfileSidebar/ProfileSidebar';
-import './PrivateUserProfilePage.module.css';
+import ProfileSidebar from "../components/ProfileSidebar/ProfileSidebar";
+import UserProfile from "../components/UserProfile/UserProfile";
+import "./PrivateUserProfilePage.module.css";
 
 const PrivateUserProfilePage = () => {
-    return (
-        <>
-            <ProfileSidebar />
-        </>
-    );
+  return (
+    <>
+      <ProfileSidebar />
+      <UserProfile />
+    </>
+  );
 };
 export default PrivateUserProfilePage;
