@@ -33,5 +33,5 @@ router.get(
 );
 
 // Obtaining all ratings from an employee
-router.get('/ratings/employees/:employeeId', getRatingEmployeeController);
+router.get('/ratings/employees/:userId', getRatingEmployeeController);
 module.exports = router;

@@ -28,7 +28,7 @@ function App() {
                     path='/users/:userId'
                     element={<PublicProfileUserPage />}
                 />
-                <Route path='/users/ratings' element={<UserRatingsPage />} />
+                <Route path='/users/ratings/:userId' element={<UserRatingsPage />} />
                 <Route
                     path='/users/profile/settings'
                     element={<ConfigPage />}

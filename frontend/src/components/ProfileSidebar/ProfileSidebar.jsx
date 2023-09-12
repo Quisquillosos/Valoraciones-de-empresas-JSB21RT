@@ -18,7 +18,7 @@ const ProfileSidebar = () => {
         <SidebarUserCompanyList userInfo={user.user} />
       </li>
       <li>
-        <Link to={`/users/ratings`}>Valoraciones</Link>
+        <Link to={`/users/ratings/${user.user.id}`}>Valoraciones</Link>
       </li>
     </ul>
   );

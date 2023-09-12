@@ -13,6 +13,9 @@ const EditCompanyProfile = ({ id }) => {
   const [city, setCity] = useState("");
   const [bio, setBio] = useState("");
   const [photo, setPhoto] = useState("");
+  const [response, setResponse] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (companyData) {
@@ -26,8 +29,17 @@ const EditCompanyProfile = ({ id }) => {
 
   const handleForm = async (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
-    editMyCompanyDataService(data, token, id);
+    setError("");
+    try {
+      setLoading(true);
+      const data = new FormData(e.target);
+      await editMyCompanyDataService(data, token, id);
+      setResponse("Tus datos se han modificado correctamente");
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError(err.message);
+    }
   };
   return (
     <>
@@ -93,6 +105,9 @@ const EditCompanyProfile = ({ id }) => {
         </fieldset>
         <button>Submit</button>
       </form>
+      {response && <p>{response}</p>}
+      {error ? <p>{error}</p> : null}
+      {loading ? <p>loading...</p> : null}
     </>
   );
 };

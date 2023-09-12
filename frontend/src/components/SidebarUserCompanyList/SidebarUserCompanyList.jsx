@@ -15,6 +15,7 @@ const SidebarUserCompanyList = ({ userInfo }) => {
           );
         })}
       </ul>
+      <Link to={`/companies/profile`}><h3>Crear nueva empresa</h3></Link>
     </>
   );
 };

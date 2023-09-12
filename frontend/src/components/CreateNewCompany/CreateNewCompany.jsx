@@ -1,21 +1,36 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { editMyCompanyDataService } from "../../services";
+import { createCompanyService } from "../../services";
+import useCompany from "../../hooks/useCompany";
 
-const EditCompanyProfile = ({ id }) => {
+const CreateNewCompany = ({ id }) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const { user, token } = useContext(AuthContext);
+  const { companyData } = useCompany(id);
+  const { token } = useContext(AuthContext);
 
-  const [name, setName] = useState(`${user.user.firstName}`);
-  const [country, setCountry] = useState(`${user.user.country}`);
-  const [city, setCity] = useState(`${user.user.city}`);
-  const [bio, setBio] = useState(`${user.user.bio}`);
-  const [photo, setPhoto] = useState(`${user.user.photo}`);
+  const [name, setName] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [bio, setBio] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [response, setResponse] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleForm = async (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
-    editMyCompanyDataService(data, token, id);
+    setError("");
+    setResponse("");
+    try {
+      setLoading(true);
+      const data = new FormData(e.target);
+      await createCompanyService(data, token);
+      setResponse("Tus datos se han modificado correctamente");
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError(err.message);
+    }
   };
   return (
     <>
@@ -23,7 +38,7 @@ const EditCompanyProfile = ({ id }) => {
         <fieldset>
           <label htmlFor="name">Name</label>
           <input
-            type="name"
+            type="text"
             name="name"
             value={name}
             id="name"
@@ -33,7 +48,7 @@ const EditCompanyProfile = ({ id }) => {
 
           <label htmlFor="country">country</label>
           <input
-            type="country"
+            type="text"
             name="country"
             value={country}
             id="country"
@@ -42,7 +57,7 @@ const EditCompanyProfile = ({ id }) => {
           />
           <label htmlFor="city">city</label>
           <input
-            type="city"
+            type="text"
             name="city"
             value={city}
             id="city"
@@ -52,7 +67,7 @@ const EditCompanyProfile = ({ id }) => {
 
           <label htmlFor="bio">Bio</label>
           <input
-            type="bio"
+            type="text"
             name="bio"
             value={bio}
             id="bio"
@@ -72,7 +87,7 @@ const EditCompanyProfile = ({ id }) => {
           {photo ? (
             <figure>
               <img
-                src={`${backendUrl}/backend/uploads/${user?.user?.photo}`}
+                src={`${backendUrl}/backend/uploads/${companyData?.photo}`}
                 style={{ width: "100px" }}
                 alt="Preview"
               />
@@ -81,8 +96,11 @@ const EditCompanyProfile = ({ id }) => {
         </fieldset>
         <button>Submit</button>
       </form>
+      {response && <p>{response}</p>}
+      {error ? <p>{error}</p> : null}
+      {loading ? <p>loading...</p> : null}
     </>
   );
 };
 
-export default EditCompanyProfile;
+export default CreateNewCompany;

@@ -136,3 +136,13 @@ export const editMyCompanyDataService = async (data, token, id) => {
   }
   return json.data;
 };
+
+export const getUserRatingsService = async (userId) => {
+  const response = await fetch(`${backendUrl}/ratings/employees/${userId}`);
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json.data;
+};

@@ -1,11 +1,13 @@
-import ProfileSidebar from '../components/ProfileSidebar/ProfileSidebar';
+import CreateNewCompany from "../components/CreateNewCompany/CreateNewCompany";
+import ProfileSidebar from "../components/ProfileSidebar/ProfileSidebar";
 
 const CreateCompanyPage = () => {
-    return (
-        <>
-            <ProfileSidebar />
-        </>
-    );
+  return (
+    <>
+      <ProfileSidebar />
+      <CreateNewCompany/>
+    </>
+  );
 };
 
 export default CreateCompanyPage;

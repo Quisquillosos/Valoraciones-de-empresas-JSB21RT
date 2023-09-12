@@ -10,16 +10,21 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleForm = async (e) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const token = await logInUserService({ email, password });
+      setLoading(false);
 
       login(token);
       navigate("/");
     } catch (error) {
+      setLoading(false);
       setError(error.message);
     }
   };
@@ -41,17 +46,26 @@ const LoginPage = () => {
         <fieldset>
           <label htmlFor="pass">Password</label>
           <input
-            type="password"
+            type={`${showPassword ? "text" : "password"}`}
             name="pass"
             id="pass"
             value={password}
             required
             onChange={(e) => setPassword(e.target.value)}
           />
+          <button type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowPassword(!showPassword);
+            }}
+          >
+            👁️
+          </button>
         </fieldset>
 
-        <button>Login</button>
+        <button type="submit">Login</button>
         {error ? <p>{error}</p> : null}
+        {loading ? <p>loading...</p> : null}
       </form>
     </section>
   );

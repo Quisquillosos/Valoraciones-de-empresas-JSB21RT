@@ -12,19 +12,26 @@ const SignUpPage = () => {
   const [error, setError] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
   const handleForm = async (e) => {
     e.preventDefault();
+    setError("");
+
     if (pass1 !== pass2) {
       setError("Passwords do not match");
       return;
     }
 
     try {
+      setLoading(true);
       await signUpUserService({ firstName, lastName, email, password: pass1 });
-
+      setLoading(false);
       navigate("/users/login");
     } catch (error) {
+      setLoading(false);
       setError(error.message);
     }
   };
@@ -69,27 +76,46 @@ const SignUpPage = () => {
         <fieldset>
           <label htmlFor="pass1">Password</label>
           <input
-            type="password"
+            type={`${showPassword ? "text" : "password"}`}
             id="pass1"
             name="pass1"
             value={pass1}
             required
             onChange={(e) => setPass1(e.target.value)}
           />
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowPassword(!showPassword);
+            }}
+          >
+            👁️
+          </button>
         </fieldset>
         <fieldset>
           <label htmlFor="pass2">Repeat password</label>
           <input
-            type="password"
+            type={`${showPassword2 ? "text" : "password"}`}
             id="pass2"
             name="pass2"
             value={pass2}
             required
             onChange={(e) => setPass2(e.target.value)}
           />
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowPassword2(!showPassword2);
+            }}
+          >
+            👁️
+          </button>
         </fieldset>
-        <button>Sign Up</button>
+        <button type="submit">Sign Up</button>
         {error ? <p>{error}</p> : null}
+        {loading ? <p>loading...</p> : null}
       </form>
     </section>
   );

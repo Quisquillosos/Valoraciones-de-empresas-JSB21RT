@@ -9,6 +9,10 @@ const UserProfile = () => {
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
   const [photo, setPhoto] = useState("");
+  const [response, setResponse]= useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     if (user) {
@@ -21,8 +25,19 @@ const UserProfile = () => {
 
   const handleForm = async (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
-    editMyDataService(data, token);
+    setError("")
+
+    try {
+      setLoading(true);
+      const data = new FormData(e.target);
+      await editMyDataService(data, token);
+      setResponse('Tus datos se han modificado correctamente')
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError(err.message)  
+    }
+ 
   };
   return (
     <>
@@ -79,6 +94,9 @@ const UserProfile = () => {
         </fieldset>
         <button>Submit</button>
       </form>
+      {response && <p>{response}</p>}
+      {error ? <p>{error}</p> : null}
+      {loading ? <p>loading...</p> : null}
     </>
   );
 };
