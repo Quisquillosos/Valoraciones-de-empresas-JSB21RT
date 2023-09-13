@@ -1,19 +1,13 @@
-process✔️
-
-validate✔️
-anadir totalavgratings a getlistcompanies✔️
-anadir bio a empresas✔️
-añadir texto a ratings
-
-companies.companies
-
 revisar y crear para eliminar (company...)
+poner comentarios
+eliminar console logs
+revisar mensajes que damos
+SelectUserByModel(recordar [0])✔️
 
-SelectUserByModel(recordar [0])
-
-continuar con mucha paciencia!🫡🫡
-
-PUT edit profile sirve para crear y editar en private profile (CompanyProfilePage)
-Get company profile sirve para ver la empresa con info al cliclar en lista de empresas una en singular(SingleCompanyPage)
-
+TUTORIA
 PReguntar por useeffect en formularios
+preguntar por como implementar fotos
+porque tenemos que duplicar al pedir info user.user, company.company....
+
+ERROR EN CONSOLA CADA VEZ QUE SE HACE ALGUN CAMBIO
+16c83b89-4dc9-4255-8a93-d078f88894b0.jpg:1 GET http://localhost:8000/backend/uploads/16c83b89-4dc9-4255-8a93-d078f88894b0.jpg 404 (Not Found)

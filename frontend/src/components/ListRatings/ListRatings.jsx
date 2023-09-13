@@ -5,7 +5,7 @@ function ListRatings({ rating }) {
     <ul className="ratingsList">
       {rating.map((rating) => {
         return (
-          <li key={rating?.firstName}>
+          <li key={rating?.companyId}>
             <Rating rating={rating} />
           </li>
         );

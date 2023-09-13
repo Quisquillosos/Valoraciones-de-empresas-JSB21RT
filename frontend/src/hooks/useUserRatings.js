@@ -11,8 +11,7 @@ const useUserRatings = (userId) => {
       try {
         setLoading(true);
         const data = await getUserRatingsService(userId);
-
-        setUserRatingsData(data.companies);
+        setUserRatingsData(data.employeesRatings);
       } catch (err) {
         setError(err.message);
       } finally {

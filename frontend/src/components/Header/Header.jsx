@@ -1,7 +1,7 @@
 import { Auth } from "../Auth/Auth";
 import { Link } from "react-router-dom";
 import { header } from "./Header.module.css";
-import Accordion from "../Accordion.jsx/Accordion";
+import Accordion from "../Accordion/Accordion";
 import imgSrc from "/logoPerson.jpg";
 
 const Header = () => {

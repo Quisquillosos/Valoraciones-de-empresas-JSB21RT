@@ -15,10 +15,10 @@ const ProfileSidebar = () => {
         <Link to={`/users/profile/settings`}>Configuracion</Link>
       </li>
       <li>
-        <SidebarUserCompanyList userInfo={user.user} />
+        <SidebarUserCompanyList userInfo={user?.user} />
       </li>
       <li>
-        <Link to={`/users/ratings/${user.user.id}`}>Valoraciones</Link>
+        <Link to={`/users/ratings/${user?.user?.id}`}>Valoraciones</Link>
       </li>
     </ul>
   );

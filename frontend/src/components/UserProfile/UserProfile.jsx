@@ -9,36 +9,35 @@ const UserProfile = () => {
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
   const [photo, setPhoto] = useState("");
-  const [response, setResponse]= useState("");
+  const [response, setResponse] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-
   useEffect(() => {
     if (user) {
-      setFirstName(user.user[0].firstName);
-      setLastName(user.user[0].lastName);
-      setBio(`${user.user[0].bio || ""}`);
-      setPhoto(`${user.user[0].photo || ""}`);
+      setFirstName(user?.user[0]?.firstName || user?.user?.firstName);
+      setLastName(user?.user[0]?.lastName || user?.user?.lastName);
+      setBio(`${user?.user[0]?.bio || user?.user?.bio || ""}`);
+      setPhoto(`${user?.user[0]?.photo || user?.user?.photo || ""}`);
     }
   }, [user]);
 
   const handleForm = async (e) => {
     e.preventDefault();
-    setError("")
+    setError("");
 
     try {
       setLoading(true);
       const data = new FormData(e.target);
       await editMyDataService(data, token);
-      setResponse('Tus datos se han modificado correctamente')
+      setResponse("Tus datos se han modificado correctamente");
       setLoading(false);
     } catch (err) {
       setLoading(false);
-      setError(err.message)  
+      setError(err.message);
     }
- 
   };
+
   return (
     <>
       <form className="userProfile" onSubmit={handleForm}>

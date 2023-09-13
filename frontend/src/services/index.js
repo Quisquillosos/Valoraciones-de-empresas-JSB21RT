@@ -44,7 +44,6 @@ export const getMyDataService = async (token) => {
       Authorization: token,
     },
   });
-
   const json = await response.json();
 
   if (!response.ok) {

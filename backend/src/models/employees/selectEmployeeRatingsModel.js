@@ -11,7 +11,7 @@ const selectEmployeeRatingModel = async (userId) => {
 
         // Checking info about a company
         const [ratings] = await connection.query(
-            `SELECT RC.id, RC.salary, RC.workEnvironment, RC.promotionPosibility, RC.accesibility, RC.review, RC.companyId, RC.userId, RC.createdAt, C.name, C.city, C.country, C.bio, C.photo 
+            `SELECT RC.id, RC.salary AS avgSalary, RC.workEnvironment AS avgWorkEnvironment, RC.promotionPosibility AS avgPromotionPosibility, RC.accesibility AS avgAccesibility, RC.review, RC.companyId, RC.userId, RC.createdAt, C.name, C.city, C.country, C.bio, C.photo 
             FROM ratingCompanies RC
             INNER JOIN companies C ON C.id = RC.companyId
             WHERE RC.userId = ?`,

@@ -1,12 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { getMyDataService } from "../services";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 
 export const AuthContextProviderComponent = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     localStorage.setItem("token", token);
   }, [token]);
@@ -22,14 +23,13 @@ export const AuthContextProviderComponent = ({ children }) => {
         setUser(null);
       }
     };
-
     if (token) getUserData();
   }, [token, setToken]);
 
   const logout = () => {
     setToken("");
     setUser(null);
-    window.location.href = "/";
+    navigate("/");
   };
 
   const login = (token) => {

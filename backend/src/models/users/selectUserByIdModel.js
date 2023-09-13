@@ -16,6 +16,16 @@ const selectUserByIdModel = async (userId) => {
             WHERE C.userId = ?`,
             [userId]
         );
+        if (!users[0]) {
+            const [users] = await connection.query(
+                `SELECT id, firstName, lastName, email, photo, bio, active, createdAt
+                FROM users 
+                WHERE id = ?`,
+                [userId]
+            );
+
+            return users[0];
+        }
 
         return users;
     } finally {
