@@ -5,7 +5,6 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import PrivateUserProfilePage from './pages/PrivateUserProfilePage';
-import PublicProfileUserPage from './pages/PublicProfileUserPage';
 import CompaniesListPage from './pages/CompaniesListPage';
 import CompanyProfilePage from './pages/CompanyProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -25,10 +24,9 @@ function App() {
                 <Route path='/users/register' element={<SignUpPage />} />
                 <Route path='/users' element={<PrivateUserProfilePage />} />
                 <Route
-                    path='/users/:userId'
-                    element={<PublicProfileUserPage />}
+                    path='/users/ratings/:userId'
+                    element={<UserRatingsPage />}
                 />
-                <Route path='/users/ratings/:userId' element={<UserRatingsPage />} />
                 <Route
                     path='/users/profile/settings'
                     element={<ConfigPage />}

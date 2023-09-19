@@ -11,7 +11,7 @@ const Review = ({ companies }) => {
                 return (
                     <article className='reviewBox' key={company?.id}>
                         <img
-                            src={`${backendUrl}/uploads/${company?.photo}`}
+                            src={`${backendUrl}${company?.photo}`}
                             alt={company?.name}
                         />
                         <h3>

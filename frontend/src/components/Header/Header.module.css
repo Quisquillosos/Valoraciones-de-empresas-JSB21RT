@@ -1,14 +1,18 @@
 .header {
-  display: flex;
-  background-color: pink;
-  justify-content: space-between;
+    display: flex;
+    background-color: pink;
+    justify-content: space-between;
 }
 
 .header nav > ul {
-  display: flex;
-  list-style-type: none;
+    display: flex;
+    list-style-type: none;
 }
 
 .header nav > ul li {
-  margin: 0.3rem;
+    margin: 0.3rem;
+}
+
+.header img {
+    width: 100px;
 }
