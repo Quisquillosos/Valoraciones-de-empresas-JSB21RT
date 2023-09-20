@@ -14,3 +14,62 @@ Token Dumitru:
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyY2U5NDEyLTg5OTAtNDY3Mi04M2ZlLWIyYTFlZDkyODYwZSIsImlhdCI6MTY5NDM1ODI4MCwiZXhwIjoxNjk0OTYzMDgwfQ.0GaUcQXtzZYRTpm0gD9kr7Rhdkn32TW08jI1ZUJ86NY
 
 
+import ListCompanies from "../components/ListCompanies/ListCompanies";
+import Searcher from "../components/Searcher/Searcher";
+import useCompanies from "../hooks/useCompanies";
+import "./CompaniesListPage.module.css";
+
+const CompaniesListPage = () => {
+  const { companiesList, loading, error } = useCompanies();
+
+  if (loading) return <div>loading</div>;
+
+  if (error) return <div>error</div>;
+
+  return (
+    <div>
+      <Searcher></Searcher>
+      <ListCompanies companies={companiesList} />
+    </div>
+  );
+};
+
+export default CompaniesListPage;
+
+import { useState } from "react";
+import { getAllCompaniesFilteredService } from "../../services";
+import Accordion from "../Accordion/Accordion";
+import imgSrc from "/logoPerson.jpg";
+import { useNavigate } from "react-router-dom";
+
+const Searcher = () => {
+  const navigate = useNavigate();
+  const [keyword, setKeyword] = useState("");
+  const [error, setError] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await getAllCompaniesFilteredService(keyword);
+      console.log(data);
+      navigate("/companies");
+    } catch (err) {
+      setError("Ha ocurrido un error en tu busqueda");
+    }
+  };
+  return (
+    <>
+      <Accordion imgSrc={imgSrc}>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+        </form>
+        {error && <p>{error}</p>}
+      </Accordion>
+    </>
+  );
+};
+
+export default Searcher;

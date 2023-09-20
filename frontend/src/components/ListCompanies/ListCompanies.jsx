@@ -2,9 +2,10 @@ import Company from "../Company/Company";
 import { Link } from "react-router-dom";
 
 const ListCompanies = ({ companies }) => {
-  return companies.length ? (
+  console.log(companies, "companies");
+  return companies?.length ? (
     <ul className="companiesList">
-      {companies.map((company) => (
+      {companies?.map((company) => (
         <li key={company.name}>
           <Company company={company} />
           <Link to={`/companies/${company.id}`}>

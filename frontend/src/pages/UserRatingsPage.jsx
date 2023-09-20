@@ -6,8 +6,6 @@ import useUserRatings from "../hooks/useUserRatings";
 const UserRatingsPage = () => {
   const { userId } = useParams();
   const { userRatingsData } = useUserRatings(userId);
-  console.log("esto pasaremos por props a list ratings");
-  console.log(userRatingsData);
 
   return (
     <>
