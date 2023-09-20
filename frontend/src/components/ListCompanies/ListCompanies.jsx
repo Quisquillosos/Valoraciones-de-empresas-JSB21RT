@@ -9,13 +9,13 @@ const ListCompanies = ({ companies }) => {
         <li key={company.name}>
           <Company company={company} />
           <Link to={`/companies/${company.id}`}>
-            <button>Ver empresa</button>
+            <button>View company</button>
           </Link>
         </li>
       ))}
     </ul>
   ) : (
-    <p>No hay empresas</p>
+    <p>No companies</p>
   );
 };
 

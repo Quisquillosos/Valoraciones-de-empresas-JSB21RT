@@ -22,7 +22,7 @@ const EditUserEmail = () => {
       setLoading(false);
       logout();
     } catch (err) {
-      setError("Ha ocurrido un error en el cambio de email");
+      setError("An error has occurred in the email change");
     } finally {
       setLoading(false);
     }
@@ -62,7 +62,7 @@ const EditUserEmail = () => {
               👁️
             </button>
           </label>
-          <button type="submit">Guardar Cambios</button>
+          <button type="submit">Save Changes</button>
         </form>
         {error && <p>{error}</p>}
         {loading && <p>Loading...</p>}

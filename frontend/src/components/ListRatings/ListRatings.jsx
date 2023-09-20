@@ -12,7 +12,7 @@ function ListRatings({ rating }) {
       })}
     </ul>
   ) : (
-    <p>No hay ratingchis🚀</p>
+    <p>No ratings</p>
   );
 }
 

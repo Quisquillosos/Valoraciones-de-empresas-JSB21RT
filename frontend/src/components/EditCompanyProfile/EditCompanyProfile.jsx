@@ -34,7 +34,7 @@ const EditCompanyProfile = ({ id }) => {
             setLoading(true);
             const data = new FormData(e.target);
             await editMyCompanyDataService(data, token, id);
-            setResponse('Tus datos se han modificado correctamente');
+            setResponse('Your data has been successfully modified');
             setLoading(false);
         } catch (err) {
             setLoading(false);

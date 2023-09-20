@@ -20,7 +20,7 @@ const EditUserPass = () => {
         try {
             setLoading(true);
             if (newPass !== newPass1)
-                throw new Error('Passwords does not  match');
+                throw new Error('PPasswords do not match');
             const data = { oldPass, newPass };
             const dataToSend = JSON.stringify(data);
             await editPasswordService(dataToSend, token);
@@ -37,7 +37,7 @@ const EditUserPass = () => {
             <Accordion>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='oldPass'>
-                        Contraseña actual
+                    Current password
                         <input
                             type={showPassword ? 'text' : 'password'}
                             name='oldPass'
@@ -56,7 +56,7 @@ const EditUserPass = () => {
                         </button>
                     </label>
                     <label htmlFor='newPass'>
-                        Nueva Contraseña
+                        New Password
                         <input
                             type={showPassword1 ? 'text' : 'password'}
                             name='newPass'
@@ -75,7 +75,7 @@ const EditUserPass = () => {
                         </button>
                     </label>
                     <label htmlFor='newPass1'>
-                        Confirmar nueva contraseña
+                    Confirm new password
                         <input
                             type={showPassword2 ? 'text' : 'password'}
                             name='newPass1'
@@ -93,7 +93,7 @@ const EditUserPass = () => {
                             👁️
                         </button>
                     </label>
-                    <button type='submit'>Guardar Cambios</button>
+                    <button type='submit'>Save Changes</button>
                 </form>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}

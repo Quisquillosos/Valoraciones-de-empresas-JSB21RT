@@ -30,7 +30,7 @@ const UserProfile = () => {
             setLoading(true);
             const data = new FormData(e.target);
             await editMyDataService(data, token);
-            setResponse('Tus datos se han modificado correctamente');
+            setResponse('Your data has been successfully modified');
             setLoading(false);
         } catch (err) {
             setLoading(false);

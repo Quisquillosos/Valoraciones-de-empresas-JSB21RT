@@ -14,13 +14,15 @@ const HomePage = () => {
   return (
     <>
       <header className={`${mainHeader} `}>
-        <h1>Home Page</h1>
+        <h1>Evaluate, Compare, Decide</h1>
+          <span>Your business guide
+</span>
       </header>
       <main className={`${mainHomePage} `}>
         <section>
           <TopCompanies companies={companiesList} />
           <Link to="/companies">
-            <button>Ver mas empresas</button>
+            <button>More companies</button>
           </Link>
         </section>
         <section>

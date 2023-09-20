@@ -10,9 +10,8 @@ const Menu = () => {
       {isOpen && (
         <ul>
           <li>
-            <Link to={"/companies"}>Empresas</Link>
+            <Link to={"/companies"}>Companies</Link>
           </li>
-          <li>switcher</li>
         </ul>
       )}
     </>

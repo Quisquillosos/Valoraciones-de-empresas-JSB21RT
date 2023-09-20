@@ -1,6 +1,18 @@
 .mainHeader {
-  background-color: purple;
-  height: 30vh;
+  height: 13vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1b3358;
+  color: #e4864cea;
+  border-radius: 1rem;
+}
+
+.mainHeader h1 {
+  font-size: 1.5rem;
+}
+.mainHeader span {
+  font-size: 1.3rem;
 }
 
 .mainHomePage {

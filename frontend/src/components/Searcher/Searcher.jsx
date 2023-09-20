@@ -33,7 +33,7 @@ const Searcher = ({ onSearchResult }) => {
         onSearchResult(data);
       }
     } catch (err) {
-      setError("Ha ocurrido un error en tu busqueda");
+      setError("An error has occurred in your search");
     }
   };
   return (
