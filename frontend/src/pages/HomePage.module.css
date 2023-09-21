@@ -3,9 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1b3358;
-  color: #e4864cea;
-  border-radius: 1rem;
+  /* background-color: #08377e;
+  color: #f07121ea; */
+  border-top: 1px solid #063c8d;
+  color: #063c8d;
+  /* border-radius: 1rem; */
 }
 
 .mainHeader h1 {

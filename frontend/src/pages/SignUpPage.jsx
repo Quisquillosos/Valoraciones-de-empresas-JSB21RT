@@ -41,7 +41,7 @@ const SignUpPage = () => {
       <h1>Register</h1>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="firstName">FirstName</label>
+          <label htmlFor="firstName">First name</label>
           <input
             type="text"
             id="firstName"
@@ -52,7 +52,7 @@ const SignUpPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="lastName">LastName</label>
+          <label htmlFor="lastName">Last name</label>
           <input
             type="text"
             id="lastName"

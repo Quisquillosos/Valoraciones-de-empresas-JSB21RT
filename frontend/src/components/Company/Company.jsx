@@ -7,6 +7,7 @@ const Company = ({ company }) => {
       <h1>{company?.name}</h1>
       <img src={`${backendUrl}/${company?.photo}`} alt={company?.bio} />
       <p>{`${company?.country}, ${company?.city}`}</p>
+      <p>{`${company?.bio}`}</p>
       {companyRatings && <p>{`${companyRatings}⭐`}</p>}
     </article>
   );

@@ -15,8 +15,7 @@ const HomePage = () => {
     <>
       <header className={`${mainHeader} `}>
         <h1>Evaluate, Compare, Decide</h1>
-          <span>Your business guide
-</span>
+        <span>Your business guide</span>
       </header>
       <main className={`${mainHomePage} `}>
         <section>

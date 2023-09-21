@@ -22,7 +22,7 @@ const CompaniesListPage = () => {
 
       {searchResult && (
         <div>
-          <h2>Resultados de la búsqueda:</h2>
+          <h2>Search results:</h2>
           <ListCompanies companies={searchResult} />
         </div>
       )}

@@ -7,3 +7,5 @@ SelectUserByModel(recordar [0])✔️
 HACER COMENTARIOS
 ESCRIBIR TODO EN INGLES O ESPANOL
 QUITAR CONSOLE LOGS
+
+Index linea 72 borrar comentado??

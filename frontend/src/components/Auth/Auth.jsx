@@ -5,10 +5,11 @@ import { section, authList } from "./Auth.module.css";
 
 export const Auth = () => {
   const { user, logout } = useContext(AuthContext);
+  console.log(user, "user en auth");
 
   return user ? (
     <section className={`${section}`}>
-      <Link to={`/users`}>Profile</Link>{" "}
+      <Link to={`/users`}>Profile</Link>
       <button onClick={() => logout()}>Logout</button>
     </section>
   ) : (
