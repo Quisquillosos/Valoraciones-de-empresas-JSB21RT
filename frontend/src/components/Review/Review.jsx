@@ -1,25 +1,34 @@
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Review = ({ companies }) => {
-  if (companies.length > 3) {
-    companies.splice(Math.floor(Math.random() * companies.length), 1);
-  }
+    const filteredCompanies = companies.filter(
+        (company) => company.review !== null
+    );
 
-  return (
-    <>
-      {companies.map((company) => {
-        return (
-          <article className="reviewBox" key={company?.id}>
-            <img src={`${backendUrl}/${company?.photo}`} alt={company?.name} />
-            <h3>
-              {company?.firstName} {company?.lastName}
-            </h3>
-            <p>{company?.review}</p>
-          </article>
-        );
-      })}
-    </>
-  );
+    const displayedCompanies = filteredCompanies.slice(0, 3);
+
+    displayedCompanies.sort(() => Math.random() - 0.5);
+
+    if (displayedCompanies.length < 3) return <p>loading</p>;
+
+    return (
+        <>
+            {displayedCompanies.map((company) => {
+                return (
+                    <article className='reviewBox' key={company?.id}>
+                        <img
+                            src={`${backendUrl}/${company?.photo}`}
+                            alt={company?.name}
+                        />
+                        <h3>
+                            {company?.firstName} {company?.lastName}
+                        </h3>
+                        <p>{company?.review}</p>
+                    </article>
+                );
+            })}
+        </>
+    );
 };
 
 export default Review;
