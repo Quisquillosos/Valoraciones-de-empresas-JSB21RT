@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signUpUserService } from "../services";
 import { useNavigate } from "react-router-dom";
-import "./SignUpPage.module.css";
+import { signUpSection } from "./SignUpPage.module.css";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <section>
+    <section className={`${signUpSection}`}>
       <h1>Register</h1>
       <form onSubmit={handleForm}>
         <fieldset>
@@ -50,8 +50,7 @@ const SignUpPage = () => {
             required
             onChange={(e) => setFirstName(e.target.value)}
           />
-        </fieldset>
-        <fieldset>
+
           <label htmlFor="lastName">Last name</label>
           <input
             type="text"
@@ -72,48 +71,53 @@ const SignUpPage = () => {
             required
             onChange={(e) => setEmail(e.target.value)}
           />
-        </fieldset>
-        <fieldset>
+
           <label htmlFor="pass1">Password</label>
-          <input
-            type={`${showPassword ? "text" : "password"}`}
-            id="pass1"
-            name="pass1"
-            value={pass1}
-            required
-            onChange={(e) => setPass1(e.target.value)}
-          />
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              setShowPassword(!showPassword);
-            }}
-          >
-            👁️
-          </button>
-        </fieldset>
-        <fieldset>
+
+          <div>
+            <input
+              type={`${showPassword ? "text" : "password"}`}
+              name="pass1"
+              id="pass1"
+              value={pass1}
+              required
+              onChange={(e) => setPass1(e.target.value)}
+            />
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPassword(!showPassword);
+              }}
+            >
+              {showPassword ? "🐵" : "🙈"}
+            </button>
+          </div>
           <label htmlFor="pass2">Repeat password</label>
-          <input
-            type={`${showPassword2 ? "text" : "password"}`}
-            id="pass2"
-            name="pass2"
-            value={pass2}
-            required
-            onChange={(e) => setPass2(e.target.value)}
-          />
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              setShowPassword2(!showPassword2);
-            }}
-          >
-            👁️
-          </button>
+          <div>
+            <input
+              type={`${showPassword2 ? "text" : "password"}`}
+              name="pass2"
+              id="pass2"
+              value={pass2}
+              required
+              onChange={(e) => setPass2(e.target.value)}
+            />
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPassword2(!showPassword2);
+              }}
+            >
+              {showPassword2 ? "🐵" : "🙈"}
+            </button>
+          </div>
         </fieldset>
-        <button type="submit">Sign Up</button>
+        <div>
+          <button type="submit">Sign Up</button>
+        </div>
         {error ? <p>{error}</p> : null}
         {loading ? <p>loading...</p> : null}
       </form>

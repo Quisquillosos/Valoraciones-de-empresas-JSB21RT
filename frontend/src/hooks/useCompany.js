@@ -11,8 +11,7 @@ const useCompany = (id) => {
       try {
         setLoading(true);
         const data = await getSingleCompanyService(id);
-
-        setCompanyData(data.companies);
+        setCompanyData(data?.companies);
       } catch (err) {
         setError(err.message);
       } finally {

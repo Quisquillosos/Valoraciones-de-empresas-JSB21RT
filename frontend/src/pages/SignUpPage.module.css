@@ -1,0 +1,46 @@
+.signUpSection {
+}
+
+.signUpSection form fieldset {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+}
+
+.signUpSection form fieldset button {
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.signUpSection form fieldset input {
+  border: 0.5px solid transparent;
+  width: 50%;
+  padding-left: 0.8em;
+  margin: 0.7rem 0;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.signUpSection form fieldset input:hover,
+.signUpSection form fieldset input:focus {
+  border: 0.5px solid #f07121ea;
+  box-shadow: 0px 0px 0px 5px #f2864360;
+  background-color: white;
+}
+
+.signUpSection form > div {
+  margin: auto;
+}
+
+.signUpSection h1 {
+  margin: auto;
+  width: 30vw;
+  text-align: center;
+}
