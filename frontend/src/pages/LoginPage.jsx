@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { logInUserService } from "../services";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import "./LoginPage.module.css";
+import {loginSection} from "./LoginPage.module.css";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const LoginPage = () => {
     }
   };
   return (
-    <section>
+    <section className={`${loginSection}`}>
       <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
@@ -45,6 +45,7 @@ const LoginPage = () => {
         </fieldset>
         <fieldset>
           <label htmlFor="pass">Password</label>
+          <div>
           <input
             type={`${showPassword ? "text" : "password"}`}
             name="pass"
@@ -53,17 +54,20 @@ const LoginPage = () => {
             required
             onChange={(e) => setPassword(e.target.value)}
           />
+          
           <button type="button"
             onClick={(e) => {
               e.preventDefault();
               setShowPassword(!showPassword);
             }}
           >
-            👁️
+            {showPassword ? "🐵" : "🙈"}
           </button>
+          </div>
         </fieldset>
-
+        <div>
         <button type="submit">Login</button>
+        </div>
         {error ? <p>{error}</p> : null}
         {loading ? <p>loading...</p> : null}
       </form>

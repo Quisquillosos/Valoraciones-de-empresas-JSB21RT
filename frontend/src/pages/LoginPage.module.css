@@ -1,0 +1,55 @@
+.loginSection {
+}
+
+.loginSection form fieldset {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+}
+
+.loginSection form fieldset input {
+  border: 0.5px solid transparent;
+  width: 50%;
+  padding-left: 0.8em;
+  margin: 0.7rem 0;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.loginSection form fieldset input:hover,
+.loginSection form fieldset input:focus {
+  border: 0.5px solid #f07121ea;
+  box-shadow: 0px 0px 0px 5px #f2864360;
+  background-color: white;
+}
+
+.loginSection h1 {
+  margin: auto;
+  width: 30vw;
+  text-align: center;
+}
+
+section form > button {
+  border: none;
+  background-color: #174ea600;
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.129);
+  border-radius: 10px;
+  margin-left: 0;
+  padding: 0.5rem 0.5rem;
+  font-size: 1.1rem;
+}
+
+.loginSection form fieldset button{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+
+

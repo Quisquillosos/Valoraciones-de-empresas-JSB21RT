@@ -2,15 +2,13 @@ import { Link } from "react-router-dom";
 import SidebarUserCompanyList from "../SidebarUserCompanyList/SidebarUserCompanyList";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
+import { profileSidebar } from "./ProfileSidebar.module.css";
 
 const ProfileSidebar = () => {
   const { user } = useContext(AuthContext);
-
-  console.log(user, "user");
-
   if (!user?.user) return <p>loading</p>;
   return (
-    <ul>
+    <ul className={`${profileSidebar}`}>
       <li>
         <Link to={`/users`}>Profile</Link>
       </li>

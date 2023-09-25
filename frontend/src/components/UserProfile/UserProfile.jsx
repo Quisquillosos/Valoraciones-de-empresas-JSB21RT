@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { editMyDataService } from "../../services";
+import { userProfile } from "./UserProfile.module.css";
 
 const UserProfile = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -8,7 +9,7 @@ const UserProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
-  const [photo, setPhoto] = useState(null); //
+  const [photo, setPhoto] = useState(null);
   const [response, setResponse] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ const UserProfile = () => {
       setLastName(user?.user[0]?.lastName || user?.user?.lastName);
       setBio(`${user?.user[0]?.bio || user?.user?.bio || ""}`);
       setPhoto(`${user?.user[0]?.photo || user?.user?.photo || ""}`);
-      setPhotoUrl(`${backendUrl}/${user?.user[0].photo}`);
+      setPhotoUrl(`${backendUrl}/${user?.user[0]?.photo}`);
     }
   }, [user, backendUrl]);
 
@@ -30,6 +31,7 @@ const UserProfile = () => {
     setError("");
 
     try {
+      setResponse("");
       setLoading(true);
       const data = new FormData();
       data.append("firstName", firstName);
@@ -53,10 +55,14 @@ const UserProfile = () => {
   };
 
   return (
-    <>
-      <img src={`${photoUrl}`} style={{ width: "100px" }} alt="img profile" />
-      <form className="userProfile" onSubmit={handleForm}>
+    <div className={`${userProfile}`}>
+      <form onSubmit={handleForm}>
         <fieldset>
+          <img
+            src={`${photoUrl}`}
+            style={{ width: "100px" }}
+            alt="img profile"
+          />
           <label htmlFor="firstName">FirstName</label>
           <input
             type="text"
@@ -78,7 +84,8 @@ const UserProfile = () => {
           />
 
           <label htmlFor="bio">Bio</label>
-          <input
+          <textarea
+            rows="5"
             type="text"
             name="bio"
             value={bio}
@@ -88,17 +95,19 @@ const UserProfile = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="image">Photo</label>
-          <input
-            type="file"
-            name="image"
-            id="image"
-            accept={"image/*"}
-            onChange={(e) => {
-              setPhoto(e.target.files[0]);
-              setPreviewPhotoUrl(URL.createObjectURL(e.target.files[0]));
-            }}
-          />
+          <label htmlFor="image">
+            <span> Upload your image</span>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              accept={"image/*"}
+              onChange={(e) => {
+                setPhoto(e.target.files[0]);
+                setPreviewPhotoUrl(URL.createObjectURL(e.target.files[0]));
+              }}
+            />
+          </label>
           {previewphotoUrl ? (
             <figure>
               <img
@@ -114,7 +123,7 @@ const UserProfile = () => {
       {response && <p>{response}</p>}
       {error ? <p>{error}</p> : null}
       {loading ? <p>loading...</p> : null}
-    </>
+    </div>
   );
 };
 

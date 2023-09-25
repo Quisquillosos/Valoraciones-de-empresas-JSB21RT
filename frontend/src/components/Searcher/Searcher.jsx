@@ -27,7 +27,6 @@ const Searcher = ({ onSearchResult }) => {
             const companiesFiltered = Object.values(latestRatings);
             data = companiesFiltered;
 
-            console.log(data, 'data');
             navigate('/companies');
             if (onSearchResult) {
                 onSearchResult(data);

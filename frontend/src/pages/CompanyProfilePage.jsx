@@ -7,10 +7,10 @@ import "./CompanyProfilePage.module.css";
 const CompanyProfilePage = () => {
   const { companyId } = useParams();
   return (
-    <>
+    <main>
       <ProfileSidebar id={companyId} />
       <EditCompanyProfile id={companyId} />
-    </>
+    </main>
   );
 };
 export default CompanyProfilePage;

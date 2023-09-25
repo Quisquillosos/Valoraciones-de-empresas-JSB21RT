@@ -1,0 +1,113 @@
+.userProfile {
+  border-top: 0.5px black solid;
+  padding-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+.userProfile form fieldset:first-of-type {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+}
+
+.userProfile form fieldset:last-of-type {
+  border: none;
+  margin: 1rem;
+}
+
+.userProfile form fieldset input,
+.userProfile form fieldset textarea {
+  border: 0.5px solid transparent;
+  width: 50%;
+  padding-left: 0.8em;
+  margin: 0.7rem 0;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+  resize: none;
+}
+
+.userProfile form fieldset input:hover,
+.userProfile form fieldset input:focus {
+  border: 0.5px solid #f07121ea;
+  box-shadow: 0px 0px 0px 5px #f2864360;
+  background-color: white;
+}
+
+.userProfile img {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  grid-area: img;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+}
+
+.userProfile form fieldset:first-child {
+  display: grid;
+  grid-template-areas:
+    "firstName img"
+    "firstNameInp img"
+    "lastName img"
+    "lastNameInp img"
+    "bio bio"
+    "bioInp bioInp";
+  grid-template-columns: 3fr 1fr;
+}
+
+.userProfile form fieldset:first-child img {
+}
+
+.userProfile form fieldset:first-child label:first-of-type {
+  grid-area: firstName;
+}
+
+.userProfile form fieldset:first-child input:first-of-type {
+  grid-area: firstNameInp;
+}
+
+.userProfile form fieldset:first-child label:nth-of-type(2) {
+  grid-area: lastName;
+}
+
+.userProfile form fieldset:first-child input:nth-of-type(2) {
+  grid-area: lastNameInp;
+  width: fit-content;
+}
+
+.userProfile form fieldset:first-child label:nth-of-type(3) {
+  grid-area: bio;
+}
+
+.userProfile form fieldset:first-child textarea {
+  grid-area: bioInp;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.userProfile form fieldset:last-of-type input {
+  display: none;
+}
+.userProfile form fieldset:last-of-type span {
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.userProfile button {
+  border: none;
+  background-color: #174ea600;
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.129);
+  border-radius: 10px;
+  margin-left: 0;
+  padding: 0.2rem 0.3rem;
+  font-size: 1.1rem;
+}

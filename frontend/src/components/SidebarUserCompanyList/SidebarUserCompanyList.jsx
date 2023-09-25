@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 
 const SidebarUserCompanyList = ({ userInfo }) => {
+  if (!userInfo[0]?.companyId) {
+    return (
+      <Link to={`/companies/profile`}>
+        <h3>Create new company</h3>
+      </Link>
+    )
+  }
+
   return (
     <>
-      {userInfo?.companyId ||
+      { userInfo?.companyId ||
         (userInfo[0]?.companyId && (
           <>
-            <h3>Mis Empresas</h3>
+            <h3>My companies</h3>
             <ul>
               {userInfo.map((company) => {
                 return (
@@ -21,7 +29,7 @@ const SidebarUserCompanyList = ({ userInfo }) => {
           </>
         ))}
       <Link to={`/companies/profile`}>
-        <h3>Crear nueva empresa</h3>
+        <h3>Create new company</h3>
       </Link>
     </>
   );

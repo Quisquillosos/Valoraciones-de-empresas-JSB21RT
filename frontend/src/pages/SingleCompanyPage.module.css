@@ -8,6 +8,8 @@
     background-color: #f07121ea;
     padding: 1rem;
     border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.519) 0px 5px 10px;
+    border: solid 1px white;
 }
 
 .singleCompanyPageSection > article img {
@@ -54,4 +56,5 @@
 }
 .singleCompanyPageSection > ul li article > p {
     font-style: italic;
+    
 }

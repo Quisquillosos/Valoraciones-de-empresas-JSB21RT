@@ -12,21 +12,20 @@
   padding: 0.3rem 0.3rem 0.3rem 0.7rem;
   margin: 0 1rem;
   background: none;
-  background-color: black;
+  background-color: white;
   border: none;
   outline: none;
   max-width: 190px;
   font-size: 16px;
   border-radius: 9999px;
-  box-shadow: inset 2px 5px 10px rgb(127, 125, 125);
-  color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
 }
 
 .companiesListMain div button {
   border: none;
   background-color: #174ea600;
   box-shadow: 0 16px 24px rgba(0, 0, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.129);
-
   border-radius: 10px;
   margin-left: 0;
   padding: 0.2rem 0.3rem;
@@ -38,19 +37,28 @@
 .companiesListMain ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 4.5rem;
 }
 
 .companiesListMain img {
+  border-radius: 100%;
   width: 100px;
+  height: 100px;
+}
+
+.companiesListMain div > img {
+  height: 50px;
 }
 
 .companiesListMain ul li {
-  background-color: #f07121ea;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin: 1rem;
   display: flex;
   flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.519) 0px 5px 10px;
+  border: solid 1px white;
+  background-color: #f07121ea;
 }
 
 .companiesListMain ul li article p:last-child {
