@@ -1,0 +1,50 @@
+.editPassMain {
+}
+.editPassMain form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+}
+.editPassMain h3 {
+  text-align: center;
+}
+.editPassMain form input {
+  border: 0.5px solid transparent;
+  width: 50%;
+  padding-left: 0.8em;
+  margin: 0.7rem 0;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.editPassMain form input:hover,
+.editPassMain form input:focus {
+  border: 0.5px solid #f07121ea;
+  box-shadow: 0px 0px 0px 5px #f2864360;
+  background-color: white;
+}
+
+.editPassMain h1 {
+  margin: auto;
+  width: 30vw;
+  text-align: center;
+}
+
+.editPassMain form > button {
+  width: 30%;
+  margin: 1rem auto;
+  padding: 0;
+  height: 2rem;
+}
+
+.editPassMain form button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}

@@ -2,6 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { editMyCompanyDataService } from "../../services";
 import useCompany from "../../hooks/useCompany";
+import { editMyCompanies } from "./EditCompanyProfile.module.css";
+import Button from "../Button/Button";
 
 const EditCompanyProfile = ({ id }) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -54,10 +56,15 @@ const EditCompanyProfile = ({ id }) => {
     }
   };
   return (
-    <>
-      <img src={`${photoUrl}`} style={{ width: "100px" }} alt="company img" />
+    <main className={`${editMyCompanies}`}>
+      <h3>Edit company</h3>
       <form className="userProfile" onSubmit={handleForm}>
         <fieldset>
+          <img
+            src={`${photoUrl}`}
+            style={{ width: "100px" }}
+            alt="company img"
+          />
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -68,7 +75,7 @@ const EditCompanyProfile = ({ id }) => {
             onChange={(e) => setName(e.target.value)}
           />
 
-          <label htmlFor="country">country</label>
+          <label htmlFor="country">Country</label>
           <input
             type="text"
             name="country"
@@ -77,7 +84,7 @@ const EditCompanyProfile = ({ id }) => {
             required
             onChange={(e) => setCountry(e.target.value)}
           />
-          <label htmlFor="city">city</label>
+          <label htmlFor="city">City</label>
           <input
             type="text"
             name="city"
@@ -88,7 +95,8 @@ const EditCompanyProfile = ({ id }) => {
           />
 
           <label htmlFor="bio">Bio</label>
-          <input
+          <textarea
+            rows={5}
             type="text"
             name="bio"
             value={bio}
@@ -98,17 +106,19 @@ const EditCompanyProfile = ({ id }) => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="image">Photo</label>
-          <input
-            type="file"
-            name="image"
-            id="image"
-            accept={"image/*"}
-            onChange={(e) => {
-              setPhoto(e.target.files[0]);
-              setPreviewPhotoUrl(URL.createObjectURL(e.target.files[0]));
-            }}
-          />
+          <label htmlFor="image">
+            <p>Upload your image</p>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              accept={"image/*"}
+              onChange={(e) => {
+                setPhoto(e.target.files[0]);
+                setPreviewPhotoUrl(URL.createObjectURL(e.target.files[0]));
+              }}
+            />
+          </label>
           {previewPhotoUrl ? (
             <figure>
               <img
@@ -119,12 +129,12 @@ const EditCompanyProfile = ({ id }) => {
             </figure>
           ) : null}
         </fieldset>
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
       {response && <p>{response}</p>}
       {error ? <p>{error}</p> : null}
       {loading ? <p>loading...</p> : null}
-    </>
+    </main>
   );
 };
 

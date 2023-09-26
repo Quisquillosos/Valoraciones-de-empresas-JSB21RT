@@ -1,0 +1,90 @@
+.createCompanyMain {
+}
+.createCompanyMain h3 {
+  text-align: center;
+  margin: 0;
+}
+.createCompanyMain form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem;
+}
+.createCompanyMain form fieldset:first-of-type {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+}
+
+.createCompanyMain form input {
+  border: 0.5px solid transparent;
+  width: 50%;
+  padding-left: 0.8em;
+  margin: 0.7rem 0;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.createCompanyMain form input:hover,
+.createCompanyMain form input:focus {
+  border: 0.5px solid #f07121ea;
+  box-shadow: 0px 0px 0px 5px #f2864360;
+  background-color: white;
+}
+
+.createCompanyMain h1 {
+  margin: auto;
+  width: 30vw;
+  text-align: center;
+}
+
+.createCompanyMain form > button {
+  width: 30%;
+}
+
+.createCompanyMain form button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.createCompanyMain h3 {
+  text-align: center;
+}
+
+.createCompanyMain form fieldset:last-of-type input {
+  display: none;
+}
+.createCompanyMain form fieldset:last-of-type {
+  border: none;
+}
+.createCompanyMain form fieldset:last-of-type p {
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.createCompanyMain form fieldset:last-of-type {
+  display: flex;
+  align-items: center;
+}
+
+.createCompanyMain form fieldset:last-of-type figure {
+  width: 20%;
+}
+
+.createCompanyMain form fieldset:last-of-type label {
+  display: flex;
+}
+
+.createCompanyMain button {
+  width: 30vw;
+  align-self: center;
+}

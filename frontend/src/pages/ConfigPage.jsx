@@ -4,12 +4,11 @@ import ProfileSidebar from "../components/ProfileSidebar/ProfileSidebar";
 
 const ConfigPage = () => {
   return (
-    <>
+    <main>
       <ProfileSidebar />
       <EditUserEmail />
-      <h3>Password Reset</h3>
       <EditUserPass />
-    </>
+    </main>
   );
 };
 

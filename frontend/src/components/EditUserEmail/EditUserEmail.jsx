@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import Accordion from "../Accordion/Accordion";
 import { AuthContext } from "../../context/AuthContext";
 import { editEmailService } from "../../services";
+import { editEmailMain } from "./EditUserEmail.module.css";
+import Button from "../Button/Button";
 
 const EditUserEmail = () => {
   const [newEmail, setNewEmail] = useState("");
@@ -28,46 +29,46 @@ const EditUserEmail = () => {
     }
   };
   return (
-    <>
+    <main className={`${editEmailMain}`}>
+      <h3>Edit Email</h3>
       <p>{user && user.user.email}</p>
-      <Accordion>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="newEmail">
-            Nuevo email
-            <input
-              type="text"
-              name="newEmail"
-              id="newEmail"
-              value={newEmail}
-              onChange={(e) => setNewEmail(e.target.value)}
-              required
-            />
-          </label>
-          <label htmlFor="oldPass">
-            Contraseña
-            <input
-              type={showPassword ? "text" : "password"}
-              name="oldPass"
-              id="oldPass"
-              value={oldPass}
-              onChange={(e) => setOldPass(e.target.value)}
-            />
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                setShowPassword(!showPassword);
-              }}
-            >
-              👁️
-            </button>
-          </label>
-          <button type="submit">Save Changes</button>
-        </form>
-        {error && <p>{error}</p>}
-        {loading && <p>Loading...</p>}
-      </Accordion>
-    </>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="newEmail">
+          New email
+          <input
+            type="text"
+            name="newEmail"
+            id="newEmail"
+            value={newEmail}
+            onChange={(e) => setNewEmail(e.target.value)}
+            required
+          />
+        </label>
+        <label htmlFor="oldPass">
+          Password
+          <input
+            type={showPassword ? "text" : "password"}
+            name="oldPass"
+            id="oldPass"
+            value={oldPass}
+            onChange={(e) => setOldPass(e.target.value)}
+          />
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowPassword(!showPassword);
+            }}
+          >
+            {showPassword ? "🐵" : "🙈"}
+          </button>
+        </label>
+
+        <Button>Save</Button>
+      </form>
+      {error && <p>{error}</p>}
+      {loading && <p>Loading...</p>}
+    </main>
   );
 };
 

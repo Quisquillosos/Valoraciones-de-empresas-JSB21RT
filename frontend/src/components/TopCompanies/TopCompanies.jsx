@@ -1,6 +1,7 @@
 import Company from "../Company/Company";
 import { Link } from "react-router-dom";
 import { topCompany } from "./TopCompanies.module.css";
+import Button from "../Button/Button";
 
 const TopCompanies = ({ companies }) => {
   companies.sort((a, b) => b.totalAvgRatings - a.totalAvgRatings);
@@ -13,7 +14,7 @@ const TopCompanies = ({ companies }) => {
         <li key={company.name}>
           <Company company={company} />
           <Link to={`/companies/${company.id}`}>
-            <button>View company</button>
+            <Button>View Company</Button>
           </Link>
         </li>
       ))}

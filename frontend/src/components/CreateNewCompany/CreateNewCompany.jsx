@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { createCompanyService } from "../../services";
-
+import { createCompanyMain } from "./CreateNewCompany.module.css";
+import Button from "../Button/Button";
 
 const CreateNewCompany = () => {
   const { token } = useContext(AuthContext);
-  
+
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
@@ -19,6 +20,11 @@ const CreateNewCompany = () => {
     e.preventDefault();
     setError("");
     setResponse("");
+    setCity("");
+    setBio("");
+    setPhoto(null);
+    setCountry("");
+    setName("");
     try {
       setLoading(true);
       const data = new FormData(e.target);
@@ -31,8 +37,9 @@ const CreateNewCompany = () => {
     }
   };
   return (
-    <>
-      <form className="userProfile" onSubmit={handleForm}>
+    <main className={`${createCompanyMain}`}>
+      <h3>Create company</h3>
+      <form onSubmit={handleForm}>
         <fieldset>
           <label htmlFor="name">Name</label>
           <input
@@ -44,7 +51,7 @@ const CreateNewCompany = () => {
             onChange={(e) => setName(e.target.value)}
           />
 
-          <label htmlFor="country">country</label>
+          <label htmlFor="country">Country</label>
           <input
             type="text"
             name="country"
@@ -53,7 +60,7 @@ const CreateNewCompany = () => {
             required
             onChange={(e) => setCountry(e.target.value)}
           />
-          <label htmlFor="city">city</label>
+          <label htmlFor="city">City</label>
           <input
             type="text"
             name="city"
@@ -74,14 +81,16 @@ const CreateNewCompany = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="photo">Photo</label>
-          <input
-            type="file"
-            name="photo"
-            id="photo"
-            accept={"image/*"}
-            onChange={(e) => setPhoto(e.target.files[0])}
-          />
+          <label htmlFor="photo">
+            <p>Upload photo</p>
+            <input
+              type="file"
+              name="photo"
+              id="photo"
+              accept={"image/*"}
+              onChange={(e) => setPhoto(e.target.files[0])}
+            />
+          </label>
           {photo ? (
             <figure>
               <img
@@ -92,12 +101,12 @@ const CreateNewCompany = () => {
             </figure>
           ) : null}
         </fieldset>
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
       {response && <p>{response}</p>}
       {error ? <p>{error}</p> : null}
       {loading ? <p>loading...</p> : null}
-    </>
+    </main>
   );
 };
 

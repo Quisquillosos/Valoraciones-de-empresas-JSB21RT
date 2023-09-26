@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { editMyDataService } from "../../services";
 import { userProfile } from "./UserProfile.module.css";
+import Button from "../Button/Button";
 
 const UserProfile = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -31,7 +32,6 @@ const UserProfile = () => {
     setError("");
 
     try {
-      setResponse("");
       setLoading(true);
       const data = new FormData();
       data.append("firstName", firstName);
@@ -39,15 +39,12 @@ const UserProfile = () => {
       data.append("bio", bio);
       if (photo) {
         data.append("photo", photo);
+        setPhotoUrl(URL.createObjectURL(photo));
       }
       await editMyDataService(data, token);
       setResponse("Your data has been successfully modified");
       setPreviewPhotoUrl(null);
       setLoading(false);
-
-      if (photo) {
-        setPhotoUrl(URL.createObjectURL(photo));
-      }
     } catch (err) {
       setLoading(false);
       setError(err.message);
@@ -56,6 +53,7 @@ const UserProfile = () => {
 
   return (
     <div className={`${userProfile}`}>
+      <h3>Profile </h3>
       <form onSubmit={handleForm}>
         <fieldset>
           <img
@@ -96,7 +94,7 @@ const UserProfile = () => {
         </fieldset>
         <fieldset>
           <label htmlFor="image">
-            <span> Upload your image</span>
+            <p> Upload photo</p>
             <input
               type="file"
               name="image"
@@ -118,7 +116,7 @@ const UserProfile = () => {
             </figure>
           ) : null}
         </fieldset>
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
       {response && <p>{response}</p>}
       {error ? <p>{error}</p> : null}
