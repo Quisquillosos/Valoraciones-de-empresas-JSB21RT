@@ -1,44 +1,43 @@
 .profileSidebar {
-  padding: 0;
+    padding: 0;
 }
 
 .profileSidebar li {
-  list-style-type: none;
+    list-style-type: none;
 }
 .profileSidebar > li {
-  list-style-type: none;
-  border-bottom: solid 1.5px #f07121ea;
-  border-radius: 1rem;
-  margin: 1rem 0 0 0;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5.5px;
+    list-style-type: none;
+    border-bottom: solid 1.5px #f07121ea;
+    border-radius: 1rem;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5.5px;
 }
 
 .profileSidebar li a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .profileSidebar li h3 {
-  margin: 0;
-  font-size: 1rem;
-  color: black;
-  font-weight: normal;
+    margin: 0;
+    font-size: 1rem;
+    color: black;
+    font-weight: normal;
 }
 
 .profileSidebar > li:nth-child(3) {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
 }
 
 .profileSidebar > li:nth-child(3) ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  text-decoration:underline;
-  color:#f07121ea;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-decoration: underline;
+    color: #f07121ea;
+    padding-left: 1rem;
 }
-
-

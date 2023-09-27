@@ -3,6 +3,8 @@ import { getAllCompaniesService } from '../../services';
 import Accordion from '../Accordion/Accordion';
 import imgSrc from '/searchLogo.svg';
 import { useNavigate } from 'react-router-dom';
+import { searcher } from './Searcher.module.css';
+import Button from '../Button/Button';
 
 const Searcher = ({ onSearchResult }) => {
     const navigate = useNavigate();
@@ -36,7 +38,7 @@ const Searcher = ({ onSearchResult }) => {
         }
     };
     return (
-        <>
+        <div className={`${searcher}`}>
             <Accordion imgSrc={imgSrc}>
                 <form onSubmit={handleSubmit}>
                     <input
@@ -44,11 +46,11 @@ const Searcher = ({ onSearchResult }) => {
                         value={keyword}
                         onChange={(e) => setKeyword(e.target.value)}
                     />
-                    <button>filter</button>
+                    <Button>filter</Button>
                 </form>
                 {error && <p>{error}</p>}
             </Accordion>
-        </>
+        </div>
     );
 };
 

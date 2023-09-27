@@ -60,7 +60,7 @@ const insertUserModel = async ({
         const emailBody = `
             ¡Welcome ${firstName}!
 
-            Thank you for registering with Valoraciones de empresas. To activate your account, click on the link below:
+            Thank you for registering with AwaitQ. To activate your account, click on the link below:
 
             <a href="http://localhost:8000/users/validate/${registrationCode}">Activate account</a>
         `;

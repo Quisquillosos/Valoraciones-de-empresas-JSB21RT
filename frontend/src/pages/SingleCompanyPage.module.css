@@ -36,7 +36,7 @@
 .singleCompanyPageSection > ul li article {
     margin: 2rem auto;
     width: 70vw;
-    border: black solid 1px;
+    border: rgb(213, 217, 217) solid 1px;
     border-radius: 1rem;
     padding: 0.5rem;
     background-color: rgb(244, 243, 243);
@@ -56,5 +56,4 @@
 }
 .singleCompanyPageSection > ul li article > p {
     font-style: italic;
-    
 }

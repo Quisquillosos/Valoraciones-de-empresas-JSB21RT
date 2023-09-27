@@ -1,7 +1,12 @@
 * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body > div > main {
-  padding-bottom: 7vh;
+    padding-bottom: 7vh;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }

@@ -1,6 +1,10 @@
-import "./NotFoundPage.module.css";
+import './NotFoundPage.module.css';
 
 const NotFoundPage = () => {
-  return <div>NotFoundPage</div>;
+    return (
+        <div>
+            <h1>Don &#8217 t know where you are?</h1>
+        </div>
+    );
 };
 export default NotFoundPage;

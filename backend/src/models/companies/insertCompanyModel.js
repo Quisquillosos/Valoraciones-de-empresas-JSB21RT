@@ -65,7 +65,7 @@ const insertCompanyModel = async ({
 
         // Creating email content
         const emailBody = `
-            ¡Welcome ${name} to Valoracion de empresa!
+            ¡Welcome ${name} to AwaitQ!
 
         `;
 

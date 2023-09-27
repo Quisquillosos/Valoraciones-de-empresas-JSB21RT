@@ -12,11 +12,11 @@ const selectRatingByCompanyIdModel = async (companyId) => {
         const [ratings] = await connection.query(
             `SELECT
             RC.id,
-            AVG(RC.salary) AS avgSalary,
-            AVG(RC.workEnvironment) AS avgWorkEnvironment,
-            AVG(RC.promotionPosibility) AS avgPromotionPosibility,
-            AVG(RC.accesibility) AS avgAccesibility,
-            (AVG(RC.salary) + AVG(RC.workEnvironment) + AVG(RC.promotionPosibility) + AVG(RC.accesibility)) / 4 AS totalAvgRatings,
+            ROUND(AVG(RC.salary),1) AS avgSalary,
+            ROUND(AVG(RC.workEnvironment),1) AS avgWorkEnvironment,
+            ROUND(AVG(RC.promotionPosibility),1) AS avgPromotionPosibility,
+            ROUND(AVG(RC.accesibility),1) AS avgAccesibility,
+            ROUND((AVG(RC.salary) + AVG(RC.workEnvironment) + AVG(RC.promotionPosibility) + AVG(RC.accesibility)) / 4,1) AS totalAvgRatings,
             RC.review,
             RC.companyId,
             RC.userId,
