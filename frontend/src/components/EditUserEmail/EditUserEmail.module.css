@@ -1,56 +1,76 @@
 .editEmailMain {
 }
+.editEmailMain p:first-of-type {
+  text-align: center;
+}
 .editEmailMain form {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1rem;
-    margin: 1rem;
-    padding: 0.7rem;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
-    border: solid 1.5px #f07121ea;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
 }
 
 .editEmailMain form input {
-    border: 0.5px solid transparent;
-    width: 50%;
-    padding-left: 0.8em;
-    margin: 0.7rem 0 0.7rem 0.7rem;
-    outline: none;
-    overflow: hidden;
-    background-color: #f3f3f3;
-    border-radius: 10px;
-    transition: all 0.5s;
+  border: 0.5px solid transparent;
+  width: 50%;
+  padding-left: 0.8em;
+  margin: 0.7rem 0 0.7rem 0.7rem;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
 }
 
 .editEmailMain form input:hover,
 .editEmailMain form input:focus {
-    border: 0.5px solid #f07121ea;
-    box-shadow: 0px 0px 0px 5px #f2864360;
-    background-color: white;
+  border: 0.5px solid #f07121ea;
+  box-shadow: 0px 0px 0px 5px #f2864360;
+  background-color: white;
 }
 
 .editEmailMain h1 {
-    margin: auto;
-    width: 30vw;
-    text-align: center;
+  margin: auto;
+  width: 30vw;
+  text-align: center;
 }
 
 .editEmailMain form > button {
-    width: 30%;
-    margin: 1rem auto;
-    padding: 0;
-    height: 2rem;
+  width: 30%;
+  margin: 1rem auto;
+  padding: 0;
+  height: 2rem;
 }
 
 .editEmailMain form button {
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .editEmailMain h3 {
-    text-align: center;
+  text-align: center;
 }
 
 .editEmailMain p:last-child {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+@media (min-width: 750px) {
+  .editEmailMain form {
+    width: 65vw;
+    margin: 1rem auto;
+  }
+  .editEmailMain h3 {
+    font-size: 2rem;
+  }
+  .editEmailMain form label {
+    width: 100%;
+    margin: 1rem 0 0 1rem;
+  }
+  .editEmailMain form button {
+    font-size: 1.1rem;
+  }
 }

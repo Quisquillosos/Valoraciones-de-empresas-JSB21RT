@@ -1,22 +1,33 @@
 .ratingArticle {
-    margin: 1rem;
-    width: 70vw;
-    border: rgb(213, 217, 217) solid 1px;
-    border-radius: 1rem;
-    padding: 1rem;
-    background-color: rgb(244, 243, 243);
-    width: 80vw;
-    margin: auto;
-    margin-bottom: 1rem;
+  margin: 1rem;
+  width: 70vw;
+  border: rgb(213, 217, 217) solid 1px;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgb(244, 243, 243);
+  width: 80vw;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 .ratingArticle img {
-    width: 20vw;
-    border-radius: 1rem;
-    box-shadow: black 4px 2px;
+  width: 20vw;
+  border-radius: 1rem;
+  box-shadow: black 4px 2px;
 }
 
 .ratingArticle li {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 750px) {
+  .ratingArticle {
+    width: 35vw;
+  }
+
+  .ratingArticle img {
+    width: 100px;
+    height: 100px;
+  }
 }

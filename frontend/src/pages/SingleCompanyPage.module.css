@@ -1,59 +1,68 @@
 .singleCompanyPageSection {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.singleCompanyPageSection h3 {
+  display: none;
 }
 
 .singleCompanyPageSection > article {
-    background-color: #f07121ea;
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.519) 0px 5px 10px;
-    border: solid 1px white;
+  background-color: #f07121ea;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.519) 0px 5px 10px;
+  border: solid 1px white;
 }
 
 .singleCompanyPageSection > article img {
-    border-radius: 10px;
-    width: 130px;
-    height: 130px;
+  border-radius: 10px;
+  width: 130px;
+  height: 130px;
 }
 
 .singleCompanyPageSection > article h1 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .singleCompanyPageSection > article h1 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .singleCompanyPageSection > ul {
-    border-top: 2px solid black;
-    margin: 2rem 0;
-    list-style: none;
-    padding: 0;
+  margin: 2rem 0;
+  list-style: none;
+  padding: 0;
 }
 
 .singleCompanyPageSection > ul li article {
-    margin: 2rem auto;
-    width: 70vw;
-    border: rgb(213, 217, 217) solid 1px;
-    border-radius: 1rem;
-    padding: 0.5rem;
-    background-color: rgb(244, 243, 243);
+  margin: 2rem auto;
+  width: 70vw;
+  border: rgb(213, 217, 217) solid 1px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(244, 243, 243);
 }
 
 .singleCompanyPageSection > ul li article div {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .singleCompanyPageSection > ul li article ul {
-    list-style: none;
-    padding-left: 1rem;
+  list-style: none;
+  padding-left: 1rem;
 }
 .singleCompanyPageSection > ul li article ul li {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .singleCompanyPageSection > ul li article > p {
-    font-style: italic;
+  font-style: italic;
+}
+
+@media (min-width: 750px) {
+  .singleCompanyPageSection {
+    width: 80vw;
+    margin: 3rem auto;
+  }
 }

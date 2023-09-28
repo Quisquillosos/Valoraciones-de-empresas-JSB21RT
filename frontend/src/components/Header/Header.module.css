@@ -5,6 +5,7 @@
   height: 13vh;
   margin-bottom: 1rem;
   background-color: white;
+  border-bottom: 1px solid black;
 }
 
 .header nav > ul {
@@ -56,4 +57,43 @@
   padding: 0.7rem;
   box-shadow: rgba(0, 0, 0, 0.445) 0px 1px 5.5px;
   border: solid 1.5px #f07121ea;
+}
+
+@media (min-width: 750px) {
+  .header {
+    height: 9vh;
+  }
+  .header nav > ul {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: 5vw;
+    width: 60vw;
+    gap: 0.7rem;
+  }
+
+  .header nav > ul li button,
+  .header nav > ul li a {
+    border-left: 1px black solid;
+    padding: 0.7rem 0 0.7rem 1.2rem;
+    color: #f07121ea;
+    font-size: 1.1rem;
+  }
+  .header nav > ul li ul {
+    flex-direction: row;
+    width: 22vw;
+    justify-content: space-around;
+  }
+  .header nav > ul li ul a {
+    color: #f07121ea;
+  }
+  .header nav {
+    box-shadow: none;
+    border: none;
+  }
+  .header nav > ul li:last-child section {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-left: 0.5rem;
+  }
 }

@@ -1,43 +1,83 @@
 .companiesList {
-}
-
-.companiesList {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 4.5rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 4.5rem;
 }
 
 .companiesList img {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+}
+
+.companiesList div > img {
+  height: 50px;
+}
+
+.companiesList li {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.519) 0px 5px 10px;
+  border: solid 1px white;
+  background-color: #f07121ea;
+}
+
+.companiesList li article p:last-child {
+  max-width: 60ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.companiesList li a {
+  width: 80vw;
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+}
+
+@media (min-width: 750px) {
+  .companiesList img {
     border-radius: 100%;
     width: 100px;
     height: 100px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
-}
+  }
 
-.companiesList div > img {
+  .companiesList div > img {
     height: 50px;
+  }
+
+  .companiesList li {
+    width: 65vw;
+    margin: 1rem auto;
+  }
+  .companiesList li a button {
+    width: 180px;
+    margin-right: 15vw;
+  }
 }
 
-.companiesList li {
+@media (min-width: 1200px) {
+  .companiesList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 1rem auto;
+  }
+
+  .companiesList li {
+    width: 30vw;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
-    border-radius: 1rem;
-    margin: 1rem;
-    padding: 0.7rem;
-    box-shadow: rgba(0, 0, 0, 0.519) 0px 5px 10px;
-    border: solid 1px white;
-    background-color: #f07121ea;
-}
-
-.companiesList li article p:last-child {
-    max-width: 60ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.companiesList li a {
-    width: 80vw;
-    display: flex;
-    text-decoration: none;
-    justify-content: center;
+    justify-content: space-between;
+  }
+  .companiesList li a button {
+    width: 180px;
+    margin-right: 50vw;
+  }
 }

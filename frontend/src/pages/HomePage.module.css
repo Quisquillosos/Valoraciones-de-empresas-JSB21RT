@@ -1,48 +1,90 @@
 .mainHeader {
-    height: 13vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid black;
+  height: 13vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mainHeader h1 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 .mainHeader span {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .mainHomePage {
 }
 
 .mainHomePage section > a > button {
-    border: none;
-    background-color: #063c8d00;
-    width: 100vw;
-    padding: 0;
-    text-decoration: underline;
-    font-size: 1.3rem;
-    margin-top: 1rem;
+  border: none;
+  background-color: #063c8d00;
+  padding: 0;
+  text-decoration: underline;
+  font-size: 1.3rem;
+  margin-top: 1rem;
 }
 
 .mainHomePage section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .mainHomePage section:last-child article {
-    margin: 1rem;
-    width: 70vw;
-    border: rgb(213, 217, 217) solid 1px;
-    border-radius: 1rem;
-    padding: 1rem;
-    background-color: rgb(244, 243, 243);
+  margin: 1rem;
+  width: 70vw;
+  border: rgb(213, 217, 217) solid 1px;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgb(244, 243, 243);
 }
 
 .mainHomePage section:last-child article img {
-    width: 20vw;
-    border-radius: 1rem;
-    box-shadow: black 4px 2px;
+  width: 20vw;
+  border-radius: 1rem;
+  box-shadow: black 4px 2px;
+}
+
+/*mediaquery size 750px*/
+@media (min-width: 750px) {
+  .mainHeader {
+    margin-bottom: 6rem;
+  }
+  .mainHeader h1 {
+    font-size: 2.5rem;
+  }
+  .mainHeader span {
+    font-size: 2.2rem;
+  }
+  .mainHomePage section > a > button {
+    font-size: 1.8rem;
+  }
+
+  .mainHomePage section:first-of-type li {
+    width: 65vw;
+    margin: 1rem auto;
+  }
+  .mainHomePage section:last-child {
+    margin-top: 4.5rem;
+  }
+  .mainHomePage section:last-child article {
+    width: 60vw;
+  }
+
+  .mainHomePage section:last-child article img {
+    width: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mainHomePage section ul {
+    display: flex;
+  }
+  .mainHomePage section:first-of-type li {
+    width: 27vw;
+    margin: 1rem auto;
+  }
+  .mainHomePage section:last-child article {
+    width: 43vw;
+  }
 }

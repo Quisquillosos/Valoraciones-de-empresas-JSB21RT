@@ -1,12 +1,21 @@
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body > div > main {
-    padding-bottom: 7vh;
+  padding-bottom: 7vh;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+}
+main > h3 {
+  text-align: center;
+}
+
+@media (min-width: 750px) {
+  main > h3 {
+    font-size: 2rem;
+  }
 }

@@ -1,142 +1,149 @@
 .editMyCompanies {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 .editMyCompanies h3 {
-    text-align: center;
-    margin: 0;
+  text-align: center;
+  margin: 0;
 }
 
 .editMyCompanies form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .editMyCompanies button {
-    width: 30vw;
-    align-self: center;
+  width: 30vw;
+  align-self: center;
 }
 
 .editMyCompanies form fieldset:first-of-type {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1rem;
-    margin: 1rem;
-    padding: 0.7rem;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
-    border: solid 1.5px #f07121ea;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
 }
 
 .editMyCompanies form fieldset:last-of-type {
-    border: none;
-    margin: 1rem;
+  border: none;
+  margin: 1rem;
 }
 
 .editMyCompanies form fieldset input,
 .editMyCompanies form fieldset textarea {
-    border: 0.5px solid transparent;
-    width: fit-content;
-    padding-left: 0.8em;
-    margin: 0.7rem 0;
-    outline: none;
-    overflow: hidden;
-    background-color: #f3f3f3;
-    border-radius: 10px;
-    transition: all 0.5s;
-    resize: none;
+  border: 0.5px solid transparent;
+  width: fit-content;
+  padding-left: 0.8em;
+  margin: 0.7rem 0;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+  resize: none;
 }
 
 .editMyCompanies form fieldset input:hover,
 .editMyCompanies form fieldset input:focus {
-    border: 0.5px solid #f07121ea;
-    box-shadow: 0px 0px 0px 5px #f2864360;
-    background-color: white;
+  border: 0.5px solid #f07121ea;
+  box-shadow: 0px 0px 0px 5px #f2864360;
+  background-color: white;
 }
 
 .editMyCompanies img {
-    border-radius: 100%;
-    width: 50px;
-    height: 100px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  border-radius: 100%;
+  width: 50px;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
 }
 
 .editMyCompanies form fieldset:first-child {
-    display: grid;
-    grid-template-areas:
-        'name img'
-        'nameInp img'
-        'country img'
-        'countryInp img'
-        'city img'
-        'cityInp img'
-        'bio bio'
-        'bioInp bioInp';
-    grid-template-columns: 3fr 1fr;
+  display: grid;
+  grid-template-areas:
+    "name img"
+    "nameInp img"
+    "country img"
+    "countryInp img"
+    "city img"
+    "cityInp img"
+    "bio bio"
+    "bioInp bioInp";
+  grid-template-columns: 3fr 1fr;
 }
 
 .editMyCompanies form fieldset:first-child img {
-    grid-area: img;
+  grid-area: img;
 }
 
 .editMyCompanies form fieldset:first-child label:first-of-type {
-    grid-area: name;
+  grid-area: name;
 }
 
 .editMyCompanies form fieldset:first-child input:first-of-type {
-    grid-area: nameInp;
+  grid-area: nameInp;
 }
 
 .editMyCompanies form fieldset:first-child label:nth-of-type(2) {
-    grid-area: country;
+  grid-area: country;
 }
 
 .editMyCompanies form fieldset:first-child input:nth-of-type(2) {
-    grid-area: countryInp;
+  grid-area: countryInp;
 }
 
 .editMyCompanies form fieldset:first-child label:nth-of-type(3) {
-    grid-area: city;
+  grid-area: city;
 }
 
 .editMyCompanies form fieldset:first-child input:nth-of-type(3) {
-    grid-area: cityInp;
+  grid-area: cityInp;
 }
 
 .editMyCompanies form fieldset:first-child label:nth-of-type(4) {
-    grid-area: bio;
+  grid-area: bio;
 }
 
 .editMyCompanies form fieldset:first-child textarea {
-    grid-area: bioInp;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+  grid-area: bioInp;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .editMyCompanies form fieldset:last-of-type input {
-    display: none;
+  display: none;
 }
 .editMyCompanies form fieldset:last-of-type p {
-    font-size: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
-    border: solid 1.5px #f07121ea;
-    border-radius: 1rem;
-    padding: 1rem;
-    height: fit-content;
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+  border-radius: 1rem;
+  padding: 1rem;
+  height: fit-content;
 }
 
 .editMyCompanies form fieldset:last-of-type {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .editMyCompanies form fieldset:last-of-type figure {
-    width: 20%;
+  width: 20%;
 }
 
 .editMyCompanies form fieldset:last-of-type label {
-    display: flex;
+  display: flex;
 }
 
 .editMyCompanies p:last-child {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+@media (min-width: 750px) {
+  .editMyCompanies form {
+    width: 65vw;
+    margin: 2rem auto;
+  }
 }

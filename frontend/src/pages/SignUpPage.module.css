@@ -58,5 +58,26 @@ section form > div button {
   margin-left: 0;
   padding: 0.5rem 0.5rem;
   font-size: 1.1rem;
-  
+}
+
+@media (min-width: 750px) {
+  .signUpSection form fieldset {
+    width: 50vw;
+    margin: 1rem auto;
+  }
+
+  .signUpSection form fieldset input,
+  .signUpSection form fieldset label {
+    width: 80%;
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+
+  .signUpSection h1 {
+    margin-top: 10vh;
+    font-size: 2.5rem;
+  }
+  .signUpSection form fieldset button {
+    font-size: 1.2rem;
+  }
 }
