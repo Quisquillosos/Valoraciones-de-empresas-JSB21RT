@@ -7,20 +7,25 @@ const selectUserByIdModel = require('./selectUserByIdModel');
 // Function that performs a database query to update a user's profile (photo + bio)
 const updateUserProfileModel = async (photoName, bio, userId) => {
     let connection;
-
     try {
         connection = await getDb();
 
         const user = await selectUserByIdModel(userId);
+        console.log(user, 'esto es user');
 
-        if (!photoName) photoName = user.photo;
+        if (!photoName) photoName = user[0].photo;
 
-        if (!bio) bio = user.bio;
+        if (!bio) bio = user[0].bio;
+        console.log(bio, 'bio para el update');
+        console.log(userId, 'userId para el update');
+        console.log(photoName, 'photoName para el update');
 
         await connection.query(
             `UPDATE users SET photo = ?, bio = ? WHERE id = ?`,
             [photoName, bio, userId]
         );
+        
+        console.log('aqui llegamos?');
     } finally {
         if (connection) connection.release();
     }

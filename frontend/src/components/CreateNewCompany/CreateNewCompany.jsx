@@ -97,7 +97,7 @@ const CreateNewCompany = () => {
                         <figure>
                             <img
                                 src={URL.createObjectURL(photo)}
-                                style={{ width: '100px' }}
+                                style={{ width: '100px', height: "100px"}}
                                 alt='Preview'
                             />
                         </figure>

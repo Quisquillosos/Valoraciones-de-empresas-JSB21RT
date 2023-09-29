@@ -31,3 +31,15 @@
     height: 100px;
   }
 }
+
+@media (min-width: 1200px) {
+  .ratingArticle {
+    width: 50vw;
+    margin-right: 5rem;
+  }
+
+  .ratingArticle img {
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -16,6 +16,7 @@ const editUserProfileController = async (req, res, next) => {
         const { photo } = req.files || {};
 
         const data = { bio, photo };
+        console.log(data);
 
         await validateSchemaService(editUserProfileSchema, data);
 

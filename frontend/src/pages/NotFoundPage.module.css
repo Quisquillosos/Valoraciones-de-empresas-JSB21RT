@@ -1,0 +1,30 @@
+.notFoundMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.notFoundMain > div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.notFoundMain > div a {
+  margin-top: 0.5rem;
+  text-decoration: none;
+  border: 1px solid #f07121ea;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: black;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  overflow: visible;
+  width: auto;
+  will-change: transform, opacity;
+}
+
+

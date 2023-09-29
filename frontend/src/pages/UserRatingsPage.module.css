@@ -1,0 +1,9 @@
+@media (min-width: 1200px) {
+  .ratingsMain {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ratingsMain article h3 {
+    display: none;
+  }
+}

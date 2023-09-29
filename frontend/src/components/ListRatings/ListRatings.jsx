@@ -3,7 +3,6 @@ import Rating from "../Rating/Rating";
 function ListRatings({ rating }) {
   return rating && rating?.length ? (
     <>
-      <h3>Ratings</h3>
       <ul className="ratingsList">
         {rating.map((rating) => {
           return (

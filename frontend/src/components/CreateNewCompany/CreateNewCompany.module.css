@@ -38,6 +38,12 @@
   box-shadow: 0px 0px 0px 5px #f2864360;
   background-color: white;
 }
+.createCompanyMain img {
+  border-radius: 100%;
+  width: 50px;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+}
 
 .createCompanyMain h1 {
   margin: auto;
@@ -98,5 +104,15 @@
   .createCompanyMain form {
     width: 65vw;
     margin: 2rem auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .createCompanyMain form {
+    width: 50vw;
+    margin-right: 5rem;
+  }
+  .createCompanyMain h3{
+    margin-right: 5rem;
   }
 }

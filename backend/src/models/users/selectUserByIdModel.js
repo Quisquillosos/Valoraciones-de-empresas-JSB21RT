@@ -16,6 +16,7 @@ const selectUserByIdModel = async (userId) => {
             WHERE C.userId = ?`,
             [userId]
         );
+
         if (!users[0]) {
             const [users] = await connection.query(
                 `SELECT id, firstName, lastName, email, photo, bio, active, createdAt
@@ -26,7 +27,7 @@ const selectUserByIdModel = async (userId) => {
 
             return users[0];
         }
-
+        console.log(users[0], 'lo q nos devuelve el select');
         return users;
     } finally {
         if (connection) connection.release();

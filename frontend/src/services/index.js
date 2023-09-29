@@ -188,3 +188,5 @@ export const editPasswordService = async (data, token) => {
     }
     return json.data;
 };
+
+

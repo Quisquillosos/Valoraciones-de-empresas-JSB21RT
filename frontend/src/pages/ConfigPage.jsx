@@ -1,13 +1,16 @@
 import EditUserEmail from "../components/EditUserEmail/EditUserEmail";
 import EditUserPass from "../components/EditUserPass/EditUserPass";
 import ProfileSidebar from "../components/ProfileSidebar/ProfileSidebar";
+import { configMain } from "./ConfigPage.module.css";
 
 const ConfigPage = () => {
   return (
-    <main>
+    <main className={`${configMain}`}>
       <ProfileSidebar />
-      <EditUserEmail />
-      <EditUserPass />
+      <div>
+        <EditUserEmail />
+        <EditUserPass />
+      </div>
     </main>
   );
 };

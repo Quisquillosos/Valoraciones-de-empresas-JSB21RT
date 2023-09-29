@@ -147,3 +147,13 @@
     margin: 2rem auto;
   }
 }
+
+@media (min-width: 1200px) {
+  .editMyCompanies form {
+    width: 50vw;
+    margin-right: 5rem;
+  }
+  .editMyCompanies h3 {
+    margin-right: 5rem;
+  }
+}

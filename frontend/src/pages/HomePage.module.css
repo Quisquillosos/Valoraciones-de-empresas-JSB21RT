@@ -73,6 +73,7 @@
 
   .mainHomePage section:last-child article img {
     width: 100px;
+    height: 100px;
   }
 }
 
@@ -81,6 +82,9 @@
     display: flex;
   }
   .mainHomePage section:first-of-type li {
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-between;
     width: 27vw;
     margin: 1rem auto;
   }

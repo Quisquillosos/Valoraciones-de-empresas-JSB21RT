@@ -71,3 +71,10 @@
     font-size: 1.1rem;
   }
 }
+@media (min-width: 1200px) {
+  .editPassMain form {
+    width: 50vw;
+    margin: 0;
+    margin-right: 5rem;
+  }
+}

@@ -1,10 +1,19 @@
-import './NotFoundPage.module.css';
+import "./NotFoundPage.module.css";
+import imgSrc from "/nfp.jpeg";
+import { Link } from "react-router-dom";
+import { notFoundMain } from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {
-    return (
-        <div>
-            <h1>Don &#8217 t know where you are?</h1>
-        </div>
-    );
+  return (
+    <main className={`${notFoundMain}`}>
+      <img src={`${imgSrc}`} alt="Not Found Page" />
+      <div>
+        <Link to={"/"}> <div>Dumitru</div> </Link>
+        <Link to={"/"}><div>Noe</div> </Link>
+        <Link to={"/"}> <div>Angela</div></Link>
+        <Link to={"/"}><div>David</div> </Link>
+      </div>
+    </main>
+  );
 };
 export default NotFoundPage;

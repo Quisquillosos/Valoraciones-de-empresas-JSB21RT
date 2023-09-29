@@ -23,13 +23,13 @@ const EditCompanyProfile = ({ id }) => {
     const [previewPhotoUrl, setPreviewPhotoUrl] = useState('');
 
     useEffect(() => {
-        if (companyData) {
-            setName(companyData.name);
-            setCountry(companyData.country);
-            setCity(companyData.city);
-            setBio(companyData.bio);
-            setPhoto(companyData.photo);
-            setPhotoUrl(`${backendUrl}/${companyData?.photo}`);
+        if (companyData[0]) {
+            setName(companyData[0].name);
+            setCountry(companyData[0].country);
+            setCity(companyData[0].city);
+            setBio(companyData[0].bio);
+            setPhoto(companyData[0].photo);
+            setPhotoUrl(`${backendUrl}/${companyData[0]?.photo}`);
         }
     }, [companyData, backendUrl]);
 
@@ -63,7 +63,7 @@ const EditCompanyProfile = ({ id }) => {
                 <fieldset>
                     <img
                         src={`${photoUrl}`}
-                        style={{ width: '100px' }}
+                        style={{ width: '100px', height: "100px" }}
                         alt='company img'
                     />
                     <label htmlFor='name'>Name</label>
@@ -107,12 +107,12 @@ const EditCompanyProfile = ({ id }) => {
                     />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor='image'>
+                    <label htmlFor='photo'>
                         <p>Upload your image</p>
                         <input
                             type='file'
-                            name='image'
-                            id='image'
+                            name='photo'
+                            id='photo'
                             accept={'image/*'}
                             onChange={(e) => {
                                 setPhoto(e.target.files[0]);
@@ -126,7 +126,7 @@ const EditCompanyProfile = ({ id }) => {
                         <figure>
                             <img
                                 src={`${previewPhotoUrl}`}
-                                style={{ width: '100px' }}
+                                style={{ width: '100px', height: "100px" }}
                                 alt='Preview'
                             />
                         </figure>

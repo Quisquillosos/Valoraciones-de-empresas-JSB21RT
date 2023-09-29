@@ -1,0 +1,6 @@
+@media (min-width: 1200px) {
+  .configMain {
+    display: flex;
+    justify-content: space-between;
+  }
+}
