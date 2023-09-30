@@ -47,6 +47,7 @@ const EditCompanyProfile = ({ id }) => {
             if (photo) {
                 setPhotoUrl(URL.createObjectURL(photo));
             }
+            console.log(token);
             await editMyCompanyDataService(data, token, id);
             setPreviewPhotoUrl(null);
             setResponse('Your data has been successfully modified');
@@ -63,7 +64,7 @@ const EditCompanyProfile = ({ id }) => {
                 <fieldset>
                     <img
                         src={`${photoUrl}`}
-                        style={{ width: '100px', height: "100px" }}
+                        style={{ width: '100px', height: '100px' }}
                         alt='company img'
                     />
                     <label htmlFor='name'>Name</label>
@@ -126,7 +127,7 @@ const EditCompanyProfile = ({ id }) => {
                         <figure>
                             <img
                                 src={`${previewPhotoUrl}`}
-                                style={{ width: '100px', height: "100px" }}
+                                style={{ width: '100px', height: '100px' }}
                                 alt='Preview'
                             />
                         </figure>

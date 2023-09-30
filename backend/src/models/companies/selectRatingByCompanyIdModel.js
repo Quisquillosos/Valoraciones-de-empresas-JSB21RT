@@ -11,7 +11,7 @@ const selectRatingByCompanyIdModel = async (companyId) => {
         // Checking ratingInfo about a company
         const [ratings] = await connection.query(
             `SELECT
-            RC.id,
+            RC.id AS uniqueKey,
             ROUND(AVG(RC.salary),1) AS avgSalary,
             ROUND(AVG(RC.workEnvironment),1) AS avgWorkEnvironment,
             ROUND(AVG(RC.promotionPosibility),1) AS avgPromotionPosibility,

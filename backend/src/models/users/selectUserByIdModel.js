@@ -10,13 +10,13 @@ const selectUserByIdModel = async (userId) => {
 
         // Checking info about a unique user
         const [users] = await connection.query(
-            `SELECT U.id, U.firstName, U.lastName, U.email, U.photo, U.bio, U.active, U.createdAt , C.name, C.country, C.photo, C.city, C.id AS companyId, C.bio
+            `SELECT U.id, U.firstName, U.lastName, U.email, U.photo AS userPhoto, U.bio AS userBio, U.active, U.createdAt , C.name, C.country, C.photo, C.city, C.id AS companyId, C.bio
             FROM users U
             RIGHT JOIN companies C ON C.userId = U.id 
-            WHERE C.userId = ?`,
+            WHERE U.id = ?`,
             [userId]
         );
-
+        console.log(users, 'users');
         if (!users[0]) {
             const [users] = await connection.query(
                 `SELECT id, firstName, lastName, email, photo, bio, active, createdAt
@@ -27,7 +27,6 @@ const selectUserByIdModel = async (userId) => {
 
             return users[0];
         }
-        console.log(users[0], 'lo q nos devuelve el select');
         return users;
     } finally {
         if (connection) connection.release();

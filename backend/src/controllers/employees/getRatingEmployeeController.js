@@ -9,9 +9,9 @@ const getRatingEmployeeController = async (req, res, next) => {
         // Obtaining the company's rating data
         const employeesRatings = await selectEmployeeRatingModel(userId);
 
-        for (let i = 0; i < employeesRatings.length; i++) {
-            delete employeesRatings[i].id;
-        }
+        // for (let i = 0; i < employeesRatings.length; i++) {
+        //     delete employeesRatings[i].id;
+        // }
 
         res.send({
             status: 'ok',

@@ -9,9 +9,9 @@ const getCompanyRatingController = async (req, res, next) => {
         // Obtaining the company's data
         const companies = await selectRatingByCompanyIdModel(companyId);
 
-        for (let i = 0; i < companies.length; i++) {
-            delete companies[i].id;
-        }
+        // for (let i = 0; i < companies.length; i++) {
+        //     delete companies[i].id;
+        // }
 
         res.send({
             status: 'ok',

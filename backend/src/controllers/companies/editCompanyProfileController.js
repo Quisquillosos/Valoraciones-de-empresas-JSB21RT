@@ -30,7 +30,7 @@ const editCompanyProfileController = async (req, res, next) => {
         // Obtain the company's data to check if it already has a previous info
         const company = await selectCompanyByIdModel(companyId);
 
-        if (ownerId !== company.userId) {
+        if (ownerId !== company[0].userId) {
             invalidCredentialsError();
         }
 
@@ -40,8 +40,8 @@ const editCompanyProfileController = async (req, res, next) => {
         if (req.files?.photo) {
             // If the company has passed us a photo, we delete the previous photo and insert the new one.
 
-            if (company.photo) {
-                await deletePhotoService(company.photo);
+            if (company[0].photo) {
+                await deletePhotoService(company[0].photo);
             }
             // Inserting new photo
             photoName = await savePhotoService(req.files.photo, 100);

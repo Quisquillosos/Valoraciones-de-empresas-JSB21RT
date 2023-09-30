@@ -189,4 +189,41 @@ export const editPasswordService = async (data, token) => {
     return json.data;
 };
 
+export const newEmployeeService = async (data, companyId, token) => {
+    const response = await fetch(`${backendUrl}/users/employee/${companyId}`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+        },
+    });
 
+    const json = await response.json();
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    return json.data;
+};
+
+export const newRatingService = async (data, companyId, token) => {
+    const response = await fetch(
+        `${backendUrl}/ratings/companies/${companyId}`,
+        {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                Authorization: token,
+                'Content-Type': 'application/json',
+            },
+        }
+    );
+
+    const json = await response.json();
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    return json.data;
+};

@@ -28,10 +28,9 @@ const ratingCompaniesController = async (req, res, next) => {
 
         // Obtaining the details of the company
         const company = await selectCompanyByIdModel(companyId);
-        
 
         // If we are the owners of the company we launch an error
-        if (company.userId === req.user.id) {
+        if (company[0].userId === req.user.id) {
             cannotRateOwnCompanyError();
         }
 

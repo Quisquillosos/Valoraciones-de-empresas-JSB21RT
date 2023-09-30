@@ -11,21 +11,16 @@ const updateUserProfileModel = async (photoName, bio, userId) => {
         connection = await getDb();
 
         const user = await selectUserByIdModel(userId);
-        console.log(user, 'esto es user');
 
         if (!photoName) photoName = user[0].photo;
 
         if (!bio) bio = user[0].bio;
-        console.log(bio, 'bio para el update');
-        console.log(userId, 'userId para el update');
-        console.log(photoName, 'photoName para el update');
 
+        console.log(photoName, bio, userId);
         await connection.query(
             `UPDATE users SET photo = ?, bio = ? WHERE id = ?`,
             [photoName, bio, userId]
         );
-        
-        console.log('aqui llegamos?');
     } finally {
         if (connection) connection.release();
     }
