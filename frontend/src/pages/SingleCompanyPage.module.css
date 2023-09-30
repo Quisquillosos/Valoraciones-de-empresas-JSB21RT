@@ -60,10 +60,26 @@
   font-style: italic;
 }
 
+.singleCompanyPageSection > a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
+.singleCompanyPageSection > p {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 @media (min-width: 750px) {
   .singleCompanyPageSection {
     width: 80vw;
     margin: 3rem auto;
+  }
+  .singleCompanyPageSection > p {
+    margin-top: 2rem;
   }
 }
 
@@ -71,5 +87,8 @@
   .singleCompanyPageSection > article:first-of-type {
     width: 40vw;
     margin: 3rem auto;
+  }
+  .singleCompanyPageSection > a {
+    margin-top: 0rem;
   }
 }

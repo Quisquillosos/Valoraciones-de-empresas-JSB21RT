@@ -1,0 +1,73 @@
+.ratingMain {
+}
+
+.ratingMain form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ratingMain form fieldset {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  border: solid 1.5px #f07121ea;
+  margin: 2rem 1rem;
+}
+
+.ratingMain form fieldset label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.3rem 0;
+}
+
+.ratingMain form fieldset label:last-of-type {
+  margin-top: 2rem;
+}
+
+.ratingMain form fieldset textarea {
+  border: 0.5px solid transparent;
+  width: 100%;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+  resize: none;
+}
+
+.ratingMain form fieldset select {
+  border: 0.5px solid transparent;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.ratingMain form button {
+  width: 30vw;
+  margin: auto;
+}
+
+@media (min-width: 750px) {
+  .ratingMain form fieldset {
+    margin: 5vh 10vw;
+  }
+  .ratingMain form button {
+    width: 20vw;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ratingMain form fieldset {
+    margin: 5vh 30vw;
+  }
+  .ratingMain form button {
+    width: 10vw;
+    margin: auto;
+  }
+}
