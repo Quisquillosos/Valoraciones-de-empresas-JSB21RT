@@ -12,11 +12,10 @@ const updateUserProfileModel = async (photoName, bio, userId) => {
 
         const user = await selectUserByIdModel(userId);
 
-        if (!photoName) photoName = user[0].photo;
+        if (!photoName) photoName = user[0].userPhoto;
 
-        if (!bio) bio = user[0].bio;
+        if (!bio) bio = user[0].userBio;
 
-        console.log(photoName, bio, userId);
         await connection.query(
             `UPDATE users SET photo = ?, bio = ? WHERE id = ?`,
             [photoName, bio, userId]

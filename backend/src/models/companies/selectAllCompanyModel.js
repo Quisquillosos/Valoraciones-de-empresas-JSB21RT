@@ -22,7 +22,7 @@ const selectAllCompanyModel = async (keyword = '') => {
                     AVG(RC.workEnvironment) AS workEnvironmentAvg,
                     AVG(RC.promotionPosibility) AS promotionPosibilityAvg,
                     AVG(RC.accesibility) AS accesibilityAvg,
-                    (AVG(RC.salary) + AVG(RC.workEnvironment) + AVG(RC.promotionPosibility) + AVG(RC.accesibility)) / 4 AS totalAvgRatings,
+                    ((AVG(RC.salary) + AVG(RC.workEnvironment) + AVG(RC.promotionPosibility) + AVG(RC.accesibility)) / 4) AS totalAvgRatings,
                     RC.review,
                     RC.createdAt,
                     U.firstName,

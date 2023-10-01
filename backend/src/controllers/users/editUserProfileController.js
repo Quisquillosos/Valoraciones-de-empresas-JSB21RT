@@ -13,7 +13,6 @@ const editUserProfileSchema = require('../../schemas/users/editUserProfileSchema
 const editUserProfileController = async (req, res, next) => {
     try {
         const { bio } = req.body || '';
-        console.log('esto es la bi;d', bio);
         const { photo } = req.files || {};
 
         const data = { bio, photo };
@@ -28,13 +27,12 @@ const editUserProfileController = async (req, res, next) => {
         // Checking wether the user has passed us a photo or not
         if (req.files?.photo) {
             // If the user has passed us a photo, we delete the previous photo and insert the new one
-            if (user[0].photo) {
-                await deletePhotoService(user[0].photo);
+            if (user[0]?.userPhoto) {
+                await deletePhotoService(user[0]?.userPhoto);
             }
             // Inserting a new photo
-            photoName = await savePhotoService(req.files.photo, 100);
+            photoName = await savePhotoService(req.files?.photo, 100);
         }
-
         await updateUserProfileModel(photoName || '', bio, req.user.id);
 
         res.send({

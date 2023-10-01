@@ -62,7 +62,7 @@ const CreateRatingPage = () => {
             </select>
           </label>
           <label htmlFor="workEnvironment">
-            <span>WorkEnvironment</span>
+            <span>Work environment</span>
             <select
               name="workEnvironment"
               id="workEnvironment"
@@ -77,7 +77,7 @@ const CreateRatingPage = () => {
             </select>
           </label>
           <label htmlFor="promotionPosibility">
-            <span>PromotionPosibility</span>
+            <span>Promotion posibility</span>
             <select
               name="promotionPosibility"
               id="promotionPosibility"

@@ -12,16 +12,16 @@ import Button from "../components/Button/Button";
 const SingleCompanyPage = () => {
   const { companyId } = useParams();
   const { companyData, loading, error } = useCompany(companyId);
+
   const { user } = useContext(AuthContext);
   const { ratingsData } = useCompanyRatings(companyId);
-  console.log(ratingsData, "esto es ratingsData");
 
   if (loading) return <Loader />;
   if (error) return <p>error</p>;
 
   if (user) {
     if (!user?.user) return <Loader />;
-    const userId = user.user[0].id;
+    const userId = user?.user[0]?.id || user?.user?.id;
     let employee = companyData.some(
       (company) => company?.employeeId === userId
     );
@@ -31,38 +31,44 @@ const SingleCompanyPage = () => {
 
     if (!confirmed && employee) {
       return (
-        <section className={`${singleCompanyPageSection}`}>
-          <Company company={companyData[0]} />
-          <p>
-            Not confirmed yet. Wait until the company confirms you as an
-            employee
-          </p>
-          <ListRatings rating={ratingsData} />
-        </section>
+        <main>
+          <section className={`${singleCompanyPageSection}`}>
+            <Company company={companyData} />
+            <p>
+              Not confirmed yet. Wait until the company confirms you as an
+              employee
+            </p>
+            <ListRatings rating={ratingsData} />
+          </section>
+        </main>
       );
     }
     return (
-      <section className={`${singleCompanyPageSection}`}>
-        <Company company={companyData[0]} />
-        {employee ? (
-          <Link to={`/ratings/companies/${companyId}`}>
-            <Button>Rate this company</Button>
-          </Link>
-        ) : (
-          <Link to={`/companies/employee/register/${companyId}`}>
-            <Button>Register as an employee</Button>
-          </Link>
-        )}
-        <ListRatings rating={ratingsData} />
-      </section>
+      <main>
+        <section className={`${singleCompanyPageSection}`}>
+          <Company company={companyData} />
+          {employee ? (
+            <Link to={`/ratings/companies/${companyId}`}>
+              <Button>Rate this company</Button>
+            </Link>
+          ) : (
+            <Link to={`/companies/employee/register/${companyId}`}>
+              <Button>Register as an employee</Button>
+            </Link>
+          )}
+          <ListRatings rating={ratingsData} />
+        </section>
+      </main>
     );
   }
 
   return (
-    <section className={`${singleCompanyPageSection}`}>
-      <Company company={companyData[0]} />
-      <ListRatings rating={ratingsData} />
-    </section>
+    <main>
+      <section className={`${singleCompanyPageSection}`}>
+        <Company company={companyData} />
+        <ListRatings rating={ratingsData} />
+      </section>
+    </main>
   );
 };
 

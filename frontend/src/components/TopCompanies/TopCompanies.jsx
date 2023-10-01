@@ -4,14 +4,17 @@ import { topCompany } from "./TopCompanies.module.css";
 import Button from "../Button/Button";
 
 const TopCompanies = ({ companies }) => {
-  companies.sort((a, b) => b.totalAvgRatings - a.totalAvgRatings);
+  function randomComparison() {
+    return 0.5 - Math.random();
+  }
+  companies.sort(randomComparison);
 
   const topThreeCompanies = companies.slice(0, 3);
 
   return topThreeCompanies.length ? (
     <ul className={`${topCompany}`}>
       {topThreeCompanies.map((company) => (
-        <li key={company.name}>
+        <li key={company?.name}>
           <Company company={company} />
           <Link to={`/companies/${company.id}`}>
             <Button>View Company</Button>

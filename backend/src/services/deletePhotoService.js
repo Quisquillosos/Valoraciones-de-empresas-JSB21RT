@@ -7,7 +7,6 @@ const { deleteFileError } = require('./errorService');
 const { log } = require('console');
 
 const deletePhotoService = async (imgName) => {
-    console.log(imgName);
     try {
         // Absolute path to the file we want to delete
         const imgPath = path.join(

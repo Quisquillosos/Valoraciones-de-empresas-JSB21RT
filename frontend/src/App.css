@@ -4,6 +4,7 @@
 
 body > div > main {
   padding-bottom: 7vh;
+  overflow-x: hidden;
 }
 
 ul {
@@ -18,4 +19,9 @@ main > h3 {
   main > h3 {
     font-size: 2rem;
   }
+}
+
+p {
+  text-align: justify;
+  margin-right: 0.7rem;
 }

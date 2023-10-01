@@ -1,22 +1,21 @@
-import Rating from '../Rating/Rating';
+import Rating from "../Rating/Rating";
 
 function ListRatings({ rating }) {
-    console.log(rating);
-    return rating && rating?.length ? (
-        <>
-            <ul className='ratingsList'>
-                {rating.map((rating) => {
-                    return (
-                        <li key={rating?.uniqueKey}>
-                            <Rating rating={rating} />
-                        </li>
-                    );
-                })}
-            </ul>
-        </>
-    ) : (
-        <p>You still have no ratings</p>
-    );
+  return rating && rating?.length ? (
+    <>
+      <ul className="ratingsList">
+        {rating.map((rating) => {
+          return (
+            <li key={rating?.uniqueKey}>
+              <Rating rating={rating} />
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  ) : (
+    <p>No ratings yet</p>
+  );
 }
 
 export default ListRatings;

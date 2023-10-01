@@ -1,5 +1,4 @@
 .companiesList {
-  list-style: none;
   padding: 0;
   margin-bottom: 4.5rem;
 }
@@ -27,7 +26,6 @@
 }
 
 .companiesList li article p:last-child {
-  max-width: 60ch;
   overflow: hidden;
   text-overflow: ellipsis;
 }

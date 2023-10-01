@@ -31,7 +31,7 @@
 
 .singleCompanyPageSection > ul {
   margin: 2rem 0;
-  list-style: none;
+
   padding: 0;
 }
 
@@ -49,7 +49,6 @@
 }
 
 .singleCompanyPageSection > ul li article ul {
-  list-style: none;
   padding-left: 1rem;
 }
 .singleCompanyPageSection > ul li article ul li {

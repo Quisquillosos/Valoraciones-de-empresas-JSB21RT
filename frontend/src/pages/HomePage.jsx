@@ -20,7 +20,7 @@ const HomePage = () => {
       </header>
       <main className={`${mainHomePage} `}>
         <section>
-          <h2>TOP COMPANIES 2023</h2>
+          <h2>SOME OF OUR COMPANIES</h2>
           <TopCompanies companies={companiesList} />
           <Link to="/companies">
             <button>More companies</button>

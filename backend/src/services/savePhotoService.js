@@ -31,7 +31,6 @@ const savePhotoService = async (img, width) => {
 
         // Generating a unique name for the image to avoid 2 images with the same name
         const imgName = `${uuid.v4()}.jpg`;
-        console.log(imgName, 'nueva imgaen nombre');
 
         // Absolute path to the image
         const imgPath = path.join(uploadsDir, imgName);
