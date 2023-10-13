@@ -7,7 +7,7 @@ import Loader from "../Loader/Loader";
 
 const UserProfile = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const { user, token } = useContext(AuthContext);
+  const { user, updateUserData, token } = useContext(AuthContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
@@ -46,6 +46,7 @@ const UserProfile = () => {
         setPhotoUrl(URL.createObjectURL(photo));
       }
       await editMyDataService(data, token);
+      await updateUserData();
       setResponse("Your data has been successfully modified");
       setPreviewPhotoUrl(null);
       setLoading(false);
